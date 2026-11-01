@@ -1,0 +1,20 @@
+# Gradle and build output
+.gradle/
+build/
+local.properties
+*.apk
+*.aab
+
+# Android Studio
+.idea/
+*.iml
+captures/
+.cxx/
+.kotlin/
+
+# Exported history (CSV) from a device: never in the repo
+exports/
+*.csv
+
+# This PC's exact paths and device IDs: never in the public repo
+docs/local.md
