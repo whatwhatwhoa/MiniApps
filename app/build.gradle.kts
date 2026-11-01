@@ -1,6 +1,12 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.plugin.compose")
+}
+
+val local = Properties().apply {
+    rootProject.file("local.properties").takeIf { it.exists() }?.inputStream()?.use(::load)
 }
 
 android {
@@ -15,8 +21,23 @@ android {
         versionName = "0.1.0"
     }
 
+    // The release key stays outside the repo; local.properties says where it is. Without it a
+    // release build is left unsigned.
+    val releaseStore = local.getProperty("release.storeFile")
+    signingConfigs {
+        if (releaseStore != null) {
+            create("release") {
+                storeFile = file(releaseStore)
+                storePassword = local.getProperty("release.storePassword")
+                keyAlias = local.getProperty("release.keyAlias")
+                keyPassword = local.getProperty("release.keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.findByName("release")
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))

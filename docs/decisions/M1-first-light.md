@@ -29,3 +29,13 @@ Owner: "doesn't need to be fancy. quick light, and decent font/layout". Stock Ma
 the wallpaper's colors (dynamic color), Roboto with tabular figures, own vector icons (no icon
 pack), SQLite without Room, tabs without a navigation library. Release APK ~1.9 MB.
 Status: as built 2026-11-01, owner to confirm.
+
+### D1.6 Release signing: a key of its own, outside the repo
+Owner, 2026-11-01: publish with an APK download link up front and a short user guide. An
+unsigned APK can't be installed, so 0.1.0 is signed with a new 4096-bit RSA key for this app
+alone (as PortalLauncher has its own), kept in the user's `.android` folder; its path and
+passwords are in the gitignored `local.properties` (`release.*`), and without them a release
+build is left unsigned. Every later release must use the same key, or installs over it fail:
+compare `apksigner verify --print-certs` with the last release's asset. Asset name
+`PowerMeter-<version>.apk` on the GitHub release; the README links to `releases/latest`.
+Status: as built 2026-11-01; the owner backs up the key.

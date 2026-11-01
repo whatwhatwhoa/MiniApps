@@ -22,6 +22,7 @@ history, and what charging and standby really cost. Decisions: `decisions/M1-fir
 - An alert at a chosen level (e.g. 80%) to unplug.
 - Per-charger records: remember peak and average per charger rating.
 - Temperature on the history chart.
-- Release signing and a GitHub release with the APK (owner's call).
 
 ## Done (one line each)
+- 0.1.0 released on GitHub with a signed APK, download link and user guide in the README —
+  2026-11-01 (owner's ask; D1.6)

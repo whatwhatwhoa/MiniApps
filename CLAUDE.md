@@ -37,7 +37,11 @@ works → `architecture.md` · why → `docs/decisions/` · traps → `gotchas.m
 - adb (Bash): `~/AppData/Local/Android/Sdk/platform-tools/adb.exe`; Wi-Fi devices from
   `adb mdns services`, then `adb connect <ip:port>`
 - Build (Bash): `JAVA_HOME="$HOME/AppData/Local/Android/jdk-21" ./gradlew assembleDebug lintDebug`
-  → `app/build/outputs/apk/debug/app-debug.apk`; `assembleRelease` gives an unsigned ~2 MB APK
+  → `app/build/outputs/apk/debug/app-debug.apk`; `assembleRelease` gives the ~2 MB release APK,
+  signed with the key that the gitignored `local.properties` names (D1.6), else unsigned
+- Release: bump versionCode/versionName; build + lint both; signed release run on a device
+  (check what's in the foreground first: these are daily devices); same cert as the last
+  release; tag `v<v>`; push; `gh release create` with `PowerMeter-<v>.apk`
 - Install + run: `adb -s <dev> install -r <apk>`, then
   `adb -s <dev> shell am start -n io.github.whatwhatwhoa.powermeter/.MainActivity`
 - Screenshot: `adb exec-out screencap -p > shot.png` (add `-d <id>` when a monitor is attached;
