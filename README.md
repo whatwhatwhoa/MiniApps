@@ -8,6 +8,12 @@ standby costs.
 
 Free, no ads, no account, no tracking, no internet. Android 12 or newer. About 2 MB.
 
+<p>
+  <img src="docs/screenshots/now-charging.png" width="260" alt="Now tab while charging: 13.9 W into the battery, charger max 18 W, a 10-minute chart">
+  <img src="docs/screenshots/now-discharging.png" width="260" alt="Now tab on battery: 4.45 W out, about 6 h 45 m left">
+  <img src="docs/screenshots/settings.png" width="260" alt="Settings tab: background monitoring, update rate, temperature unit, current reading">
+</p>
+
 ---
 
 ## Install in two minutes

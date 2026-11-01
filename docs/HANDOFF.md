@@ -9,14 +9,15 @@ open, delete what is resolved, never append history (git and `docs/decisions/` h
 install steps and a short user guide. The signed release (R8) ran on the TCL phone: it opened
 in 0.6 s, readings right, no crash; left installed there. The Yoga Tab still has the debug
 build (different key: uninstall it before installing a release; that deletes its history).
-No screenshot in the README yet: the phone was in use and the tab asleep. Lint: the same two
+README screenshots (Now charging, Now on battery, Settings; TCL phone, app area only) in
+`docs/screenshots/`. Lint: the same two
 style notes (UseKtx, DataExtractionRules).
 
 ## Next
 1. The owner tries it (`VERIFY.md` V-M1): turn on background monitoring, unplug for a few
    minutes so the cable estimate learns, then plug in.
 2. T1.6: phone-width check, now possible on the TCL phone (it has 0.1.0).
-3. A README screenshot of the Now tab, when a device is free.
+3. A History screenshot for the README once monitoring has logged a day (it was empty).
 
 ## Waiting on the owner
 - Back up the release key with its passwords (`docs/local.md` says where); lose it and no
