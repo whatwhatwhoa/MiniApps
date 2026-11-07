@@ -78,6 +78,7 @@ Status: as built 2026-11-07, owner to confirm (`VERIFY.md` *V-updates*).
 ### D1.7 · 2026-11-07 · Every release in one repo
 Owner: "reorganize it into the one repo." Power Meter 0.1.0 and Daily Note 0.1.0 and 0.2.0
 were copied from their first repos onto the same tags here, with the same APKs (so their
-certificates are the ones on record); the first repos point here and are archived, not deleted
-(old links keep working). Every README and the series README link to this repo's releases.
-Status: done 2026-11-07.
+certificates are the ones on record); the first repos point here and are to be archived, not deleted
+(old links keep working); the archive step was blocked by a permission check and waits on the
+owner's OK. Every README and the series README link to this repo's releases.
+Status: releases moved 2026-11-07; archive on the owner's OK.

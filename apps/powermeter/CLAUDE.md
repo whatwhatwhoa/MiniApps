@@ -2,7 +2,7 @@
 
 A plain, light battery power meter for phones and tablets: watts in or out, current, voltage,
 an estimate of the cable's power, a live chart, history, sessions, screen-off drain, alerts.
-Public on GitHub in the series repo (MIT), with every release (its first repo is archived;
+Public on GitHub in the series repo (MIT), with every release (its first repo points here;
 series D1.7).
 Package `io.github.whatwhatwhoa.powermeter`, module `:powermeter`. Why and how:
 `docs/architecture.md`. The series' rules, commands and look: `../../CLAUDE.md`.

@@ -81,7 +81,7 @@ This repo, public as `whatwhatwhoa/MiniApps` (MIT), holds every app with its ful
 was imported with `git subtree add`; the apps' old tags carry an `<app>-` prefix). Every
 release of every app is here: Power Meter's and Daily Note's first repos
 (`whatwhatwhoa/PowerMeter`, `whatwhatwhoa/DailyNote`) had their releases copied here on their
-tags with the same APKs (2026-11-07), point here from their READMEs and are archived. The root README lists every
+tags with the same APKs (2026-11-07), point here from their READMEs; archiving them waits on the owner's OK. The root README lists every
 app with its download and guide; each app's README is written for someone installing it.
 
 ## Notes at two levels

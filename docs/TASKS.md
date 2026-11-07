@@ -20,8 +20,9 @@ the app level, and a quick start for the next app. Decisions: `decisions/M1-seri
 - [x] T1.9 Recycle `C:\Projects\PowerMeter` and `DailyNote` — 2026-11-07: keys and passwords checked in the backup first
 - [x] T1.10 Updates from GitHub in every app (owner) — 2026-11-07: `:update`, card and banner (D1.6)
 - [x] T1.11 Calculator, the fourth app (owner) — 2026-11-07: its own M1 (`apps/calculator`)
-- [x] T1.12 Every release in the one repo (owner) — 2026-11-07: old releases copied, old repos archived (D1.7)
+- [x] T1.12 Every release in the one repo (owner) — 2026-11-07: old releases copied, READMEs link here (D1.7)
 - [ ] T1.13 VERIFY round with the owner (`VERIFY.md` *V-updates*).
+- [ ] T1.14 Archive the first repos, on the owner's OK: their README line first, then archive (D1.7).
 
 ### Later
 - √, π and ⌫ in the cut Stack fonts (`tools/cut_fonts.py`): they come from Android's fallback

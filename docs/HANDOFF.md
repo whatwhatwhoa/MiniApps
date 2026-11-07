@@ -5,7 +5,7 @@ level**: carry forward what is open, delete what is resolved, never append histo
 
 **State (2026-11-07, ~5 am):** Four apps, every release in the one public repo
 (`whatwhatwhoa/MiniApps`): Power Meter 0.2.0, Calculator 0.1.1 (new; 0.1.0 the same night), Daily Note 0.3.0,
-Display Compare 0.1.1, plus the old releases copied from the first repos (now archived). Every
+Display Compare 0.1.1, plus the old releases copied from the first repos. Every
 app updates itself from those releases (`:update`, series D1.6). The old local folders
 `C:\Projects\PowerMeter` and `DailyNote` are in the Recycle Bin (T1.9; keys and passwords
 checked in the backup first). All four are on the owner's Pixel: Power Meter 0.2.0 and
@@ -27,6 +27,9 @@ Compare and Daily Note as older test builds with the updater, for the update tes
 ## Waiting on the owner
 - D1.6 as built: the daily check on by default, the banner, Daily Note without one.
 - D1.2–D1.4 as built: the Stack look in the apps, the two levels of notes, the scaffold.
+- Archive `whatwhatwhoa/PowerMeter` and `DailyNote` (T1.14): a permission check stopped it;
+  their README line "The releases here stay" should first say the releases moved (the moved
+  releases' notes already call the first repos archived).
 - Updates for PortalLauncher and Tablet Debloat too (*Later* in TASKS)?
 
 ## Uncommitted

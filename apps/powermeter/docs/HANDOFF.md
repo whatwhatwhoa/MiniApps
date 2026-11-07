@@ -5,7 +5,7 @@ open, delete what is resolved, never append history (git and `docs/decisions/` h
 
 **State (2026-11-07):** 0.2.0 is the release (versionCode 2), in the series repo (tag
 `powermeter-v0.2.0`, `PowerMeter-0.2.0.apk`, 2.43 MB, cert 7760ce6a…c869 as 0.1.0's); 0.1.0 was
-copied there from the first repo, now archived. 0.2.0 carries the Stack look, M2 alerts, M3 (a
+copied there from the first repo (to be archived on the owner's OK). 0.2.0 carries the Stack look, M2 alerts, M3 (a
 readout on every chart by touch, a rolling average under the big number, 10 s by default) and
 updates from GitHub (series D1.6). On the owner's Pixel: the 0.2.0 release (a cold start ran clean;
 the phone was locked, so the screen wasn't seen). The TCL phone still has
