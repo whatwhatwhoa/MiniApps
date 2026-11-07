@@ -22,4 +22,4 @@ College paper.
   two yellows told apart (D1.2); the *Undo* pill I added (D1.5); Patrick Hand (D1.8).
 
 ## Uncommitted
-The Stack look (a series change): `ui/Theme.kt`, `ui/PaperSheet.kt`, the build file on `:stack`.
+Nothing (the Stack look committed and pushed to the series repo 2026-11-06).

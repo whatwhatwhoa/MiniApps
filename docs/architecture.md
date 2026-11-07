@@ -49,14 +49,18 @@ its `local.properties` is backed up in the owner's backup folder (`docs/local.md
 3. Install the signed release on a device and run it (foreground check first); its certificate
    must match the last release's (`docs/local.md` has each key's SHA-256).
 4. Commit; tag `<app>-v<version>` (tags are per app in this repo).
-5. Only when asked: push, and a GitHub release with `<Name>-<version>.apk` (the publish skill's
-   *Shipping an app*).
+5. Only when asked: push, and a GitHub release titled `<Name> <version>` with
+   `<Name>-<version>.apk` (the publish skill's *Shipping an app*). An app's download link is a
+   search of this repo's releases (`releases?q=<Name>&expanded=true`): `releases/latest` is
+   whichever app shipped last.
 
 ## Repos
-This repo holds every app with its full history (each was imported with `git subtree add`; the
-apps' old tags carry an `<app>-` prefix). Power Meter and Daily Note also have their own public
-GitHub repos, untouched since the import; how the series meets GitHub is the owner's call
-(`decisions/M1-series.md` D1.1).
+This repo, public as `whatwhatwhoa/MiniApps` (MIT), holds every app with its full history (each
+was imported with `git subtree add`; the apps' old tags carry an `<app>-` prefix). Power
+Meter's and Daily Note's first repos (`whatwhatwhoa/PowerMeter`, `whatwhatwhoa/DailyNote`)
+keep their releases and open with a note pointing here; their apps' READMEs still link there
+for downloads until each app's first release from the series. The root README lists every
+app with its download and guide; each app's README is written for someone installing it.
 
 ## Notes at two levels
 Claude Code loads every CLAUDE.md from the session's folder up, so a session in `apps/<app>/`

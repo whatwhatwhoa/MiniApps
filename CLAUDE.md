@@ -3,7 +3,7 @@
 The owner's small, plain Android apps for their phones and tablets, in one repo and one Gradle
 build; each app is a folder under `apps/` (one line each in `docs/HANDOFF.md`). Kotlin + Jetpack
 Compose with the shared Stack look (`:stack`), built from the command line on a Windows ARM
-laptop. Why and how: `docs/architecture.md`.
+laptop. Public on GitHub (`whatwhatwhoa/MiniApps`, MIT). Why and how: `docs/architecture.md`.
 
 ## Two levels of notes
 - **Series** (this file, `docs/`): what every app shares: the toolchain, `:stack`, these
@@ -39,8 +39,8 @@ works → `architecture.md` · the look → `stack-android.md` · why → `decis
 4. **The owner's devices are daily devices.** Check the foreground app and the lock state
    before launching or installing (an install closes the app if it is open); ask before changing
    device settings; say so in chat when a device is locked.
-5. **Repos may be public.** Names, emails, home paths, device IDs and IPs stay out of tracked
-   files: they go in `docs/local.md` (gitignored). Privacy scan before any push.
+5. **The repo is public.** Names, emails, home paths, device IDs and IPs stay out of tracked
+   files: they go in `docs/local.md` (gitignored). The pre-push hook runs the privacy scan.
 6. **Wording.** "commit" = local only; "commit to github" = commit + push; "release" = raise the
    version and build the signed release APK (the GitHub release is asked for separately).
 7. **One app per session** unless the owner bundles several.

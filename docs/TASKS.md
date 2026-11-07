@@ -16,7 +16,8 @@ the app level, and a quick start for the next app. Decisions: `decisions/M1-seri
 - [x] T1.5 New-app scaffold and recipe — 2026-11-06: `tools/new_app.py`, `new-app.md` (D1.4)
 - [x] T1.6 Notes at two levels, the skill's series support — 2026-11-06 (D1.3)
 - [ ] T1.7 VERIFY round with the owner (`VERIFY.md` *V-stack-look*).
-- [ ] T1.8 The GitHub shape (D1.1, the owner's call), then the old folders recycled.
+- [x] T1.8 Public — 2026-11-06: one series repo (owner's pick), old repos point to it (D1.1)
+- [ ] T1.9 Recycle `C:\Projects\PowerMeter` and `DailyNote`, on the owner's OK.
 
 ### Later
 - One command for the release routine (bump, build, sign check, tag) instead of five steps.

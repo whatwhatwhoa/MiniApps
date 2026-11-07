@@ -20,8 +20,9 @@ two old repos' READMEs pointing to it (their releases stay); per-app download li
 tag URLs, since `releases/latest` is whichever app shipped last. (b) Keep a public repo per
 app, fed with `git subtree push --prefix=apps/<app>`; but an app needs `:stack` to build, so a
 lone app repo no longer builds by itself. Recommended: (a).
-Status: as built 2026-11-06, owner to confirm; the GitHub shape and recycling the old folders
-waiting on the owner.
+Status: as built 2026-11-06, owner to confirm. The owner chose (a) the same day: public as
+`whatwhatwhoa/MiniApps`, the old repos pointing to it (one README commit each). Recycling the
+old folders waits on the owner.
 
 ### D1.2 · 2026-11-06 · `:stack`: the Stack Design Guide for Compose, in every app
 A library module with the guide's tokens copied value for value (light and dark), the type

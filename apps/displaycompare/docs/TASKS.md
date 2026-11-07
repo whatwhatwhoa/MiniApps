@@ -23,3 +23,5 @@ Decisions: `decisions/M1-first-light.md`.
 - Viewing distance: how big each looks from a chosen distance (degrees of view).
 
 ## Done (one line each)
+- 0.1.0 released on GitHub (series repo, tag `displaycompare-v0.1.0`) with a signed APK and a
+  README guide — 2026-11-06 (owner's /publish; D1.1)

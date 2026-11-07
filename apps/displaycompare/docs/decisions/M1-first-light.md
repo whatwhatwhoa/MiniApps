@@ -8,8 +8,8 @@ course you always go custom. Also add iphone ratio in there, as that is pretty c
 ### D1.1 · 2026-11-06 · Name, package, toolchain, key
 *Display Compare* (the owner's words for it), `io.github.whatwhatwhoa.displaycompare`, the
 series' toolchain and `:stack`, no other library; release APK 2.26 MB. Its own release key from
-the start, so the test build and a release replace each other. Status: as built 2026-11-06,
-owner to confirm the name.
+the start, so the test build and a release replace each other. Status: shipped 0.1.0
+2026-11-06 (owner's /publish); the name still the owner's to confirm.
 
 ### D1.2 · 2026-11-06 · The shape comes from the pixels when they are known
 Pixels are square on every display worth comparing, so a resolution fixes the shape exactly;

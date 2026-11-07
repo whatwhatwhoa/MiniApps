@@ -2,8 +2,9 @@
 
 Compares display sizes (monitors, TVs, laptops, tablets, phones) the way displaywars.com does:
 up to four displays drawn to scale on the Stack mat, four comparison tiles, a table, presets in
-families. Package `io.github.whatwhatwhoa.displaycompare`, module `:displaycompare`. Why and
-how: `docs/architecture.md`. The series' rules, commands and look: `../../CLAUDE.md`.
+families. Released on GitHub with the series (0.1.0, `README.md` is its public guide). Package
+`io.github.whatwhatwhoa.displaycompare`, module `:displaycompare`. Why and how:
+`docs/architecture.md`. The series' rules, commands and look: `../../CLAUDE.md`.
 
 ## Read before working
 | Task | Read |
