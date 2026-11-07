@@ -1,0 +1,9 @@
+# Decisions (series)
+
+D<n>.k belongs to the series' milestone M<n>; one `###` per entry. An app's decisions are in
+`apps/<app>/docs/decisions/`; across levels an ID is named with its level ("series D1.2",
+"powermeter D1.5").
+
+| File | Entries |
+|---|---|
+| `M1-series.md` | D1.1 one repo, one build, history kept · D1.2 `:stack` in every app · D1.3 notes at two levels · D1.4 new-app script and recipe · D1.5 signing per app |

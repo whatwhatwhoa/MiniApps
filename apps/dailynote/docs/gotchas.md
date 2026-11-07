@@ -31,16 +31,6 @@ in a widget's layout (the text came out in the system sans). Draw the ink in the
 `am force-stop` cancels every PendingIntent the app made, so the widget's lines don't respond
 until the app runs again (opening it refreshes the widget). Test cold starts with `am kill`.
 
-### Wireless adb on the Pixel
-A new PC must pair first: Wireless debugging → *Pair device with pairing code* shows a
-`_adb-tls-pairing` service in `adb mdns services`; `adb pair <ip:port> <code>`, then
-`adb connect` to the `_adb-tls-connect` port. The phone locks quickly; screenshots of a locked
-screen come back black.
-
 ### `cmd appwidget` is not there
 `adb shell cmd appwidget …` says "No shell command implementation"; the old
 `adb shell appwidget grantbind --package <pkg> --user 0` works.
-
-### Bash: backslashes and long commands
-The Bash tool collapses `\\` to `\` (also inside quoted Python), and commands over ~9 kB fail
-to parse: edit files with the Edit tool or one heredoc per call.

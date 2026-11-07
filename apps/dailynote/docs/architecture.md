@@ -15,6 +15,7 @@ Single page, no extras: no list of notes, no formatting, no sync, no account, no
 | `ui/NotePage.kt` | The page: paper, text field, tap below, band, undo pill, the sheet |
 | `ui/Eraser.kt` | The word eraser: gesture, what to erase, the scratch, the fade and collapse |
 | `ui/PaperSheet.kt` | The settings sheet: paper, size, font, swipe to erase |
+| `ui/Theme.kt` | `NoteTheme`: the series' Stack theme for the sheet and the undo pill; the bars stay `MainActivity`'s |
 | `widget/` | `NoteWidget` (provider and its lines), `WidgetPage` (wrapping and drawing) |
 | `res/font/patrick_hand.ttf` | The handwriting font: Patrick Hand, Latin only (74 KB, cut by `tools/cut_font.py`); OFL, `licenses/` |
 | `src/debug/.../WidgetHostActivity.kt` | A stand-in launcher for trying the widget |

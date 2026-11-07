@@ -28,7 +28,8 @@ Status: as built 2026-11-01, owner to confirm.
 Owner: "doesn't need to be fancy. quick light, and decent font/layout". Stock Material 3 with
 the wallpaper's colors (dynamic color), Roboto with tabular figures, own vector icons (no icon
 pack), SQLite without Room, tabs without a navigation library. Release APK ~1.9 MB.
-Status: as built 2026-11-01, owner to confirm.
+Status: as built 2026-11-01, owner to confirm. The look (wallpaper colors, Roboto, bottom bar
+and rail) superseded 2026-11-06 by series D1.2: the Stack look from `:stack`.
 
 ### D1.6 Release signing: a key of its own, outside the repo
 Owner, 2026-11-01: publish with an APK download link up front and a short user guide. An

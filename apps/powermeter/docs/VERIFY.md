@@ -3,7 +3,7 @@
 Built but not hand-tested. One section per feature; delete a section when the owner confirms it.
 
 ## V-M1 — First light (2026-11-01)
-- [ ] Now: the watts look right while charging and on battery (green in, amber out).
+- [ ] Now: the watts look right while charging and on battery (green in, orange out).
 - [ ] Unplugged with the app open a few minutes, then plugged in: "From the cable ≈" appears and
       sits below the charger max.
 - [ ] Settings → Background monitoring on: notification permission asked, the notification shows

@@ -2,8 +2,8 @@
 
 ## Goals
 The owner wants to see what a phone or tablet really draws and takes in: how fast a charger
-charges, what an app or standby costs. Plain and light beats feature-rich: three screens, stock
-Material 3, the device's wallpaper colors, tabular figures so numbers don't jiggle.
+charges, what an app or standby costs. Plain and light beats feature-rich: three screens in the
+series' Stack look (`../../docs/stack-android.md`), tabular figures so numbers don't jiggle.
 
 ## Readings
 `Battery.read()` takes one `Reading` from `BatteryManager` (CURRENT_NOW, CHARGE_COUNTER, the
@@ -67,4 +67,6 @@ background monitoring, and turning one on turns monitoring on.
   when notifications or monitoring are off), °C/°F, current direction and units (with the raw
   reading and "Learn again"), history length, export, clear, about.
 
-Under 600 dp: bottom tabs and one column; from 600 dp: a rail and two columns.
+The Stack header ("Power Meter", "monitoring on" or "off", the Theme button) and the tabs
+stay on top; under 600 dp the page is one column, from 600 dp two. Charging is drawn in the
+Stack `good` green, draining in `s1` orange.
