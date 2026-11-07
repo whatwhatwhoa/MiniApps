@@ -3,12 +3,14 @@
 Built but not hand-tested. One section per feature; delete a section when the owner confirms it.
 
 ## V-M1 — First light (2026-11-07)
+- [ ] One row on top: Calculator · Functions · Settings and the theme icon, nothing cut off at
+      130 %; the icon cycles Auto (half circle), Light (sun), Dark (moon).
 - [ ] Type `2(3+4`: the display shows `2(3+4)` with a faint `)`, and "= 14" under it.
 - [ ] = puts "2(3+4) = 14" in history; then × 2 = gives 28; then 5 starts a new formula.
 - [ ] Tap in the middle of a formula: the cursor goes there; ⌫ deletes before it, Del after;
       ◀ ▶ step over `sin(` in one go; holding ⌫ keeps deleting.
 - [ ] Clear all empties the formula; history stays. Clear history asks first.
-- [ ] `200 + 10%` = 220; `sin(30)` = 0.5 in Deg; Deg → Rad changes the header to "radians".
+- [ ] `200 + 10%` = 220; `sin(30)` = 0.5 in Deg; tap Deg: it says Rad, and `sin(30)` is −0.988.
 - [ ] Tap a history line: its answer goes in at the cursor; hold one: its formula comes back.
 - [ ] Hold the formula: the answer is copied.
 - [ ] Functions → Add four examples: tip, hyp, ctof, ftoc in the strip; `tip(80, 15)` = 12.

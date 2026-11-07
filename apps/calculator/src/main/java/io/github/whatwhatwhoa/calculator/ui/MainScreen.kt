@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,8 +28,8 @@ import androidx.compose.ui.unit.dp
 import io.github.whatwhatwhoa.calculator.CalcModel
 import io.github.whatwhatwhoa.stack.BlockGap
 import io.github.whatwhatwhoa.stack.Stack
-import io.github.whatwhatwhoa.stack.StackHeader
 import io.github.whatwhatwhoa.stack.StackTabs
+import io.github.whatwhatwhoa.stack.ThemeIconButton
 import io.github.whatwhatwhoa.stack.stackColumn
 import io.github.whatwhatwhoa.update.UpdateBanner
 
@@ -48,9 +49,16 @@ fun MainScreen(model: CalcModel) {
     ) {
         val wide = maxWidth >= 600.dp
         Column(Modifier.widthIn(max = 1100.dp).stackColumn().fillMaxSize()) {
-            StackHeader("Calculator", count = if (model.degrees) "degrees" else "radians")
-            Spacer(Modifier.height(6.dp))
-            StackTabs(tabs, tab, { tab = it })
+            // One row: the first tab is the app's name, so no title above it (owner: "very
+            // redundant to have calculator, and then calculator below it"); Theme as an icon.
+            Row(
+                Modifier.fillMaxWidth().padding(top = 8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                StackTabs(tabs, tab, { tab = it }, Modifier.weight(1f), compact = true)
+                ThemeIconButton()
+            }
             UpdateBanner(Modifier.padding(top = 10.dp))
             when (tab) {
                 0 -> CalcPage(model, wide, Modifier.weight(1f).padding(top = 10.dp, bottom = 12.dp)) { tab = 1 }

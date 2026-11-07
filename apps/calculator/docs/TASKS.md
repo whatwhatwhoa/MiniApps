@@ -17,6 +17,9 @@ the user's own functions; published with the series. Decisions: `decisions/M1-fi
 - [x] T1.5 Publish 0.1.0 — 2026-11-07: series repo, `calculator-v0.1.0`, README guide (owner's /publish)
 - [ ] T1.6 VERIFY round with the owner (`VERIFY.md` *V-M1*).
 
+### B1 — Owner's tweaks (2026-11-07), released in 0.1.1
+- [x] B1.1 The title and the tabs in one row, the theme as an icon — 2026-11-07 (D1.7)
+
 ### Later
 - Copy a history line (formula and answer) with a hold menu, beside "change its formula".
 - Fractions shown as fractions (1/3) when the answer is one.
@@ -24,3 +27,4 @@ the user's own functions; published with the series. Decisions: `decisions/M1-fi
 
 ## Done (one line each)
 - 0.1.0 released on GitHub (series repo, tag `calculator-v0.1.0`) — 2026-11-07
+- 0.1.1 released (one row for name, tabs and theme; `calculator-v0.1.1`) — 2026-11-07

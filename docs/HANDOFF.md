@@ -4,7 +4,7 @@ Current state only. **Rewrite this file at the end of every session that worked 
 level**: carry forward what is open, delete what is resolved, never append history.
 
 **State (2026-11-07, ~5 am):** Four apps, every release in the one public repo
-(`whatwhatwhoa/MiniApps`): Power Meter 0.2.0, Calculator 0.1.0 (new), Daily Note 0.3.0,
+(`whatwhatwhoa/MiniApps`): Power Meter 0.2.0, Calculator 0.1.1 (new; 0.1.0 the same night), Daily Note 0.3.0,
 Display Compare 0.1.1, plus the old releases copied from the first repos (now archived). Every
 app updates itself from those releases (`:update`, series D1.6). The old local folders
 `C:\Projects\PowerMeter` and `DailyNote` are in the Recycle Bin (T1.9; keys and passwords
@@ -14,13 +14,14 @@ Compare and Daily Note as older test builds with the updater, for the update tes
 
 ## Apps (one line each; state is in each app's HANDOFF)
 - `apps/powermeter`: Power Meter 0.2.0 released 2026-11-07 (chart readout, rolling average, Stack look, alerts, updates).
-- `apps/calculator`: Calculator 0.1.0 released 2026-11-07 (formula typing, history, own functions).
+- `apps/calculator`: Calculator 0.1.1 released 2026-11-07 (formula typing, history, own functions; one-row header).
 - `apps/dailynote`: Daily Note 0.3.0 released 2026-11-07 (Stack sheet, updates).
 - `apps/displaycompare`: Display Compare 0.1.1 released 2026-11-07 (updates).
 
 ## Next
 1. The owner's update test on the Pixel (`VERIFY.md` *V-updates*): Display Compare there is a
-   0.1.0 test build and Daily Note a 0.2.0 one, so they should offer 0.1.1 and 0.3.0.
+   0.1.0 test build, Daily Note a 0.2.0 one and Calculator the 0.1.0 release, so they should
+   offer 0.1.1, 0.3.0 and 0.1.1.
 2. The owner looks at the Stack look (*V-stack-look*) and the apps' own V- lists.
 
 ## Waiting on the owner

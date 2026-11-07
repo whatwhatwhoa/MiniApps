@@ -39,3 +39,12 @@ The engine computes in doubles and shows 12 significant digits, so float noise n
 (0.1 + 0.2 is 0.3); trig in degrees is exact at multiples of 90°. Rejected: BigDecimal
 throughout (exact decimals, but no fast exact trig, roots or powers, and more code).
 Status: as built 2026-11-07.
+
+### D1.7 · 2026-11-07 · One row for the name, the tabs and the theme
+Owner: "the app name 'calculator' and the tabs below it can be combined into just one" ("very
+redundant to have calculator, and then calculator below it"), and "update the theme toggle to an
+icon for compactness". The tabs are the top row, the first one named Calculator; the Theme
+button is `ThemeIconButton` (half circle Auto, sun Light, moon Dark); the tabs narrow
+(`StackTabs(compact = true)`) so the row fits at 130 % font (377 of 416 dp on the Pixel). The
+header's "degrees" went with the title: the Deg/Rad key shows it. Status: as built 2026-11-07,
+shipped 0.1.1, owner to confirm.

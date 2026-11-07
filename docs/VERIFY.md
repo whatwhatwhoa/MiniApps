@@ -8,6 +8,7 @@ it when the owner confirms. An app's own checks are in its `docs/VERIFY.md`.
       Compare 0.1.1 is out" at the top; *Update to 0.1.1* asks once to allow installs from it,
       then downloads, Android's installer asks, and 0.1.1 opens with the displays kept.
 - [ ] Daily Note (a 0.2.0 test build): the paper sheet → Updates offers 0.3.0; the note stays.
+- [ ] Calculator (the 0.1.0 release): the note offers 0.1.1, which brings the one-row header.
 - [ ] *Not now* hides the note; Settings → Updates still offers the version.
 - [ ] Settings → Updates in each app: its version, *Check for updates* → "Up to date: … is the
       latest release."

@@ -28,7 +28,7 @@ has **Check for updates** and the once-a-day check (switch it off to stop it).
 
 ## Find your way around
 
-Three tabs along the top:
+Three tabs along the top, and the theme icon at their right (Auto, Light or Dark):
 - **Calculator:** your history at the top, the formula under it, a strip of functions, the keys.
 - **Functions:** the functions you made, and the editor for new ones.
 - **Settings:** degrees or radians, history, updates, and how a formula is read.
@@ -66,7 +66,7 @@ The keys that edit the formula:
 - Answers keep 12 significant digits, so 0.1 + 0.2 is 0.3. Very large or small answers show
   as `×10^`, and read back in as the same number.
 - **Deg / Rad** in the strip (or Settings → Angles) sets the unit for sin, cos, tan and their
-  inverses; the header says which is on.
+  inverses; the key shows which is on.
 - A keyboard works too: `*` `/` `-` for × ÷ −, Enter for =, Esc for Clear all.
 - Your formula, history (the last 200) and functions stay on the phone, even when you leave
   the app.
