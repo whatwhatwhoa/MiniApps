@@ -1,0 +1,60 @@
+import java.util.Properties
+
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.plugin.compose")
+}
+
+val local = Properties().apply {
+    rootProject.file("local.properties").takeIf { it.exists() }?.inputStream()?.use(::load)
+}
+
+android {
+    namespace = "io.github.whatwhatwhoa.powermeter"
+    compileSdk = 37
+
+    defaultConfig {
+        applicationId = "io.github.whatwhatwhoa.powermeter"
+        minSdk = 31
+        targetSdk = 37
+        versionCode = 1
+        versionName = "0.1.0"
+    }
+
+    // The release key stays outside the repo; local.properties says where it is. Without it a
+    // release build is left unsigned.
+    val releaseStore = local.getProperty("release.storeFile")
+    signingConfigs {
+        if (releaseStore != null) {
+            create("release") {
+                storeFile = file(releaseStore)
+                storePassword = local.getProperty("release.storePassword")
+                keyAlias = local.getProperty("release.keyAlias")
+                keyPassword = local.getProperty("release.keyPassword")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.findByName("release")
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
+        }
+    }
+
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
+}
+
+dependencies {
+    // Material 3 for the stock controls (switches, segmented buttons, the tab bar); no icon pack,
+    // no Room, no navigation library: the APK stays small and starts fast.
+    implementation(platform("androidx.compose:compose-bom:2026.09.00"))
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.activity:activity-compose:1.13.0")
+}
