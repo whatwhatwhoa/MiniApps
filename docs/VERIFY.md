@@ -3,6 +3,16 @@
 Built but not hand-tested, for changes that touch every app. One section per change; delete
 it when the owner confirms. An app's own checks are in its `docs/VERIFY.md`.
 
+## V-updates — updates from GitHub in every app (2026-11-07)
+- [ ] Power Meter (the Pixel keeps a 0.1.0 test build for this): on opening, "Power Meter 0.2.0
+      is out" at the top; *Update to 0.2.0* asks once to allow installs from Power Meter, then
+      downloads, Android's installer asks, and 0.2.0 opens with the history kept.
+- [ ] *Not now* hides the note; Settings → Updates still offers the version.
+- [ ] Settings → Updates in each app: its version, *Check for updates* → "Up to date: … is the
+      latest release."
+- [ ] Airplane mode: *Check for updates* says "No connection to GitHub."
+- [ ] *Check once a day* off: nothing is asked on opening.
+
 ## V-stack-look — the Stack look in every app (2026-11-06)
 - [ ] Power Meter: header "Power Meter" with "monitoring on/off", tabs Now · History · Settings
       on top (no bottom bar); cards, segmented choices and buttons look like Display Compare's.

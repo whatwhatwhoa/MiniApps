@@ -56,6 +56,7 @@ Digits are tabular wherever they line up (`TNUM`, already in the figure styles).
 | `FLabel`, `Pill(kind)`, `Chip`, `Swatch` | `.flabel`, `.pill`, `.chip`, `.sw` | labels, state in form, legends |
 | `Callout`, `Notes`, `KeyValue` | `.callout`, `.notes`, `dl.kv` | a caveat, definitions one per line, label/value rows |
 | `InfoDot(tip)` | `.info` + `.ftip` | the (i) on every metric and card title |
+| `UpdateCard()`, `UpdateBanner()` (in `:update`) | — | Settings → Updates, and the note at the top of a page while a newer release is out |
 | `Mat(grid)`, `MatInk` | `.mat` | the dark board a tool shows its work on; `grid = null` when the content draws a grid in real units |
 
 ## 5. Layout

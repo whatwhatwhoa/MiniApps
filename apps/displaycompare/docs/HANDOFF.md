@@ -3,13 +3,13 @@
 Current state only. **Rewrite this file at the end of every session**: carry forward what is
 open, delete what is resolved, never append history (git and `decisions/` hold it).
 
-**State (2026-11-06, ~9:45 pm):** 0.1.0 released (versionCode 1): GitHub release
-`displaycompare-v0.1.0` in the series repo with `DisplayCompare-0.1.0.apk` (2.36 MB, cert
-95:57:19…b266), README with the download link, install steps and a guide. The signed release
-is on the owner's Pixel (a cold start ran clean; screen not seen, the phone was locked). The
-owner tried the debug build during the session (theme, Line up); presets became families with
-Custom and 19.5:9 / 20:9 on their ask. Not yet seen by anyone: the Presets sheet, the table,
-four displays, cm, a tablet.
+**State (2026-11-07):** 0.1.1 released (versionCode 2): GitHub release
+`displaycompare-v0.1.1` in the series repo with `DisplayCompare-0.1.1.apk` (2.41 MB, cert
+95:57:19…b266, as 0.1.0's). The only change from 0.1.0: the series' updates from GitHub, a note
+at the top of the page while a newer release is out and the Updates card after the notes
+(series D1.6). On the owner's Pixel: a release-signed 0.1.0 test build with the updater, so it
+can take 0.1.1 from GitHub. Not yet seen by anyone: the Presets sheet, the table, four
+displays, cm, a tablet.
 
 ## Next
 1. The owner's V-M1 round (`VERIFY.md`), mainly the Presets sheet.

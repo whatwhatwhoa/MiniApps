@@ -57,5 +57,7 @@ android {
 dependencies {
     // :stack brings Compose, Material 3 and the Stack look; no other library.
     implementation(project(":stack"))
+    // :update: Settings → Updates and the banner, from the series' GitHub releases.
+    implementation(project(":update"))
     implementation(libs.activity.compose)
 }

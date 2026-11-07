@@ -26,5 +26,9 @@ extras, no features." Decisions: `decisions/M1-first-light.md`.
 - [x] B1.2 Lower lines drift off the rules (Handwriting, Large, 130%) — 2026-11-03: size from pixels (D1.3)
 - [x] B1.3 The widget scrolls with nothing below — 2026-11-03: rows fill it exactly (D1.6)
 
+### R0.3 — 0.3.0 (owner, 2026-11-07)
+- [x] T3.1 Updates from GitHub (series D1.6) — 2026-11-07: the card in the sheet, no banner (D1.9)
+- [x] T3.2 Release 0.3.0 with the Stack sheet — 2026-11-07: series repo, tag `dailynote-v0.3.0`
+
 ### Later
 Only if the owner asks; the app is meant to have no extras.

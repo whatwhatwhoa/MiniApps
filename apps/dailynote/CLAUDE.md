@@ -3,8 +3,7 @@
 A single-page note for Android phones: one scrolling page of paper (yellow pad, college, legal
 pad, grid, dot grid), tap a line to write, swipe across words to scratch them out, and a
 home-screen widget up to a full page. The target is the owner's Pixel 11 Pro XL. Public on
-GitHub in the series repo (MIT); its first repo `whatwhatwhoa/DailyNote` keeps the releases
-so far and points to the series (series D1.1). Package
+GitHub in the series repo (MIT), with every release (its first repo is archived; series D1.7). Package
 `io.github.whatwhatwhoa.dailynote`, module `:dailynote`. Why and how: `docs/architecture.md`.
 The series' rules, commands and look: `../../CLAUDE.md`.
 

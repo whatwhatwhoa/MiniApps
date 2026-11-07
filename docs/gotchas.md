@@ -34,6 +34,11 @@ forbids `--` inside comments. Write "the Stack bg token".
 Reading `maxWidth` inside a composable lambda nested in the scope is a DSL scope violation;
 read it once into a `val` at the top of the scope.
 
+### A local named `size` hides the draw scope's
+Inside `drawWithContent { }` or `Canvas { }`, `size.width` meant the canvas, but a `val size`
+(a font size) in the composable shadowed it: "Function invocation 'width(...)' expected". Name
+such locals for what they are (`fontSize`).
+
 ### Gradle refuses a module whose folder is missing
 `include(":x")` with `projectDir` pointing at a folder that doesn't exist fails the whole
 build. `settings.gradle.kts` therefore finds apps by folder instead of listing them.

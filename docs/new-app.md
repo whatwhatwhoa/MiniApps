@@ -8,7 +8,8 @@ where its result lives.
    which devices. The folder is the name in lowercase letters (`displaycompare`).
 2. **Scaffold**: `py -3.13 -I tools/new_app.py <folder> "<Name>"` makes `apps/<folder>/` from
    `templates/app/`: the module (found by `settings.gradle.kts` on its own), the Stack page
-   (`ui/MainScreen.kt`), the launcher icon on the mat, and the notes skeleton (CLAUDE.md,
+   (`ui/MainScreen.kt`), `:update` wired in (put `UpdateCard()` in its settings and
+   `UpdateBanner()` at the top of its page), the launcher icon on the mat, and the notes skeleton (CLAUDE.md,
    HANDOFF, TASKS with M1 and T1.1 ticked, architecture, decisions D1.1).
 3. **Build it** (`./gradlew :<folder>:assembleDebug :<folder>:lintDebug`) before writing any
    code of its own: a red build now is the template's fault, not the app's.
@@ -30,4 +31,5 @@ where its result lives.
    app taught that is true for every app goes to the series' gotchas or `stack-android.md`.
 8. **On the phone**: foreground check, install, launch, screenshot; tell the owner it is there.
 9. **Public** only when the owner asks: a README and LICENSE in `apps/<folder>/` and the
-   publish skill (privacy scan first).
+   publish skill (privacy scan first). The release is tagged `<folder>-v<version>` with
+   `<Name>-<version>.apk`, or the app's updater won't see it; the root README gets its row.

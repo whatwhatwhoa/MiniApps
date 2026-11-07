@@ -12,6 +12,7 @@ CLAUDE.md, docs/          series notes (rules, state, tasks, the look, decisions
 settings.gradle.kts       :stack + every apps/<folder> with a build.gradle.kts, found by folder
 build.gradle.kts          plugin versions only (gradle/libs.versions.toml holds every version)
 stack/                    :stack, the Stack look for Compose (stack-android.md)
+update/                   :update, updates from GitHub: Updates, UpdateCard, UpdateBanner
 apps/<app>/               one app: build.gradle.kts, src/, its notes (CLAUDE.md, docs/),
                           README.md + LICENSE (its public face), .gitignore, local.properties
 templates/app/            the new-app skeleton tools/new_app.py fills in
@@ -26,7 +27,8 @@ AGP 9 (it compiles Kotlin itself; the Kotlin plugin only pins the Compose compil
 Compose BOM, activity-compose: all in `gradle/libs.versions.toml`, so one bump moves every
 app. compileSdk/targetSdk 37, minSdk 31 (Android 12) everywhere. JDK 21 from
 `~/AppData/Local/Android/jdk-21`. An app depends on `project(":stack")` (which brings Compose
-and Material 3 as `api`) and `libs.activity.compose`; nothing else unless its notes say why.
+and Material 3 as `api`), `project(":update")` and `libs.activity.compose`; nothing else unless
+its notes say why. Tests (JUnit, test scope only) where an app has logic worth pinning down.
 
 ## The look
 Every app uses `StackTheme` from `:stack`: the Stack Design Guide's tokens, Instrument Sans and
@@ -43,23 +45,43 @@ holds only `sdk.dir`. When the key is there, debug builds are signed with it too
 build and a published release replace each other on a phone without losing data. Every key and
 its `local.properties` is backed up in the owner's backup folder (`docs/local.md`).
 
+## Updates
+Every app updates itself from this repo's GitHub releases (`:update`, `Updates.kt`). It asks
+GitHub's API for the releases, takes the newest tagged `<folder>-v<version>` with an `.apk`
+(the folder is the last part of the package name, so an app needs no setting), and offers it
+when its version is higher than the installed one. *Update* downloads the APK into the app's
+cache, checks it is the same package signed with the same key (Android would refuse it anyway,
+with a vaguer message), and hands it to Android's installer in a session; the installer asks,
+replaces the app and keeps its data. The first time, Android asks to allow installs from it.
+- **When:** Settings → Updates (*Check for updates*), and at most once a day when the app
+  opens (on by default; a switch in the card). Between checks a newer release found earlier is
+  offered from what was stored, without the network.
+- **Where:** `UpdateCard()` in each app's settings; `UpdateBanner()` at the top of the page in
+  the apps with a Stack frame, until *Not now* for that version. Daily Note has only the card,
+  in its paper sheet (its page stays paper).
+- **What it costs:** INTERNET and REQUEST_INSTALL_PACKAGES, merged from `:update`'s manifest;
+  one anonymous call to api.github.com (60 an hour per address are allowed).
+- **What a release must have:** the tag and an `.apk` signed with the app's key. A copy signed
+  with another key (a debug key) can't take the update and says so in the card.
+
 ## Releases
 1. Raise `versionCode` and `versionName` in `apps/<app>/build.gradle.kts`.
 2. `./gradlew :<app>:assembleRelease :<app>:lintDebug`; check the APK's size (near 2 MB).
 3. Install the signed release on a device and run it (foreground check first); its certificate
    must match the last release's (`docs/local.md` has each key's SHA-256).
 4. Commit; tag `<app>-v<version>` (tags are per app in this repo).
-5. Only when asked: push, and a GitHub release titled `<Name> <version>` with
-   `<Name>-<version>.apk` (the publish skill's *Shipping an app*). An app's download link is a
+5. Only when asked: push, and a GitHub release titled `<Name> <version>` on the tag, with
+   `<Name>-<version>.apk` (the publish skill's *Shipping an app*); the apps' updater reads
+   exactly that tag and asset. An app's download link is a
    search of this repo's releases (`releases?q=<Name>&expanded=true`): `releases/latest` is
    whichever app shipped last.
 
 ## Repos
 This repo, public as `whatwhatwhoa/MiniApps` (MIT), holds every app with its full history (each
-was imported with `git subtree add`; the apps' old tags carry an `<app>-` prefix). Power
-Meter's and Daily Note's first repos (`whatwhatwhoa/PowerMeter`, `whatwhatwhoa/DailyNote`)
-keep their releases and open with a note pointing here; their apps' READMEs still link there
-for downloads until each app's first release from the series. The root README lists every
+was imported with `git subtree add`; the apps' old tags carry an `<app>-` prefix). Every
+release of every app is here: Power Meter's and Daily Note's first repos
+(`whatwhatwhoa/PowerMeter`, `whatwhatwhoa/DailyNote`) had their releases copied here on their
+tags with the same APKs (2026-11-07), point here from their READMEs and are archived. The root README lists every
 app with its download and guide; each app's README is written for someone installing it.
 
 ## Notes at two levels

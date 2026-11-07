@@ -2,8 +2,8 @@
 
 The owner's small, plain Android apps for their phones and tablets, in one repo and one Gradle
 build; each app is a folder under `apps/` (one line each in `docs/HANDOFF.md`). Kotlin + Jetpack
-Compose with the shared Stack look (`:stack`), built from the command line on a Windows ARM
-laptop. Public on GitHub (`whatwhatwhoa/MiniApps`, MIT). Why and how: `docs/architecture.md`.
+Compose with the shared Stack look (`:stack`) and updates from GitHub (`:update`), built from the
+command line on a Windows ARM laptop. Public on GitHub (`whatwhatwhoa/MiniApps`, MIT). Why and how: `docs/architecture.md`.
 
 ## Two levels of notes
 - **Series** (this file, `docs/`): what every app shares: the toolchain, `:stack`, these
@@ -31,7 +31,7 @@ works → `architecture.md` · the look → `stack-android.md` · why → `decis
 
 ## Hard rules (every app)
 1. **Plain and light** (owner: "doesn't need to be fancy; quick, light, decent font/layout").
-   No library beyond `:stack`'s without a reason; a release APK stays near 2 MB.
+   No library beyond `:stack`'s and `:update`'s without a reason; a release APK stays near 2 MB.
 2. **Phones and tablets.** Every screen works at phone width and at ≥ 600 dp.
 3. **The Stack look comes from `:stack`.** No colors or fonts of an app's own; a new token goes
    into `:stack` in both themes (`stack-android.md`). A `:stack` change is a series change:
@@ -43,6 +43,8 @@ works → `architecture.md` · the look → `stack-android.md` · why → `decis
    files: they go in `docs/local.md` (gitignored). The pre-push hook runs the privacy scan.
 6. **Wording.** "commit" = local only; "commit to github" = commit + push; "release" = raise the
    version and build the signed release APK (the GitHub release is asked for separately).
+   A GitHub release is tagged `<app>-v<version>` with `<Name>-<version>.apk`: the apps' updater
+   finds it by that (`architecture.md` *Updates*).
 7. **One app per session** unless the owner bundles several.
 
 ## Commands (Bash, from the series root)

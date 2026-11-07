@@ -17,8 +17,8 @@ android {
         applicationId = "io.github.whatwhatwhoa.displaycompare"
         minSdk = 31
         targetSdk = 37
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.1.1"
     }
 
     // The release key stays outside the repo; this app's own local.properties (gitignored, next to
@@ -57,5 +57,7 @@ android {
 dependencies {
     // :stack brings Compose, Material 3 and the Stack look; no other library.
     implementation(project(":stack"))
+    // :update: Settings → Updates and the banner, from the series' GitHub releases.
+    implementation(project(":update"))
     implementation(libs.activity.compose)
 }

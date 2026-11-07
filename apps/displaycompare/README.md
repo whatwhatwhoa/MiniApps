@@ -5,8 +5,8 @@ phones, side by side.**
 
 ### [⬇ Download the latest APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Display+Compare&expanded=true)
 
-Free, no ads, no account, no internet needed. Android 12 or newer. Part of the
-[Mini Apps](../../README.md) series.
+Free, no ads, no account. Android 12 or newer. Part of the [Mini Apps](../../README.md)
+series. Its only internet use is checking GitHub for its own updates.
 
 <p align="center">
   <img src="docs/screenshots/compare.png" width="300" alt="A 27-inch 1440p monitor and a 34-inch ultrawide drawn to scale on a dark grid, with tiles: 1.32 times the area, 7.8 inches wider, 0.1 inch shorter, 1 ppi more">
@@ -20,7 +20,9 @@ Free, no ads, no account, no internet needed. Android 12 or newer. Part of the
 3. If Play Protect warns that it doesn't know the app, tap **More details → Install anyway**.
 4. Open **Display Compare**.
 
-To update, install a newer APK over the old one; your displays stay.
+**Updating:** when a newer release is out, a note at the top says so: tap **Update to …**;
+Android asks before it installs, and your displays stay. The **Updates** card at the bottom
+has **Check for updates** and the once-a-day check (switch it off to stop it).
 
 ## Using it
 

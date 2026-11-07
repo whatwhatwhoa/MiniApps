@@ -17,8 +17,8 @@ android {
         applicationId = "io.github.whatwhatwhoa.dailynote"
         minSdk = 31
         targetSdk = 37
-        versionCode = 2
-        versionName = "0.2.0"
+        versionCode = 3
+        versionName = "0.3.0"
     }
 
     // The release key stays outside the repo; this app's own local.properties (gitignored, next to
@@ -59,5 +59,7 @@ dependencies {
     // undo pill; the page itself is a text field on a canvas. No icon pack, no DataStore, no
     // Glance: the APK stays small and starts fast.
     implementation(project(":stack"))
+    // :update: the Updates card at the end of the paper sheet, from the series' GitHub releases.
+    implementation(project(":update"))
     implementation(libs.activity.compose)
 }

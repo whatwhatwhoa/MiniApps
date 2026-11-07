@@ -76,3 +76,9 @@ reads as a rounded sans; Kalam legible but slanted). Bundled Latin only, 74 KB, 
 `tools/cut_font.py`, its copyright and license kept in the file and in `licenses/`. Drawn 1.15×
 larger for the normal font's x-height, on the same line spacing. Rejected: downloadable Google
 Fonts (needs Play services and the internet). Status: as built 2026-11-03, owner to confirm.
+
+### D1.9 Updates in the sheet only (2026-11-07)
+The series' updates from GitHub (series D1.6, the owner's ask for every app) come as the Updates
+card at the end of the paper sheet, which now scrolls. No note on the page when a release is
+out: the page stays paper (hard rule 1); the daily check still runs when the sheet opens, so
+the card offers it. Status: as built 2026-11-07, shipped 0.3.0, owner to confirm.

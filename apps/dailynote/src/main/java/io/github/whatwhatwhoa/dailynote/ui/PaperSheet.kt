@@ -11,8 +11,10 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,10 +40,11 @@ import io.github.whatwhatwhoa.stack.Notes
 import io.github.whatwhatwhoa.stack.Seg
 import io.github.whatwhatwhoa.stack.Stack
 import io.github.whatwhatwhoa.stack.StackType
+import io.github.whatwhatwhoa.update.UpdateCard
 
 private val Hand = FontFamily(Font(R.font.patrick_hand))
 
-/** The only settings there are: paper, size, font, swipe to erase, and how the page works. */
+/** The only settings there are: paper, size, font, swipe to erase, how the page works, updates. */
 @Composable
 fun PaperSheet(
     paper: Paper,
@@ -53,7 +56,8 @@ fun PaperSheet(
     onFont: (NoteFont) -> Unit,
     onSwipeErase: (Boolean) -> Unit,
 ) {
-    Column(Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, bottom = 20.dp)) {
+    // Scrolls: with the Updates card it is taller than a landscape phone.
+    Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(start = 20.dp, end = 20.dp, bottom = 20.dp)) {
         FLabel("Paper")
         Spacer(Modifier.height(10.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -88,6 +92,9 @@ fun PaperSheet(
                 "Widget: hold your home screen → Widgets → Daily Note",
             )
         )
+        Spacer(Modifier.height(20.dp))
+        // The series' updates from GitHub (owner, 2026-11-07: every app updates itself).
+        UpdateCard()
     }
 }
 

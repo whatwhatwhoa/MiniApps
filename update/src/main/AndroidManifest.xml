@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Merged into every app: the one network use (GitHub's releases) and the install of an update. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application>
+        <!-- The installer's answer comes back here; only this app's own PendingIntent reaches it. -->
+        <receiver
+            android:name="io.github.whatwhatwhoa.update.InstallReceiver"
+            android:exported="false" />
+    </application>
+</manifest>

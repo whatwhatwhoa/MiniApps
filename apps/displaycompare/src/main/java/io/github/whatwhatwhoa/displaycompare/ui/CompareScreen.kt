@@ -45,6 +45,8 @@ import io.github.whatwhatwhoa.stack.Swatch
 import io.github.whatwhatwhoa.stack.Tile
 import io.github.whatwhatwhoa.stack.TileGrid
 import io.github.whatwhatwhoa.stack.stackColumn
+import io.github.whatwhatwhoa.update.UpdateBanner
+import io.github.whatwhatwhoa.update.UpdateCard
 import kotlin.math.roundToInt
 
 /**
@@ -77,11 +79,13 @@ fun CompareScreen(state: CompareState) {
                 ) {
                     Column(Modifier.stackColumn().padding(top = 4.dp, bottom = 32.dp),
                         verticalArrangement = Arrangement.spacedBy(BlockGap)) {
+                        UpdateBanner()
                         Controls(state)
                         Comparison(state, columns = 2)
                         Editors(state)
                         Table(state)
                         About()
+                        UpdateCard()
                     }
                 }
             }
@@ -102,9 +106,11 @@ fun CompareScreen(state: CompareState) {
                         Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(bottom = 32.dp),
                         verticalArrangement = Arrangement.spacedBy(BlockGap),
                     ) {
+                        UpdateBanner()
                         Editors(state)
                         Table(state)
                         About()
+                        UpdateCard()
                     }
                 }
             }

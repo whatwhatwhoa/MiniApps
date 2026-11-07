@@ -62,3 +62,22 @@ Status: as built 2026-11-06, owner to confirm.
 Each app reads `apps/<app>/local.properties` (the old repos' files copied over unchanged, so
 no password was retyped); the root `local.properties` has only `sdk.dir`. Display Compare got
 its own key before its first install. Status: as built 2026-11-06.
+
+### D1.6 · 2026-11-07 · Every app updates itself from GitHub
+Owner: "Make sure all of our apps have update capabilities to update from github." One module,
+`:update`, for every app: the newest release tagged `<app>-v…` with an APK, downloaded and handed
+to Android's installer after a package-and-key check (`architecture.md` *Updates*). A check at
+most once a day when the app opens is on by default, with a switch; a banner on the page, a card
+in Settings; Daily Note only the card, so its page stays paper. The apps' "no internet" lines
+became "the only internet use: checking GitHub for updates".
+Rejected: only a link to the releases page (the user still finds, downloads and opens the APK);
+a silent install (Android allows it only for the app's installer of record, and these apps are
+sideloaded); a check on every open (needless calls); a library (the API is one GET).
+Status: as built 2026-11-07, owner to confirm (`VERIFY.md` *V-updates*).
+
+### D1.7 · 2026-11-07 · Every release in one repo
+Owner: "reorganize it into the one repo." Power Meter 0.1.0 and Daily Note 0.1.0 and 0.2.0
+were copied from their first repos onto the same tags here, with the same APKs (so their
+certificates are the ones on record); the first repos point here and are archived, not deleted
+(old links keep working). Every README and the series README link to this repo's releases.
+Status: done 2026-11-07.

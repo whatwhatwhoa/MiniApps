@@ -3,7 +3,8 @@
 ## Goals
 The owner wants one page to jot the day's notes on, on a phone: paper that looks like paper,
 tap a line and write, scratch words out with a swipe, and the same page on the home screen.
-Single page, no extras: no list of notes, no formatting, no sync, no account, no internet.
+Single page, no extras: no list of notes, no formatting, no sync, no account; the only
+internet use is the series' update check (series `architecture.md` *Updates*).
 
 ## Files
 | File | What it holds |
@@ -14,7 +15,7 @@ Single page, no extras: no list of notes, no formatting, no sync, no account, no
 | `MainActivity.kt` | Edge-to-edge window, widget taps in, save and widget refresh on stop |
 | `ui/NotePage.kt` | The page: paper, text field, tap below, band, undo pill, the sheet |
 | `ui/Eraser.kt` | The word eraser: gesture, what to erase, the scratch, the fade and collapse |
-| `ui/PaperSheet.kt` | The settings sheet: paper, size, font, swipe to erase |
+| `ui/PaperSheet.kt` | The settings sheet: paper, size, font, swipe to erase, how it works, then the series' Updates card; it scrolls |
 | `ui/Theme.kt` | `NoteTheme`: the series' Stack theme for the sheet and the undo pill; the bars stay `MainActivity`'s |
 | `widget/` | `NoteWidget` (provider and its lines), `WidgetPage` (wrapping and drawing) |
 | `res/font/patrick_hand.ttf` | The handwriting font: Patrick Hand, Latin only (74 KB, cut by `tools/cut_font.py`); OFL, `licenses/` |

@@ -4,9 +4,10 @@
 out. A yellow pad, college ruled, a legal pad, grid or dot grid, and the same page as a widget
 on your home screen. That's all it is: one page, no extras.
 
-### [⬇ Download the latest APK](https://github.com/whatwhatwhoa/DailyNote/releases/latest)
+### [⬇ Download the latest APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Daily+Note&expanded=true)
 
-Free, no ads, no account, no tracking, no internet. Android 12 or newer. About 2 MB.
+Free, no ads, no account, no tracking. Android 12 or newer. About 2 MB. Part of the
+[Mini Apps](../../README.md) series. Its only internet use is checking GitHub for its own updates.
 
 ---
 
@@ -21,7 +22,10 @@ Do this on the phone itself.
    If Play Protect warns about an unknown app, tap **Install anyway**.
 3. **Open Daily Note** from your app list.
 
-**Updating:** download the new APK and install it over the old one. Your note stays.
+**Updating:** the settings button → **Updates** → **Check for updates**, then **Update to …**;
+Android asks before it installs, and your note stays. It also checks once a day when you open
+the settings (switch **Check once a day** off to stop that). Installing a newer APK over the
+old one by hand works too.
 
 ## Find your way around
 
@@ -31,6 +35,7 @@ Do this on the phone itself.
   - **Size:** Small, Medium or Large. The lines get wider with the text.
   - **Font:** Normal or Handwriting.
   - **Swipe to erase:** on or off.
+  - **Updates:** this version, **Check for updates**, and the once-a-day check.
 
 ## How do I…
 
