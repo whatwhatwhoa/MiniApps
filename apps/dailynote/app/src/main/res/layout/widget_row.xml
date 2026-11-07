@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One line of the page: a strip of paper (the same picture for every line, so it is stored
+     once) and the line's ink over it, drawn by the app: a widget can't use the app's fonts. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:contentDescription="@string/widget_blank_line">
+
+    <ImageView
+        android:id="@+id/strip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        android:scaleType="fitXY" />
+
+    <!-- The ink is an alpha-only picture, colored here. -->
+    <ImageView
+        android:id="@+id/ink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:tint="#FF1D2433" />
+</FrameLayout>

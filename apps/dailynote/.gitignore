@@ -1,0 +1,18 @@
+# Gradle and build output
+.gradle/
+build/
+local.properties
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# Android Studio
+.idea/
+*.iml
+captures/
+.cxx/
+.kotlin/
+
+# This PC's exact paths and device IDs: never in the public repo
+docs/local.md

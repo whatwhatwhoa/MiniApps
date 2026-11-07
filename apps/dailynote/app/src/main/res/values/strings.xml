@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Daily Note</string>
+    <string name="widget_description">Your note on the home screen. Tap a line to write.</string>
+    <string name="widget_blank_line">Blank line</string>
+</resources>

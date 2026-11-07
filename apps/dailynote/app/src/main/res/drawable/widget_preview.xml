@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What the widget picker shows: the yellow pad with a few lines of ink. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="200dp"
+    android:viewportWidth="180"
+    android:viewportHeight="200">
+    <path
+        android:fillColor="#FFFFF4B5"
+        android:pathData="M12,0 H168 A12,12 0 0 1 180,12 V188 A12,12 0 0 1 168,200 H12 A12,12 0 0 1 0,188 V12 A12,12 0 0 1 12,0 Z" />
+    <path
+        android:fillColor="#FF7A4E2D"
+        android:pathData="M0,12 A12,12 0 0 1 12,0 H168 A12,12 0 0 1 180,12 V22 H0 Z" />
+    <path
+        android:pathData="M0,50 H180 M0,78 H180 M0,106 H180 M0,134 H180 M0,162 H180 M0,190 H180"
+        android:strokeWidth="1"
+        android:strokeColor="#FFC2BC98" />
+    <path
+        android:pathData="M16,45 H110 M16,73 H140 M16,101 H84"
+        android:strokeWidth="3"
+        android:strokeColor="#FF1D2433"
+        android:strokeLineCap="round" />
+</vector>

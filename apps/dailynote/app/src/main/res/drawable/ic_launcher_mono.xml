@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Themed icon: the pad as one shape with the binding and rules cut out of it. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M31,30 H77 A3,3 0 0 1 80,33 V81 A3,3 0 0 1 77,84 H31 A3,3 0 0 1 28,81 V33 A3,3 0 0 1 31,30 Z
+            M28,40 H80 V42 H28 Z
+            M32,50.2 H76 V51.8 H32 Z M32,57.2 H76 V58.8 H32 Z M32,64.2 H76 V65.8 H32 Z
+            M32,71.2 H76 V72.8 H32 Z M32,78.2 H76 V79.8 H32 Z" />
+</vector>

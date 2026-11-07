@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The window before Compose draws: the yellow pad's paper, so the first frame isn't white. -->
+    <color name="window">#FFFFF4B5</color>
+    <color name="icon_bg">#FF35618F</color>
+</resources>

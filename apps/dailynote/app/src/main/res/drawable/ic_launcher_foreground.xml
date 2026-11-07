@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A yellow pad with its binding, rules and two lines of ink, inside the 66 dp safe zone. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFF4B5"
+        android:pathData="M31,30 H77 A3,3 0 0 1 80,33 V81 A3,3 0 0 1 77,84 H31 A3,3 0 0 1 28,81 V33 A3,3 0 0 1 31,30 Z" />
+    <path
+        android:fillColor="#FF7A4E2D"
+        android:pathData="M28,33 A3,3 0 0 1 31,30 H77 A3,3 0 0 1 80,33 V40 H28 Z" />
+    <path
+        android:pathData="M32,51 H76 M32,58 H76 M32,65 H76 M32,72 H76 M32,79 H76"
+        android:strokeWidth="1.4"
+        android:strokeColor="#FFA7B6C4" />
+    <path
+        android:pathData="M35,48.5 H63 M35,55.5 H55"
+        android:strokeWidth="2.4"
+        android:strokeColor="#FF1D2433"
+        android:strokeLineCap="round" />
+</vector>
