@@ -13,7 +13,8 @@ What it leaves out: OCR, cloud anything, editing beyond crop / filter / turn, mu
 
 ## Screens
 The frame is the series': *Scan* as the header's one tab (larger and bold, series D1.9; its count is the pages), the
-Theme icon and the Settings gear (series D1.10), the update banner.
+Theme icon and the Settings gear (series D1.10): the series' `StackTopBar` (D1.11); the
+update banner.
 
 **Scan**, under 600 dp, top to bottom: *Take photo · Add photos · Export PDF*; the pages as a
 row of thumbnails (tap to open); the open page's row (*Page 2 of 5*, its filter, *Move left /

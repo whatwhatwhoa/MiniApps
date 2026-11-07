@@ -78,32 +78,36 @@ fun Modifier.stackColumn(): Modifier = this.widthIn(max = 1240.dp).fillMaxWidth(
 /** The gap between blocks on a page (guide §5). */
 val BlockGap = 14.dp
 
-/** Brand (title + a mono count) on the left, actions on the right; the Theme icon by default. */
+/** The page number [StackTopBar] uses for Settings (the gear), apart from the tabs' 0, 1, …. */
+const val SettingsPage = -1
+
+/**
+ * The top of every app, one row (series rule: one layout, inherited from here): the app's
+ * [name] as the first tab, bold and larger, with its [count] in a pill; the app's other [tabs];
+ * the Theme icon; and, when [settings], the gear. [page] is 0 for the name's page, 1… for
+ * [tabs], [SettingsPage] for Settings; the gear tapped again goes back to page 0.
+ */
 @Composable
-fun StackHeader(
-    title: String,
+fun StackTopBar(
+    name: String,
+    page: Int,
+    onPage: (Int) -> Unit,
     modifier: Modifier = Modifier,
+    tabs: List<String> = emptyList(),
     count: String? = null,
-    actions: @Composable RowScope.() -> Unit = { ThemeIconButton() },
+    settings: Boolean = true,
 ) {
-    val c = Stack.colors
     Row(
-        modifier.fillMaxWidth().padding(top = 12.dp),
+        modifier.fillMaxWidth().padding(top = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(10.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        // The brand wraps as the web .brand does: at a large font the count goes under the title.
-        FlowRow(
-            Modifier.weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            itemVerticalAlignment = Alignment.Bottom,
-        ) {
-            Text(title, style = StackType.h1, color = c.ink, maxLines = 1)
-            if (count != null) {
-                Text(count, Modifier.padding(bottom = 2.dp), style = StackType.mono, color = c.muted, maxLines = 1)
-            }
+        StackTabs(listOf(name) + tabs, page, onPage, Modifier.weight(1f), counts = listOf(count),
+            compact = true, brand = true)
+        ThemeIconButton()
+        if (settings) {
+            SettingsIconButton(page == SettingsPage, { onPage(if (page == SettingsPage) 0 else SettingsPage) })
         }
-        actions()
     }
 }
 

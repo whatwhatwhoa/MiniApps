@@ -99,7 +99,7 @@ in the 15 sp tab style; Calculator and Scan use it. The row is bottom-aligned so
 lines stay level. A compact tab's side padding went from 9 to 7 dp: measured with the fonts,
 Calculator's row is then about 323 dp at the normal font size (a 360 dp phone has 328) and
 about 390 dp at 130 % (the owner's Pixel has 409).
-Status: built 2026-11-07, not seen on a screen (the Pixel was locked), not released.
+Status: released 2026-11-07 (Calculator 0.1.2, Scan 0.1.1), not seen on a screen.
 
 ### D1.10 · 2026-11-07 · Settings as a gear in a one-row header
 Owner: "let's make settings to the settings icon". In Calculator and Scan the Settings tab is
@@ -108,4 +108,21 @@ icon library) sits right of the Theme icon, rightmost as settings usually are. O
 filled with the soft accent and edged with the accent (the tabs then show none selected); a
 second tap, or the app's name, goes back. Scan's row is then its name alone. Power Meter keeps
 its Settings tab under its header (two rows, not asked).
-Status: built 2026-11-07, not seen on a screen, not released.
+Status: released 2026-11-07 (Calculator 0.1.2, Scan 0.1.1; Power Meter and Display Compare
+by D1.11), not seen on a screen.
+
+### D1.11 · 2026-11-07 · One layout for every app: `StackTopBar`
+Owner: "for most situations, all apps should inherit similar layout, look and feel" (and yes
+to the gear in Power Meter). Series rule 3 says it; `:stack` carries it. `StackTopBar` is the
+one row on top of every Stack app: the name as the first tab (bold `h1`) with its count, the
+app's tabs, Theme, the Settings gear; behind the gear go settings, How it works, About and
+Updates. `StackHeader` (title row over tabs) is gone, and the new-app template starts with the
+top bar. Per app: Calculator and Scan as they were (D1.9, D1.10). Power Meter: *Power Meter ·
+History*, the name's page is the old Now; no count, since "monitoring on/off" doesn't fit one
+row (about 400 dp at the normal size) and Now and History show a card while it is off.
+Display Compare: the count is the number of displays; How it measures and the Updates card
+moved behind the gear. Daily Note keeps its paper page: no top bar, its own exception.
+Measured with the fonts, every top bar fits 328 dp (a 360 dp phone) at the normal size and
+409 dp (the owner's Pixel) at 130 %.
+Status: released 2026-11-07 (Calculator 0.1.2, Scan 0.1.1, Power Meter 0.2.2, Display Compare
+0.1.3), not seen on a screen (the Pixel was locked).

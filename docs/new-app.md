@@ -7,8 +7,8 @@ where its result lives.
    line; the owner's own words for what it must and must not do (they become its hard rules);
    which devices. The folder is the name in lowercase letters (`displaycompare`).
 2. **Scaffold**: `py -3.13 -I tools/new_app.py <folder> "<Name>"` makes `apps/<folder>/` from
-   `templates/app/`: the module (found by `settings.gradle.kts` on its own), the Stack page
-   (`ui/MainScreen.kt`), `:update` wired in (put `UpdateCard()` in its settings and
+   `templates/app/`: the module (found by `settings.gradle.kts` on its own), the series' frame
+   (`ui/MainScreen.kt`: `StackTopBar`, the page, Settings behind the gear), `:update` wired in (put `UpdateCard()` in its settings and
    `UpdateBanner()` at the top of its page), the launcher icon on the mat, and the notes skeleton (CLAUDE.md,
    HANDOFF, TASKS with M1 and T1.1 ticked, architecture, decisions D1.1).
 3. **Build it** (`./gradlew :<folder>:assembleDebug :<folder>:lintDebug`) before writing any

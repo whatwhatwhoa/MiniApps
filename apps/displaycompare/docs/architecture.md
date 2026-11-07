@@ -40,12 +40,14 @@ past any label already placed. The mat is as tall as the displays need, up to 25
 phone and 440 dp on a tablet.
 
 ## The screen (`ui/CompareScreen.kt`, `ui/DisplayCard.kt`)
-- **Phone**: the header and the mat stay put; below them scroll the update note (only while a
+- **Top**: the series' top bar (series D1.11): *Display Compare* with the number of displays,
+  Theme, the Settings gear. Behind the gear: How it measures and the Updates card (series
+  *Updates*), scrolling.
+- **Phone**: the top bar and the mat stay put; below them scroll the update note (only while a
   newer release is out), the controls (Units in/cm, Line up), the four tiles, a card per
-  display, Add display (up to four), the table, the notes, the Updates card (series *Updates*).
-- **From 600 dp**: the header on top; the mat, controls and tiles on the left, the cards, table
-  and notes on the right (the update note on top, the Updates card last), each column
-  scrolling; four tiles in a row from 900 dp.
+  display, Add display (up to four), the table.
+- **From 600 dp**: the top bar; the mat, controls and tiles on the left, the cards and table
+  on the right (the update note on top), each column scrolling; four tiles in a row from 900 dp.
 - **Tiles**: one display against another (B with A, or chosen with two segments when there
   are more than two): area ×, width ±, height ±, pixel density ±; each with an (i) definition.
 - **A display's card**: a stripe in its color; its letter and title; Presets; diagonal with

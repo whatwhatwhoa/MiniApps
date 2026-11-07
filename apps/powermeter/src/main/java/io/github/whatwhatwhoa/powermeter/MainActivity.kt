@@ -13,8 +13,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
@@ -42,12 +40,10 @@ import io.github.whatwhatwhoa.powermeter.ui.PowerMeterTheme
 import io.github.whatwhatwhoa.powermeter.ui.SettingsScreen
 import io.github.whatwhatwhoa.stack.BlockGap
 import io.github.whatwhatwhoa.stack.Stack
-import io.github.whatwhatwhoa.stack.StackHeader
-import io.github.whatwhatwhoa.stack.StackTabs
+import io.github.whatwhatwhoa.stack.StackTopBar
 import io.github.whatwhatwhoa.stack.stackColumn
 import io.github.whatwhatwhoa.update.UpdateBanner
 
-private val tabs = listOf("Now", "History", "Settings")
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,7 +86,8 @@ private fun App() {
         }
     }
 
-    // The Stack frame: header, tabs under it, then the tab's page. From 600 dp the pages lay
+    // The Stack frame: the series' top bar (the name's page is Now; History; Theme; Settings),
+    // then the page. From 600 dp the pages lay
     // out in two columns.
     val c = Stack.colors
     BoxWithConstraints(
@@ -100,9 +97,9 @@ private fun App() {
         val wide = maxWidth >= 600.dp
         Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
             Column(Modifier.widthIn(max = if (wide) 1100.dp else 640.dp).stackColumn()) {
-                StackHeader("Power Meter", count = if (monitoring) "monitoring on" else "monitoring off")
-                Spacer(Modifier.height(6.dp))
-                StackTabs(tabs, tab, { tab = it })
+                // No count: "monitoring on/off" doesn't fit the one row, and Now and History
+                // already show a card while monitoring is off.
+                StackTopBar("Power Meter", tab, { tab = it }, tabs = listOf("History"))
             }
             Box(
                 Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()),

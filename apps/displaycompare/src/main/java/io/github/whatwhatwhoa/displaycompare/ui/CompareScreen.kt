@@ -23,6 +23,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -39,7 +43,8 @@ import io.github.whatwhatwhoa.stack.Seg
 import io.github.whatwhatwhoa.stack.Stack
 import io.github.whatwhatwhoa.stack.StackButton
 import io.github.whatwhatwhoa.stack.StackCard
-import io.github.whatwhatwhoa.stack.StackHeader
+import io.github.whatwhatwhoa.stack.SettingsPage
+import io.github.whatwhatwhoa.stack.StackTopBar
 import io.github.whatwhatwhoa.stack.StackType
 import io.github.whatwhatwhoa.stack.Swatch
 import io.github.whatwhatwhoa.stack.Tile
@@ -50,14 +55,16 @@ import io.github.whatwhatwhoa.update.UpdateCard
 import kotlin.math.roundToInt
 
 /**
- * Phones: the header and the mat stay put while the rest scrolls under them, so a change shows
+ * The series' top bar (the name with the number of displays, Theme, Settings), then the page.
+ * Phones: the top bar and the mat stay put while the rest scrolls under them, so a change shows
  * on the mat as it is typed. From 600 dp: the mat and the comparison on the left, the editors
- * and the table on the right.
+ * and the table on the right. Settings (the gear): How it measures and Updates.
  */
 @Composable
 fun CompareScreen(state: CompareState) {
     val c = Stack.colors
     val n = state.displays.size
+    var page by rememberSaveable { mutableIntStateOf(0) }
     BoxWithConstraints(
         Modifier.fillMaxSize().background(c.bg).windowInsetsPadding(WindowInsets.safeDrawing),
         contentAlignment = Alignment.TopCenter,
@@ -65,9 +72,21 @@ fun CompareScreen(state: CompareState) {
         val wide = maxWidth >= 600.dp
         val roomy = maxWidth >= 900.dp
         val header = @Composable {
-            StackHeader("Display Compare", count = if (n == 1) "1 display" else "$n displays")
+            StackTopBar("Display Compare", page, { page = it }, count = "$n")
         }
-        if (!wide) {
+        if (page == SettingsPage) {
+            Column(Modifier.stackColumn().fillMaxSize()) {
+                header()
+                Column(
+                    Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState())
+                        .padding(top = BlockGap, bottom = 32.dp),
+                    verticalArrangement = Arrangement.spacedBy(BlockGap),
+                ) {
+                    About()
+                    UpdateCard()
+                }
+            }
+        } else if (!wide) {
             Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
                 Column(Modifier.stackColumn().padding(bottom = 10.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
                     header()
@@ -84,8 +103,6 @@ fun CompareScreen(state: CompareState) {
                         Comparison(state, columns = 2)
                         Editors(state)
                         Table(state)
-                        About()
-                        UpdateCard()
                     }
                 }
             }
@@ -109,8 +126,6 @@ fun CompareScreen(state: CompareState) {
                         UpdateBanner()
                         Editors(state)
                         Table(state)
-                        About()
-                        UpdateCard()
                     }
                 }
             }

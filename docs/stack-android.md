@@ -13,7 +13,7 @@ figures. `:stack` is that guide for Compose. Read this before any screen work.
   what happens, every metric explains itself).
 - **Different on a phone**: fonts are bundled, not fetched; touch targets are larger (buttons
   ≥ 40 dp, small ones and segments ≥ 34 dp, tabs ≥ 44 dp); a tooltip opens on tap; a phone
-  screen may keep its header and main picture fixed while the rest scrolls; the system bars
+  screen may keep its top bar and main picture fixed while the rest scrolls; the system bars
   follow the app's theme.
 - **Not used**: the web-only parts (file drop zones, the library back link, PDF export, the
   `nzfd-*` metadata).
@@ -23,7 +23,7 @@ figures. `:stack` is that guide for Compose. Read this before any screen work.
 Material 3 onto them (primary = accent, surface = panel, background = bg, outline = line,
 error = danger, inverse = ink/panel for toasts), sets the Stack type on Material's roles, and
 keeps Auto / Light / Dark per app (a "stack" preferences file). `ThemeIconButton()` cycles it
-and sits in the header by default (series D1.8). `StackTheme(systemBars = false)` leaves the bars to the app.
+and sits in `StackTopBar` (series D1.8). `StackTheme(systemBars = false)` leaves the bars to the app.
 
 Token roles: `accent` selected, primary, focus · `handle` warn pill, callout bar, things to
 watch · `danger` / `good` status · `mat` / `matLine` the cutting mat · `s0`…`s4` series told
@@ -33,7 +33,7 @@ borders · `grid` faint fills. A new token goes into both `LightStack` and `Dark
 ## 3. Type (`StackType`)
 | Style | Use |
 |---|---|
-| `h1` 19 sp / 700 | the header's title |
+| `h1` 19 sp / 700 | the app's name in `StackTopBar` |
 | `h2` 15 sp / 600 | card titles |
 | `body` 15 sp, `note` 13 sp, `sub` 12.5 sp | text, notes and captions, context lines |
 | `label` 12 sp / 600, +0.07 em | field labels and tile labels, uppercased (`FLabel` does it) |
@@ -46,10 +46,10 @@ Digits are tabular wherever they line up (`TNUM`, already in the figure styles).
 ## 4. Components
 | Compose | Web | Use |
 |---|---|---|
-| `StackHeader(title, count)` | `header .brand` | title + mono count left, actions right (the Theme icon by default); the count wraps under the title at large fonts |
-| `StackTabs(labels, selected, …)` | `.tabs` | views of one app, under the header; `compact` narrows them to share a row; `brand` sets the first (the app's name, in a one-row app) in the bold `h1` |
+| `StackTopBar(name, page, onPage, tabs, count)` | `header` + `.tabs` | the top of every app, one row (series rule 3): the name as the first tab in `h1` with its count, the app's tabs, Theme, the Settings gear; `page` is 0, 1… or `SettingsPage` |
+| `StackTabs(labels, selected, …)` | `.tabs` | what `StackTopBar` draws (`compact`, `brand`); alone, a choice inside a page (Display Compare's preset families) |
 | `ThemeIconButton()` | — | the Theme button, an icon in every app (Auto half circle, Light sun, Dark moon) |
-| `SettingsIconButton(selected, onClick)` | — | Settings as a gear beside the Theme icon, in a one-row header; soft accent fill and accent edge while open |
+| `SettingsIconButton(selected, onClick)` | — | Settings as a gear beside the Theme icon, in `StackTopBar`; soft accent fill and accent edge while open |
 | `StackCard(title, info, stripe, action)` | `.card` | a separate object; `stripe` = a 4 dp category or series edge |
 | `Tile` + `TileGrid(columns, …)` | `.tiles` | exactly four KPIs: label + (i), value + unit, a context line |
 | `Seg(options, selected, …)` | `.seg` | one choice of a few; wraps when it doesn't fit |
@@ -64,8 +64,9 @@ Digits are tabular wherever they line up (`TNUM`, already in the figure styles).
 ## 5. Layout
 - The page column: `Modifier.stackColumn()` (max 1240 dp, 16 dp gutters); blocks
   `BlockGap` (14 dp) apart, spaced by `Arrangement.spacedBy`, never by margins on each block.
-- Order a view as the guide does: header, tabs, controls, four tiles, the picture or chart,
-  details and tables, then notes. A phone may pin the header and the picture.
+- Order a view as the guide does: the top bar, controls, four tiles, the picture or chart,
+  details and tables, then notes; How it works, About and Updates go behind the gear. A phone
+  may pin the top bar and the picture.
 - Tiles: two columns on a phone, four from 900 dp. From 600 dp an app goes to two columns.
 - Radii: cards and tiles 12, inner panels 10, buttons and fields 8, segments 6, pills round.
 - Wide tables scroll sideways inside their card; the page never does.

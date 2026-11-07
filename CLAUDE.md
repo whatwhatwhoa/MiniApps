@@ -33,9 +33,12 @@ works → `architecture.md` · the look → `stack-android.md` · why → `decis
 1. **Plain and light** (owner: "doesn't need to be fancy; quick, light, decent font/layout").
    No library beyond `:stack`'s and `:update`'s without a reason; a release APK stays near 2 MB.
 2. **Phones and tablets.** Every screen works at phone width and at ≥ 600 dp.
-3. **The Stack look comes from `:stack`.** No colors or fonts of an app's own; a new token goes
-   into `:stack` in both themes (`stack-android.md`). A `:stack` change is a series change:
-   build every app.
+3. **One layout, look and feel, inherited from `:stack`** (owner: "for most situations, all apps
+   should inherit similar layout, look and feel"). Every app's top is `StackTopBar` (the name as
+   the first tab, its tabs, Theme, the Settings gear; settings, About and Updates behind the
+   gear); colors and fonts are `:stack`'s, a new token goes in both themes (`stack-android.md`).
+   A frame or look change for one app is made in `:stack` (or the template) and every app takes
+   it: build them all. An app that differs says why in its decisions (Daily Note's paper).
 4. **The owner's devices are daily devices.** Check the foreground app and the lock state
    before launching or installing (an install closes the app if it is open); ask before changing
    device settings; say so in chat when a device is locked.

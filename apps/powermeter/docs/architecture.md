@@ -57,7 +57,7 @@ and temperature bridge it. A rule fires once, a high-importance notification on 
 background monitoring, and turning one on turns monitoring on.
 
 ## Screens
-- **Now**: direction and source, the big watts (green in, amber out), under it the rolling
+- **Power Meter** (the name's tab, the live reading; `NowScreen`): direction and source, the big watts (green in, amber out), under it the rolling
   average (the mean of the readings in the last 5 s, 10 s, 30 s, 1 min or 5 min, set in
   Settings, 10 s by default; signed, since it can point the other way than one reading), current ·
   voltage · level, the cable estimate when plugged in, time to full or empty, the 10-minute
@@ -82,6 +82,6 @@ and goes when it leaves the window; History's two charts share it. `Chart` takes
 from its caller for that; the gesture code reads the latest range through
 `rememberUpdatedState`, so a live chart doesn't restart a drag every second.
 
-The Stack header ("Power Meter", "monitoring on" or "off", the Theme icon) and the tabs
-stay on top, then the series' update note while a newer release is out; under 600 dp the page is one column, from 600 dp two. Charging is drawn in the
+The series' top bar (*Power Meter · History*, Theme, the Settings gear; series D1.11) stays
+on top, then the series' update note while a newer release is out; under 600 dp the page is one column, from 600 dp two. Charging is drawn in the
 Stack `good` green, draining in `s1` orange.

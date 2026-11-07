@@ -10,9 +10,9 @@ Free, no ads, no account, no tracking. Android 12 or newer. About 2 MB. Part of 
 [Mini Apps](../../README.md) series. Its only internet use is checking GitHub for its own updates.
 
 <p>
-  <img src="docs/screenshots/now-charging.png" width="260" alt="Now tab while charging: 13.9 W into the battery, charger max 18 W, a 10-minute chart">
-  <img src="docs/screenshots/now-discharging.png" width="260" alt="Now tab on battery: 4.45 W out, about 6 h 45 m left">
-  <img src="docs/screenshots/settings.png" width="260" alt="Settings tab: background monitoring, update rate, temperature unit, current reading">
+  <img src="docs/screenshots/now-charging.png" width="260" alt="The live reading while charging: 13.9 W into the battery, charger max 18 W, a 10-minute chart">
+  <img src="docs/screenshots/now-discharging.png" width="260" alt="The live reading on battery: 4.45 W out, about 6 h 45 m left">
+  <img src="docs/screenshots/settings.png" width="260" alt="Settings: background monitoring, update rate, temperature unit, current reading">
 </p>
 
 ---
@@ -34,15 +34,16 @@ Android asks before it installs; your history and settings stay. Settings → **
 
 ## Find your way around
 
-Three tabs along the top: Now, History, Settings. On a tablet each page has two columns.
+Along the top: two tabs, **Power Meter** and **History**, and two icons at the right: the theme
+(Auto, Light or Dark) and the gear for Settings. On a tablet each page has two columns.
 
-- **Now:** the live reading. The big number is the power going into the battery (green) or
+- **Power Meter:** the live reading. The big number is the power going into the battery (green) or
   coming out of it (orange); under it the average of the last 10 seconds, then current,
   voltage and level, the time to full or empty, a 10-minute chart, the battery's details and
   the session in progress.
 - **History:** the last 1 h, 6 h, 24 h or 7 days: power and level charts, each stretch on
   battery or on power, and how fast the battery drains with the screen off.
-- **Settings:** background monitoring, how often the screen updates, the average's length,
+- **Settings** (the gear; tap it again to go back): background monitoring, how often the screen updates, the average's length,
   alerts, °C or °F, the current reading, how long to keep history, export and clear, updates.
 
 ## First steps
@@ -50,15 +51,15 @@ Three tabs along the top: Now, History, Settings. On a tablet each page has two 
 1. **Let it learn for a few minutes.** Unplug the device and leave Power Meter open (or turn on
    background monitoring) for a few minutes. It learns what the device uses by itself, which
    it needs to estimate a charger's power.
-2. **Turn on background monitoring** if you want history: on the Now tab tap **Turn on**, or
+2. **Turn on background monitoring** if you want history: on the **Power Meter** tab tap **Turn on**, or
    Settings → **Background monitoring**, and allow the notification when asked. A quiet
    notification then shows the live watts; **Stop** in it turns monitoring off.
-3. **Plug in.** The Now tab shows the power going into the battery, an estimate of what comes
+3. **Plug in.** The **Power Meter** tab shows the power going into the battery, an estimate of what comes
    through the cable, and the charger's rating.
 
 ## How do I…
 
-- **…see how fast a charger is?** Plug in and watch the Now tab for a minute.
+- **…see how fast a charger is?** Plug in and watch the **Power Meter** tab for a minute.
   - The big green number: what goes into the battery.
   - *From the cable ≈ …*: an estimate of what the charger delivers (see *Good to know*).
   - *charger max …*: what the charger says it can give.
@@ -67,7 +68,7 @@ Three tabs along the top: Now, History, Settings. On a tablet each page has two 
   overnight. History → **Screen off** lists each screen-off stretch with its %/h and mA.
 - **…see what an app or game costs?** With background monitoring on and the device unplugged,
   use the app for a while, then open History → **1 h**: the power chart shows what it drew.
-  For a quick look, the Now tab's 10-minute chart and its min · avg · max do the same.
+  For a quick look, the **Power Meter** tab's 10-minute chart and its min · avg · max do the same.
 - **…read a point on a chart?** Tap the chart, or drag along it sideways. A bubble shows the
   time and the watts there, and the line under the chart the whole reading (current,
   voltage, level; on History also the temperature). **Clear** puts it away. On History the

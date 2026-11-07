@@ -3,13 +3,14 @@
 Current state only. **Rewrite this file at the end of every session**: carry forward what is
 open, delete what is resolved, never append history (git and `decisions/` hold it).
 
-**State (2026-11-07):** 0.1.2 released (versionCode 3): GitHub release
-`displaycompare-v0.1.2` in the series repo with `DisplayCompare-0.1.2.apk` (2.41 MB, cert
-95:57:19…b266, as before). Its only change from 0.1.1: the Theme icon in the header (series
-D1.8). 0.1.1 added the series' updates from GitHub (series D1.6). On the owner's Pixel: a
-release-signed 0.1.0 test build with the updater, so it can take 0.1.2 from GitHub (series
-*V-updates*). Not yet seen by anyone: the Presets sheet, the table, four displays, cm, a
-tablet.
+**State (2026-11-07):** 0.1.3 released (versionCode 4): GitHub release
+`displaycompare-v0.1.3` in the series repo with `DisplayCompare-0.1.3.apk` (2.41 MB, cert
+95:57:19…b266, as before). 0.1.3 is the series' top bar (series D1.11): the name with the
+number of displays, the Theme icon, the Settings gear, behind which How it measures and the
+Updates card moved. 0.1.2 brought the Theme icon, 0.1.1 the updates from GitHub (series D1.6).
+On the owner's Pixel: a release-signed 0.1.0 test build with the updater, so it can take 0.1.3
+from GitHub (series *V-updates*). Not yet seen by anyone: the Presets sheet, the table, four
+displays, cm, a tablet, the top bar.
 
 ## Next
 1. The owner's V-M1 round (`VERIFY.md`), mainly the Presets sheet.

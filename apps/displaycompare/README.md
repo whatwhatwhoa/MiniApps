@@ -21,8 +21,8 @@ series. Its only internet use is checking GitHub for its own updates.
 4. Open **Display Compare**.
 
 **Updating:** when a newer release is out, a note at the top says so: tap **Update to …**;
-Android asks before it installs, and your displays stay. The **Updates** card at the bottom
-has **Check for updates** and the once-a-day check (switch it off to stop it).
+Android asks before it installs, and your displays stay. The **Updates** card behind the gear
+(top right) has **Check for updates** and the once-a-day check (switch it off to stop it).
 
 ## Using it
 
@@ -34,7 +34,10 @@ The screen, top to bottom:
   **Height** and **Pixel density**. Tap the (i) on any of them for how it is worked out.
 - **A card per display** (A, B, C, D, each in its own color): **Presets**, **Diagonal** with
   − and +, **Shape**, **Resolution (optional)**, **Turn portrait**, **Remove**.
-- **All displays**: every number side by side. **How it measures**: the fine print.
+- **All displays**: every number side by side.
+
+At the top: the name with the number of displays, the theme icon (Auto, Light or Dark) and the
+gear: it opens **How it measures** (the fine print) and **Updates**; tap it again to go back.
 
 First steps: the app opens with a 27″ 1440p monitor (A) and a 34″ ultrawide (B). Change
 either, or tap **Add display** for up to four.

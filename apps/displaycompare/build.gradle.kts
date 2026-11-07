@@ -17,8 +17,8 @@ android {
         applicationId = "io.github.whatwhatwhoa.displaycompare"
         minSdk = 31
         targetSdk = 37
-        versionCode = 3
-        versionName = "0.1.2"
+        versionCode = 4
+        versionName = "0.1.3"
     }
 
     // The release key stays outside the repo; this app's own local.properties (gitignored, next to

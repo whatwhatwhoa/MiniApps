@@ -17,8 +17,8 @@ android {
         applicationId = "io.github.whatwhatwhoa.scan"
         minSdk = 31
         targetSdk = 37
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.1.1"
     }
 
     // The release key stays outside the repo; this app's own local.properties (gitignored, next to

@@ -18,10 +18,12 @@ it when the owner confirms. An app's own checks are in its `docs/VERIFY.md`.
 ## V-stack-look — the Stack look in every app (2026-11-06)
 - [ ] Calculator and Scan: the app's name, the first tab, bold and larger than the other
       tabs; the accent line under the open tab level with the others; nothing cut at 130 %.
-- [ ] Calculator and Scan: the gear right of the Theme icon opens Settings and shows it is
-      open; a second tap or the app's name goes back; the gear reads as a gear in both themes.
-- [ ] Power Meter: header "Power Meter" with "monitoring on/off", tabs Now · History · Settings
-      on top (no bottom bar); cards, segmented choices and buttons look like Display Compare's.
+- [ ] Every app's top bar (D1.11): the gear right of the Theme icon opens Settings and shows
+      it is open; a second tap or the app's name goes back; the gear reads in both themes.
+- [ ] Power Meter: *Power Meter · History* on top, the first is the live reading; with
+      monitoring off, its card says so; cards, choices and buttons look like Display Compare's.
+- [ ] Display Compare: the number of displays by its name; How it measures and Updates behind
+      the gear; the mat still stays put on a phone.
 - [ ] Power Meter: charging green, draining orange, on Now and in the History charts.
 - [ ] Power Meter on a tablet (≥ 600 dp): tabs on top, two columns.
 - [ ] Daily Note: the page and widget unchanged; the paper sheet's labels, Size and Font
