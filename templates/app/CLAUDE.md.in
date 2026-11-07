@@ -1,0 +1,23 @@
+# __NAME__ — app rules (keep this file short; it loads with the series' CLAUDE.md)
+
+<What it is in three lines: what it does, for whom, on which devices.> Package
+`io.github.whatwhatwhoa.__APP__`, module `:__APP__`. Why and how: `docs/architecture.md`.
+The series' rules, commands and look: `../../CLAUDE.md` (loaded with this file).
+
+## Read before working
+| Task | Read |
+|---|---|
+| Any | `docs/HANDOFF.md` (state, next, waiting on the owner) |
+| Pick or plan work | `docs/TASKS.md`: the first unchecked task under *Open*, or the owner's explicit ask |
+| How it works | `docs/architecture.md` |
+| Why something is the way it is | `docs/decisions/INDEX.md`, then the one entry |
+| Hand-testing with the owner | `docs/VERIFY.md` (made with the first hand test) |
+| Traps of this app only | `docs/gotchas.md` (made with the first one; shared traps are the series') |
+
+## Hard rules (this app; the series' rules apply too)
+1. <The owner's own words that bound the app, quoted, and what they rule out.>
+
+## Commands (this app; from the series root)
+- Build + lint: `JAVA_HOME="$HOME/AppData/Local/Android/jdk-21" ./gradlew :__APP__:assembleDebug :__APP__:lintDebug`
+- Run: `adb -s <dev> shell am start -n io.github.whatwhatwhoa.__APP__/.MainActivity`
+- Release asset name: `__ASSET__-<version>.apk`
