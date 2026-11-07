@@ -87,13 +87,14 @@ Three tabs: at the bottom on a phone, down the side on a tablet.
 
 ## Building it yourself
 
-With JDK 21 and the Android SDK (platform 37):
+Power Meter is built in the [Mini Apps](../../README.md) series repo. With JDK 21 and the Android SDK
+(platform 37), from that repo's root:
 
 ```
-./gradlew assembleDebug
-adb install -r app/build/outputs/apk/debug/app-debug.apk
+./gradlew :powermeter:assembleDebug
+adb install -r apps/powermeter/build/outputs/apk/debug/powermeter-debug.apk
 ```
 
-`./gradlew assembleRelease` gives a small unsigned APK; sign it with your own key to install it.
+`./gradlew :powermeter:assembleRelease` gives a small unsigned APK; sign it with your own key to install it.
 
 Power Meter is open source under the [MIT License](LICENSE).

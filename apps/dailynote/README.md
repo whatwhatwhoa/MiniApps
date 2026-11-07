@@ -57,14 +57,15 @@ Do this on the phone itself.
 
 ## Building it yourself
 
-With JDK 21 and the Android SDK (platform 37):
+Daily Note is built in the [Mini Apps](../../README.md) series repo. With JDK 21 and the Android SDK
+(platform 37), from that repo's root:
 
 ```
-./gradlew assembleDebug
-adb install -r app/build/outputs/apk/debug/app-debug.apk
+./gradlew :dailynote:assembleDebug
+adb install -r apps/dailynote/build/outputs/apk/debug/dailynote-debug.apk
 ```
 
-`./gradlew assembleRelease` gives a small unsigned APK; sign it with your own key to install
+`./gradlew :dailynote:assembleRelease` gives a small unsigned APK; sign it with your own key to install
 it. The papers are drawn in code as vector shapes (`Paper.kt`); there are no image files.
 
 Daily Note is open source under the [MIT License](LICENSE). The handwriting font is

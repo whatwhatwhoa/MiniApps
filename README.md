@@ -1,26 +1,39 @@
 # Mini Apps
 
-Small, plain Android apps for phones and tablets, built together: one Gradle build, one look
-(the Stack design, in the shared `:stack` module), one set of notes.
+**Small, plain Android apps for phones and tablets.** Free, no ads, no accounts, no tracking.
+Each does one job; all of them share one look.
 
-| App | What it does | Folder |
-|---|---|---|
-| Power Meter | Battery power in and out, history, sessions, screen-off drain, alerts | `apps/powermeter` |
-| Daily Note | One page of paper to jot on, and a full-page widget | `apps/dailynote` |
-| Display Compare | Display sizes compared to scale: monitors, TVs, laptops, tablets, phones | `apps/displaycompare` |
+| App | What it does | Download | Guide |
+|---|---|---|---|
+| **Display Compare** | Compare display sizes to scale: monitors, TVs, laptops, tablets, phones | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Display+Compare&expanded=true) | [README](apps/displaycompare/README.md) |
+| **Power Meter** | See the watts going into or out of your battery: charging speed, drain, history, alerts | [⬇ APK](https://github.com/whatwhatwhoa/PowerMeter/releases/latest) | [README](apps/powermeter/README.md) |
+| **Daily Note** | One page of paper to jot the day on, and a full-page widget | [⬇ APK](https://github.com/whatwhatwhoa/DailyNote/releases/latest) | [README](apps/dailynote/README.md) |
 
-Each app's own README (where it has one) says how to install and use it.
+Android 12 or newer. Power Meter's and Daily Note's releases so far are in their first repos
+(linked above); new releases of every app come out here.
 
-## Build
-JDK 21 and the Android SDK; from this folder:
+## Install
+
+1. On your phone, open the app's download link and tap its **…apk** under *Assets*.
+2. Open the downloaded file. If Android asks, allow installs from your browser (*Allow from
+   this source*), then go back and tap **Install**.
+3. If Play Protect warns that it doesn't know the app, tap **More details → Install anyway**.
+
+To update an app, install a newer APK over the old one; its data stays.
+
+## Building them yourself
+
+With JDK 21 and the Android SDK (platform 37), from this folder:
 
 ```
-./gradlew :displaycompare:assembleDebug      # one app
+./gradlew :displaycompare:assembleDebug      # one app (powermeter, dailynote, displaycompare)
 ./gradlew assembleDebug                      # every app
 ```
 
-A new app: `py tools/new_app.py <folder> "<Name>"` (see `docs/new-app.md`).
+The APKs land in `apps/<app>/build/outputs/apk/`. Kotlin and Jetpack Compose; the shared look is
+the `stack` module.
 
-Kotlin, Jetpack Compose and Material 3. The Stack fonts (Instrument Sans, JetBrains Mono) and
-Daily Note's Patrick Hand are under the SIL Open Font License (`stack/licenses/`,
-`apps/dailynote/licenses/`).
+## License
+
+[MIT](LICENSE). The fonts are under the SIL Open Font License: Instrument Sans and JetBrains
+Mono (`stack/licenses/`), and Daily Note's Patrick Hand (`apps/dailynote/licenses/`).
