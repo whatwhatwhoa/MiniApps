@@ -14,5 +14,10 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DailyNote"
-include(":app")
+rootProject.name = "MiniApps"
+
+// Each app is a module under apps/<name>/, built as :<name> (./gradlew :powermeter:assembleDebug).
+for (app in listOf("powermeter", "dailynote")) {
+    include(":$app")
+    project(":$app").projectDir = file("apps/$app")
+}
