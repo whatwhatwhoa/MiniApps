@@ -4,9 +4,10 @@ Built but not hand-tested, for changes that touch every app. One section per cha
 it when the owner confirms. An app's own checks are in its `docs/VERIFY.md`.
 
 ## V-updates — updates from GitHub in every app (2026-11-07)
-- [ ] Power Meter (the Pixel keeps a 0.1.0 test build for this): on opening, "Power Meter 0.2.0
-      is out" at the top; *Update to 0.2.0* asks once to allow installs from Power Meter, then
-      downloads, Android's installer asks, and 0.2.0 opens with the history kept.
+- [ ] Display Compare (the Pixel keeps a 0.1.0 test build for this): on opening, "Display
+      Compare 0.1.1 is out" at the top; *Update to 0.1.1* asks once to allow installs from it,
+      then downloads, Android's installer asks, and 0.1.1 opens with the displays kept.
+- [ ] Daily Note (a 0.2.0 test build): the paper sheet → Updates offers 0.3.0; the note stays.
 - [ ] *Not now* hides the note; Settings → Updates still offers the version.
 - [ ] Settings → Updates in each app: its version, *Check for updates* → "Up to date: … is the
       latest release."

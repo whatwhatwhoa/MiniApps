@@ -7,12 +7,12 @@ open, delete what is resolved, never append history (git and `docs/decisions/` h
 `powermeter-v0.2.0`, `PowerMeter-0.2.0.apk`, 2.43 MB, cert 7760ce6a…c869 as 0.1.0's); 0.1.0 was
 copied there from the first repo, now archived. 0.2.0 carries the Stack look, M2 alerts, M3 (a
 readout on every chart by touch, a rolling average under the big number, 10 s by default) and
-updates from GitHub (series D1.6). On the owner's Pixel: a release-signed 0.1.0 test build with
-all of that, so it should offer 0.2.0 from GitHub (series *V-updates*). The TCL phone still has
+updates from GitHub (series D1.6). On the owner's Pixel: the 0.2.0 release (a cold start ran clean;
+the phone was locked, so the screen wasn't seen). The TCL phone still has
 the signed 0.1.0 without the updater.
 
 ## Next
-1. The owner tries M3 (`VERIFY.md` *V-M3*) and the update to 0.2.0 (series *V-updates*).
+1. The owner tries M3 (`VERIFY.md` *V-M3*).
 2. New README screenshots: `docs/screenshots/` still show the look before the Stack one.
 
 ## Waiting on the owner

@@ -8,7 +8,9 @@ level**: carry forward what is open, delete what is resolved, never append histo
 Display Compare 0.1.1, plus the old releases copied from the first repos (now archived). Every
 app updates itself from those releases (`:update`, series D1.6). The old local folders
 `C:\Projects\PowerMeter` and `DailyNote` are in the Recycle Bin (T1.9; keys and passwords
-checked in the backup first). All four are on the owner's Pixel.
+checked in the backup first). All four are on the owner's Pixel: Power Meter 0.2.0 and
+Calculator 0.1.0 as the releases (a cold start ran clean, the phone was locked), Display
+Compare and Daily Note as older test builds with the updater, for the update test.
 
 ## Apps (one line each; state is in each app's HANDOFF)
 - `apps/powermeter`: Power Meter 0.2.0 released 2026-11-07 (chart readout, rolling average, Stack look, alerts, updates).
@@ -17,8 +19,8 @@ checked in the backup first). All four are on the owner's Pixel.
 - `apps/displaycompare`: Display Compare 0.1.1 released 2026-11-07 (updates).
 
 ## Next
-1. The owner's update test on the Pixel (`VERIFY.md` *V-updates*): Power Meter there is a 0.1.0
-   test build, so it should offer 0.2.0.
+1. The owner's update test on the Pixel (`VERIFY.md` *V-updates*): Display Compare there is a
+   0.1.0 test build and Daily Note a 0.2.0 one, so they should offer 0.1.1 and 0.3.0.
 2. The owner looks at the Stack look (*V-stack-look*) and the apps' own V- lists.
 
 ## Waiting on the owner
