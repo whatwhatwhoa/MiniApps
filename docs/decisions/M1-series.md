@@ -90,3 +90,22 @@ Owner: "make sure the updated light/dark mode icon all of the apps get it". `The
 too (0.2.1 and 0.1.2, nothing else changed). Daily Note has no theme switch: its paper is
 light whatever the system theme, so it gets no icon.
 Status: built and released 2026-11-07 (Power Meter 0.2.1, Display Compare 0.1.2).
+
+### D1.9 · 2026-11-07 · The app's name larger in a one-row header
+Owner: "For all the apps that have the single row, make the name bigger than the other tabs
+... That should be the bolded main tab font." `StackTabs(brand = true)` sets the first tab in
+`StackType.h1` (Instrument Sans Bold 19 sp, the header title of the two-row apps) and the rest
+in the 15 sp tab style; Calculator and Scan use it. The row is bottom-aligned so the accent
+lines stay level. A compact tab's side padding went from 9 to 7 dp: measured with the fonts,
+Calculator's row is then about 323 dp at the normal font size (a 360 dp phone has 328) and
+about 390 dp at 130 % (the owner's Pixel has 409).
+Status: built 2026-11-07, not seen on a screen (the Pixel was locked), not released.
+
+### D1.10 · 2026-11-07 · Settings as a gear in a one-row header
+Owner: "let's make settings to the settings icon". In Calculator and Scan the Settings tab is
+gone; `SettingsIconButton` (a gear in the Theme icon's 40 dp box, both drawn on a canvas, no
+icon library) sits right of the Theme icon, rightmost as settings usually are. Open, it is
+filled with the soft accent and edged with the accent (the tabs then show none selected); a
+second tap, or the app's name, goes back. Scan's row is then its name alone. Power Meter keeps
+its Settings tab under its header (two rows, not asked).
+Status: built 2026-11-07, not seen on a screen, not released.

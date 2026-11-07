@@ -47,8 +47,9 @@ Digits are tabular wherever they line up (`TNUM`, already in the figure styles).
 | Compose | Web | Use |
 |---|---|---|
 | `StackHeader(title, count)` | `header .brand` | title + mono count left, actions right (the Theme icon by default); the count wraps under the title at large fonts |
-| `StackTabs(labels, selected, …)` | `.tabs` | views of one app, under the header; `compact` narrows them to share a row |
+| `StackTabs(labels, selected, …)` | `.tabs` | views of one app, under the header; `compact` narrows them to share a row; `brand` sets the first (the app's name, in a one-row app) in the bold `h1` |
 | `ThemeIconButton()` | — | the Theme button, an icon in every app (Auto half circle, Light sun, Dark moon) |
+| `SettingsIconButton(selected, onClick)` | — | Settings as a gear beside the Theme icon, in a one-row header; soft accent fill and accent edge while open |
 | `StackCard(title, info, stripe, action)` | `.card` | a separate object; `stripe` = a 4 dp category or series edge |
 | `Tile` + `TileGrid(columns, …)` | `.tiles` | exactly four KPIs: label + (i), value + unit, a context line |
 | `Seg(options, selected, …)` | `.seg` | one choice of a few; wraps when it doesn't fit |

@@ -25,6 +25,8 @@ the app level, and a quick start for the next app. Decisions: `decisions/M1-seri
 - [ ] T1.14 Archive the first repos, on the owner's OK: their README line first, then archive (D1.7).
 - [x] T1.15 Scan, the fifth app, ported from NZFieldDocs' Scan Stack (owner) — 2026-11-07: its own M1 (`apps/scan`), 0.1.0 released
 - [x] T1.16 The Theme icon in every app (owner) — 2026-11-07: `StackHeader`'s default; Power Meter 0.2.1, Display Compare 0.1.2 (D1.8)
+- [x] T1.17 The app's name larger and bold in the one-row apps (owner) — 2026-11-07: `StackTabs(brand)`, Calculator and Scan (D1.9); not released
+- [x] T1.18 Settings as a gear in the one-row apps (owner) — 2026-11-07: `SettingsIconButton`, Calculator and Scan (D1.10); not released
 
 ### Later
 - √, π and ⌫ in the cut Stack fonts (`tools/cut_fonts.py`): they come from Android's fallback

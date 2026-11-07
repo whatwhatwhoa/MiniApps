@@ -22,5 +22,9 @@ release, installed by adb, not opened since (the phone was in use, then locked).
 - D1.2–D1.8 as built: the port's choices, the pages kept in the app, snap on by default, the
   filter colors.
 
+## On main, not released
+*Scan* larger and bold, Settings as a gear beside the Theme icon (series D1.9, D1.10):
+pushed 2026-11-07, not seen on a screen; 0.1.1 when the owner asks.
+
 ## Uncommitted
 Nothing.

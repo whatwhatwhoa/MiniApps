@@ -34,6 +34,11 @@ as test builds with the updater, for the update test.
   releases' notes already call the first repos archived).
 - Updates for PortalLauncher and Tablet Debloat too (*Later* in TASKS)?
 
+## On main, not released
+T1.17 and T1.18 (D1.9, D1.10): in Calculator and Scan the name is larger and bold, and
+Settings is a gear beside the Theme icon. Pushed 2026-11-07, not seen on a screen;
+Calculator 0.1.2 and Scan 0.1.1 when the owner asks.
+
 ## Uncommitted
 Nothing.
 

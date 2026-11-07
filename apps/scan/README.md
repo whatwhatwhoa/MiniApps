@@ -28,13 +28,13 @@ updates** and the once-a-day check (switch it off to stop it).
 
 ## Find your way around
 
-Two tabs along the top (the number by **Scan** is how many pages you have), and the theme icon
-at their right (Auto, Light or Dark):
+**Scan** at the top left (the number by it is how many pages you have), and two icons at the
+right: the theme (Auto, Light or Dark) and the gear for Settings:
 - **Scan:** *Take photo*, *Add photos* and *Export PDF* at the top; your pages as a row of
   thumbnails (a list beside the photo on a tablet); the open page, big, with its tools above it
   and *Previous* / *Next* under it.
-- **Settings:** crosshair snap, how much space your pages take, *Remove all pages*, updates,
-  the filters, and how it works.
+- **Settings** (the gear; tap it or **Scan** to go back): crosshair snap, how much space your
+  pages take, *Remove all pages*, updates, the filters, and how it works.
 
 Each page has two views, chosen above it:
 - **Crop:** the photo with the crop over it. *Auto-detect edges* looks again, *Use whole

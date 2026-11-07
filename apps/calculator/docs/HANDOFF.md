@@ -18,5 +18,9 @@ header, a long formula, the Functions editor, a tablet, landscape.
 ## Waiting on the owner
 - D1.1–D1.5 and D1.7 as built, D1.4 (percent) and D1.2 (after =, an operator goes on) most.
 
+## On main, not released
+The name larger and bold, Settings as a gear beside the Theme icon (series D1.9, D1.10):
+pushed 2026-11-07, not seen on a screen; 0.1.2 when the owner asks.
+
 ## Uncommitted
 Nothing.

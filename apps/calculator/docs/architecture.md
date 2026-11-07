@@ -53,8 +53,9 @@ one key, one ⌫, one arrow press); a tap in the formula goes to the nearest suc
   the angle unit, history and functions (JSON), so the app opens where it was left.
 
 ## Screens
-One row on top: the tabs Calculator · Functions · Settings (the first tab is the app's name, so
-there is no title above them) and `ThemeIconButton` from `:stack` at the right; under it the
+One row on top: the tabs Calculator · Functions (the first tab is the app's name, so there is no
+title above them; it is set larger and bold, series D1.9), then `ThemeIconButton` and
+`SettingsIconButton` (the gear opens Settings, series D1.10) from `:stack` at the right; under it the
 series' update note while a newer release is out. The angle unit shows on the Deg/Rad key.
 - **Calculator** (fills the screen, no page scroll): history (newest at the bottom, *Clear
   history* above the oldest), the display (the formula in JetBrains Mono, right-aligned, 34 sp

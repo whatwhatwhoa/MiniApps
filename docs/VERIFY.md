@@ -16,6 +16,10 @@ it when the owner confirms. An app's own checks are in its `docs/VERIFY.md`.
 - [ ] *Check once a day* off: nothing is asked on opening.
 
 ## V-stack-look — the Stack look in every app (2026-11-06)
+- [ ] Calculator and Scan: the app's name, the first tab, bold and larger than the other
+      tabs; the accent line under the open tab level with the others; nothing cut at 130 %.
+- [ ] Calculator and Scan: the gear right of the Theme icon opens Settings and shows it is
+      open; a second tap or the app's name goes back; the gear reads as a gear in both themes.
 - [ ] Power Meter: header "Power Meter" with "monitoring on/off", tabs Now · History · Settings
       on top (no bottom bar); cards, segmented choices and buttons look like Display Compare's.
 - [ ] Power Meter: charging green, draining orange, on Now and in the History charts.

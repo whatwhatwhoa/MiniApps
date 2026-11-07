@@ -28,10 +28,11 @@ has **Check for updates** and the once-a-day check (switch it off to stop it).
 
 ## Find your way around
 
-Three tabs along the top, and the theme icon at their right (Auto, Light or Dark):
+Two tabs along the top, and two icons at their right: the theme (Auto, Light or Dark) and the
+gear for Settings:
 - **Calculator:** your history at the top, the formula under it, a strip of functions, the keys.
 - **Functions:** the functions you made, and the editor for new ones.
-- **Settings:** degrees or radians, history, updates, and how a formula is read.
+- **Settings** (the gear; tap it again to go back): degrees or radians, history, updates, and how a formula is read.
 
 The keys that edit the formula:
 - **◀ ▶** move the cursor (or tap anywhere in the formula).

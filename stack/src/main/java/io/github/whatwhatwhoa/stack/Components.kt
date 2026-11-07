@@ -45,6 +45,7 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -113,54 +114,101 @@ fun StackHeader(
 @Composable
 fun ThemeIconButton(modifier: Modifier = Modifier) {
     val t = LocalThemeControl.current
-    val c = Stack.colors
-    Box(
-        modifier
-            .size(40.dp)
-            .clip(ButtonShape)
-            .background(c.panel)
-            .border(1.dp, c.line, ButtonShape)
-            .clickable(role = Role.Button) { t.set(t.mode.next()) }
+    IconBox(
+        modifier,
+        Modifier.clickable(role = Role.Button) { t.set(t.mode.next()) }
             .semantics { contentDescription = "Theme: ${t.mode.label}; tap for ${t.mode.next().label}" },
-        contentAlignment = Alignment.Center,
-    ) {
-        Canvas(Modifier.size(20.dp)) {
-            val ink = c.ink
-            val stroke = 1.6.dp.toPx()
-            val mid = Offset(size.width / 2, size.height / 2)
-            when (t.mode) {
-                ThemeMode.Auto -> {
-                    val r = size.minDimension * 0.42f
-                    drawCircle(ink, r, mid, style = Stroke(stroke))
-                    drawArc(ink, 90f, 180f, true, Offset(mid.x - r, mid.y - r), Size(2 * r, 2 * r))
+    ) { ink, panel ->
+        val stroke = 1.6.dp.toPx()
+        val mid = Offset(size.width / 2, size.height / 2)
+        when (t.mode) {
+            ThemeMode.Auto -> {
+                val r = size.minDimension * 0.42f
+                drawCircle(ink, r, mid, style = Stroke(stroke))
+                drawArc(ink, 90f, 180f, true, Offset(mid.x - r, mid.y - r), Size(2 * r, 2 * r))
+            }
+            ThemeMode.Light -> {
+                val r = size.minDimension * 0.22f
+                drawCircle(ink, r, mid, style = Stroke(stroke))
+                for (k in 0 until 8) {
+                    val a = Math.toRadians(k * 45.0)
+                    val dx = kotlin.math.cos(a).toFloat()
+                    val dy = kotlin.math.sin(a).toFloat()
+                    val r1 = size.minDimension * 0.34f
+                    val r2 = size.minDimension * 0.48f
+                    drawLine(ink, Offset(mid.x + dx * r1, mid.y + dy * r1), Offset(mid.x + dx * r2, mid.y + dy * r2),
+                        stroke, StrokeCap.Round)
                 }
-                ThemeMode.Light -> {
-                    val r = size.minDimension * 0.22f
-                    drawCircle(ink, r, mid, style = Stroke(stroke))
-                    for (k in 0 until 8) {
-                        val a = Math.toRadians(k * 45.0)
-                        val dx = kotlin.math.cos(a).toFloat()
-                        val dy = kotlin.math.sin(a).toFloat()
-                        val r1 = size.minDimension * 0.34f
-                        val r2 = size.minDimension * 0.48f
-                        drawLine(ink, Offset(mid.x + dx * r1, mid.y + dy * r1), Offset(mid.x + dx * r2, mid.y + dy * r2),
-                            stroke, StrokeCap.Round)
-                    }
-                }
-                ThemeMode.Dark -> {
-                    // A crescent: the disc, with a second disc in the panel color cut out of it.
-                    val r = size.minDimension * 0.42f
-                    drawCircle(ink, r, mid)
-                    drawCircle(c.panel, r * 0.86f, Offset(mid.x + r * 0.55f, mid.y - r * 0.35f))
-                }
+            }
+            ThemeMode.Dark -> {
+                // A crescent: the disc, with a second disc in the button's color cut out of it.
+                val r = size.minDimension * 0.42f
+                drawCircle(ink, r, mid)
+                drawCircle(panel, r * 0.86f, Offset(mid.x + r * 0.55f, mid.y - r * 0.35f))
             }
         }
     }
 }
 
 /**
+ * Settings as an icon (a gear) beside the Theme icon, in a one-row header (owner: "make settings
+ * to the settings icon"). [selected] while the Settings page is open: then it is filled with
+ * the soft accent and edged with the accent, as a tab would be underlined.
+ */
+@Composable
+fun SettingsIconButton(selected: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    IconBox(
+        modifier,
+        Modifier.selectable(selected, role = Role.Tab, onClick = onClick)
+            .semantics { contentDescription = "Settings" },
+        selected = selected,
+    ) { ink, panel ->
+        val mid = Offset(size.width / 2, size.height / 2)
+        val s = size.minDimension
+        // Eight teeth, the body over them, and the hole in the button's color.
+        for (k in 0 until 8) {
+            val a = Math.toRadians(k * 45.0 + 22.5)
+            val dx = kotlin.math.cos(a).toFloat()
+            val dy = kotlin.math.sin(a).toFloat()
+            drawLine(ink, Offset(mid.x + dx * s * 0.25f, mid.y + dy * s * 0.25f),
+                Offset(mid.x + dx * s * 0.47f, mid.y + dy * s * 0.47f), s * 0.17f, StrokeCap.Butt)
+        }
+        drawCircle(ink, s * 0.33f, mid)
+        drawCircle(panel, s * 0.14f, mid)
+    }
+}
+
+/**
+ * The 40 dp square both header icons sit in. [action] (the click) goes inside the clip, so its
+ * ripple keeps the corners; [draw] gets the ink and the button's own color.
+ */
+@Composable
+private fun IconBox(
+    modifier: Modifier,
+    action: Modifier,
+    selected: Boolean = false,
+    draw: DrawScope.(ink: Color, panel: Color) -> Unit,
+) {
+    val c = Stack.colors
+    val fill = if (selected) c.accentSoft else c.panel
+    Box(
+        modifier
+            .size(40.dp)
+            .clip(ButtonShape)
+            .background(fill)
+            .border(1.dp, if (selected) c.accent else c.line, ButtonShape)
+            .then(action),
+        contentAlignment = Alignment.Center,
+    ) {
+        Canvas(Modifier.size(20.dp)) { draw(c.ink, fill) }
+    }
+}
+
+/**
  * Tabs under the header: muted labels, the selected one in ink over a 2 dp accent line.
- * [compact] narrows each tab, for a row that also holds the header's buttons.
+ * [compact] narrows each tab, for a row that also holds the header's buttons. [brand]: the first
+ * tab is the app's name, the header of a one-row app, so it is set in the title's bold [StackType.h1],
+ * larger than the other tabs (owner: "the bolded main tab font").
  */
 @Composable
 fun StackTabs(
@@ -170,6 +218,7 @@ fun StackTabs(
     modifier: Modifier = Modifier,
     counts: List<String?> = emptyList(),
     compact: Boolean = false,
+    brand: Boolean = false,
 ) {
     val c = Stack.colors
     Box(
@@ -177,7 +226,12 @@ fun StackTabs(
             drawRect(c.line, Offset(0f, size.height - 1.dp.toPx()), Size(size.width, 1.dp.toPx()))
         }
     ) {
-        Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+        // Bottom-aligned, so the accent lines sit on the one line even when the name is taller.
+        Row(
+            Modifier.horizontalScroll(rememberScrollState()),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.Bottom,
+        ) {
             labels.forEachIndexed { i, label ->
                 val on = i == selected
                 Row(
@@ -188,11 +242,14 @@ fun StackTabs(
                                 Size(size.width, 2.dp.toPx()))
                         }
                         .heightIn(min = 44.dp)
-                        .padding(horizontal = if (compact) 9.dp else 14.dp, vertical = 10.dp),
+                        // 7 dp in a compact row: with the larger name, Calculator's row still
+                        // fits a 360 dp phone at the normal font size.
+                        .padding(horizontal = if (compact) 7.dp else 14.dp, vertical = 10.dp),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(6.dp),
                 ) {
-                    Text(label, style = StackType.tab, color = if (on) c.ink else c.muted, maxLines = 1)
+                    val style = if (brand && i == 0) StackType.h1 else StackType.tab
+                    Text(label, style = style, color = if (on) c.ink else c.muted, maxLines = 1)
                     counts.getOrNull(i)?.let {
                         Text(it, Modifier.background(c.grid, CircleShape).padding(horizontal = 7.dp, vertical = 1.dp),
                             style = StackType.mono.copy(fontSize = 11.5.sp, fontWeight = FontWeight.Medium),

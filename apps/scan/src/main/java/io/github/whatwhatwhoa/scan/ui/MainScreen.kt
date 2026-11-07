@@ -24,17 +24,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import io.github.whatwhatwhoa.scan.ScanModel
 import io.github.whatwhatwhoa.stack.BlockGap
+import io.github.whatwhatwhoa.stack.SettingsIconButton
 import io.github.whatwhatwhoa.stack.Stack
 import io.github.whatwhatwhoa.stack.StackTabs
 import io.github.whatwhatwhoa.stack.ThemeIconButton
 import io.github.whatwhatwhoa.stack.stackColumn
 import io.github.whatwhatwhoa.update.UpdateBanner
 
-private val tabs = listOf("Scan", "Settings")
+private val tabs = listOf("Scan")
+
+/** Settings is the gear at the right, not a tab (owner); `tab` holds it as the index after the tabs. */
+private const val SETTINGS = 1
 
 /**
- * The Stack frame: the tabs as the header (the first is the app's name, its count the pages),
- * the Theme icon, the update note when there is one, then the tab. Scan fills the screen, so
+ * The Stack frame: the app's name as the one tab (its count the pages), the Theme and Settings
+ * icons, the update note when there is one, then the page. Scan fills the screen, so
  * the mat gets every spare dp; Settings scrolls.
  */
 @Composable
@@ -52,9 +56,10 @@ fun MainScreen(model: ScanModel) {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                StackTabs(tabs, tab, { tab = it }, Modifier.weight(1f), counts = listOf("${model.pages.size}", null),
-                    compact = true)
+                StackTabs(tabs, if (tab == SETTINGS) -1 else tab, { tab = it }, Modifier.weight(1f),
+                    counts = listOf("${model.pages.size}"), compact = true, brand = true)
                 ThemeIconButton()
+                SettingsIconButton(tab == SETTINGS, { tab = if (tab == SETTINGS) 0 else SETTINGS })
             }
             UpdateBanner(Modifier.padding(top = 10.dp))
             when (tab) {
