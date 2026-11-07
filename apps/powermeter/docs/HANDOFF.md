@@ -3,23 +3,20 @@
 Current state only. **Rewrite this file at the end of every session**: carry forward what is
 open, delete what is resolved, never append history (git and `docs/decisions/` hold it).
 
-**State (2026-11-06):** 0.1.0 is the release on GitHub. M2 Alerts is built and still
-uncommitted (Settings → Alerts: level, charging power, drain or temperature, at or above /
-below a value, for at least a time; D2.1–D2.5). Since 2026-11-06 the app lives in the series
-(`C:\Projects\MiniApps\apps\powermeter`) and wears the Stack look: Stack palette and fonts, a
-header with "monitoring on/off" and the Theme button, tabs on top instead of the bottom bar and
-rail, Stack cards, segments and buttons (series D1.2); text without its own color was black
-on dark cards until the evening's `:stack` fix. That build is on the owner's Pixel
-(release-signed debug; history kept). Lint: UseKtx, DataExtractionRules. Release APK 2.38 MB.
-Not yet seen by the owner: the new look; an alert actually firing.
+**State (2026-11-07):** 0.2.0 is the release (versionCode 2), in the series repo (tag
+`powermeter-v0.2.0`, `PowerMeter-0.2.0.apk`, 2.43 MB, cert 7760ce6a…c869 as 0.1.0's); 0.1.0 was
+copied there from the first repo, now archived. 0.2.0 carries the Stack look, M2 alerts, M3 (a
+readout on every chart by touch, a rolling average under the big number, 10 s by default) and
+updates from GitHub (series D1.6). On the owner's Pixel: a release-signed 0.1.0 test build with
+all of that, so it should offer 0.2.0 from GitHub (series *V-updates*). The TCL phone still has
+the signed 0.1.0 without the updater.
 
 ## Next
-2. The owner looks at the Stack look (series `VERIFY.md` *V-stack-look*).
-4. New README screenshots: `docs/screenshots/` still show the look before the Stack one.
-5. A release (0.2.0) only when the owner asks; its download link moves to the series repo.
+1. The owner tries M3 (`VERIFY.md` *V-M3*) and the update to 0.2.0 (series *V-updates*).
+2. New README screenshots: `docs/screenshots/` still show the look before the Stack one.
 
 ## Waiting on the owner
-- Nothing (V-M1, V-M2 and the decisions they held were settled 2026-11-07).
+- D3.1, D3.2 as built: the cursor stays until Clear; the plain mean for the average.
 
 ## Uncommitted
 Nothing (M2 and the Stack look committed and pushed to the series repo 2026-11-06).

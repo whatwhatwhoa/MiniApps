@@ -10,6 +10,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -44,6 +45,7 @@ import io.github.whatwhatwhoa.stack.Stack
 import io.github.whatwhatwhoa.stack.StackHeader
 import io.github.whatwhatwhoa.stack.StackTabs
 import io.github.whatwhatwhoa.stack.stackColumn
+import io.github.whatwhatwhoa.update.UpdateBanner
 
 private val tabs = listOf("Now", "History", "Settings")
 
@@ -108,10 +110,14 @@ private fun App() {
             ) {
                 Box(Modifier.widthIn(max = if (wide) 1100.dp else 640.dp).stackColumn()
                     .padding(top = BlockGap, bottom = 32.dp)) {
-                    when (tab) {
-                        0 -> NowScreen(wide, monitoring) { setMonitoring(true) }
-                        1 -> HistoryScreen(wide, monitoring) { setMonitoring(true) }
-                        else -> SettingsScreen(monitoring, setMonitoring)
+                    Column(verticalArrangement = Arrangement.spacedBy(BlockGap)) {
+                        // There only while a newer release is out (series :update).
+                        UpdateBanner()
+                        when (tab) {
+                            0 -> NowScreen(wide, monitoring) { setMonitoring(true) }
+                            1 -> HistoryScreen(wide, monitoring) { setMonitoring(true) }
+                            else -> SettingsScreen(monitoring, setMonitoring)
+                        }
                     }
                 }
             }

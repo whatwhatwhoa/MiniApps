@@ -23,6 +23,15 @@ for a chosen time. Decisions: `decisions/M2-alerts.md`.
 - [x] T2.1 Alerts in Settings — 2026-11-04: rules, checked by background monitoring (D2.1–D2.4)
 - [x] T2.2 VERIFY round with the owner — 2026-11-07: settled on the owner's word, not hand-tested
 
+### M3 — Readings on the chart (owner, 2026-11-07)
+Goal: read any point of a chart, a steadier figure under the big number, and 0.2.0.
+Decisions: `decisions/M3-readout.md`.
+- [x] T3.1 Chart readout — 2026-11-07: tap or drag sideways, bubble and readout line, History shared (D3.1)
+- [x] T3.2 Rolling average, 10 s, set in Settings (owner, mid-session) — 2026-11-07 (D3.2)
+- [x] T3.3 Updates from GitHub (series D1.6) — 2026-11-07: note on top, card in Settings
+- [x] T3.4 Release 0.2.0 — 2026-11-07: series repo, `powermeter-v0.2.0` (D3.3)
+- [ ] T3.5 VERIFY round with the owner (`VERIFY.md` *V-M3*).
+
 ### Later
 - Home-screen widget or Quick Settings tile with the live watts.
 - Per-charger records: remember peak and average per charger rating.
@@ -30,4 +39,5 @@ for a chosen time. Decisions: `decisions/M2-alerts.md`.
 
 ## Done (one line each)
 - 0.1.0 released on GitHub with a signed APK, download link and user guide in the README —
-  2026-11-01 (owner's ask; D1.6)
+  2026-11-01 (owner's ask; D1.6); copied to the series repo 2026-11-07 (series D1.7)
+- 0.2.0 released in the series repo — 2026-11-07 (D3.3)

@@ -24,6 +24,11 @@ object Prefs {
         get() = sp.getLong("sample_ms", 1000L)
         set(v) = sp.edit().putLong("sample_ms", v).apply()
 
+    /** The rolling average under the big number on Now: the readings of the last this-many seconds. */
+    var averageSec: Int
+        get() = sp.getInt("average_sec", 10)
+        set(v) = sp.edit().putInt("average_sec", v).apply()
+
     var unit: CurrentUnit
         get() = CurrentUnit.entries[sp.getInt("unit", 0)]
         set(v) = sp.edit().putInt("unit", v.ordinal).apply()

@@ -55,6 +55,9 @@ fun HistoryScreen(wide: Boolean, monitoring: Boolean, onTurnOn: () -> Unit) {
         }
     }
 
+    // One cursor for both charts: a touch on either reads the same moment on each.
+    var cursor by remember(range) { mutableStateOf<Long?>(null) }
+
     val d = data
     val chips = @Composable {
         // The Stack period control: one segmented strip.
@@ -63,14 +66,26 @@ fun HistoryScreen(wide: Boolean, monitoring: Boolean, onTurnOn: () -> Unit) {
     val charts = @Composable {
         if (d != null) {
             // A gap of three buckets or more is time the meter wasn't running.
-            val gap = maxOf(30_000L, (d.to - d.from) / 400 * 3)
+            val bucket = (d.to - d.from) / 400
+            val gap = maxOf(30_000L, bucket * 3)
             val times = LongArray(d.rows.size) { d.rows[it].time }
-            Panel(title = "Power") {
-                Chart(times, FloatArray(d.rows.size) { d.rows[it].mw }, d.from, d.to, true, gap)
+            val mw = FloatArray(d.rows.size) { d.rows[it].mw }
+            val levels = FloatArray(d.rows.size) { d.rows[it].level.toFloat() }
+            val shown = cursor?.takeIf { it in d.from..d.to }
+            Panel(title = "Power", info = "Touch or drag along either chart to read a point; " +
+                "over a long range each point is the average of a few minutes.") {
+                Chart(
+                    times, mw, d.from, d.to, true, gap, cursor = shown, onCursor = { cursor = it },
+                    bubble = { i -> "${Format.dayClock(times[i])}  ${Format.signedWatts(mw[i].toDouble())}" },
+                )
+                Readout(shown?.let { t -> readout(d.rows, times, t, gap, bucket) }) { cursor = null }
             }
             Panel(title = "Battery level") {
-                Chart(times, FloatArray(d.rows.size) { d.rows[it].level.toFloat() }, d.from, d.to,
-                    false, gap, height = 120.dp)
+                Chart(
+                    times, levels, d.from, d.to, false, gap, height = 120.dp,
+                    cursor = shown, onCursor = { cursor = it },
+                    bubble = { i -> "${Format.dayClock(times[i])}  ${levels[i].toInt()}%" },
+                )
             }
         }
     }
@@ -94,6 +109,22 @@ fun HistoryScreen(wide: Boolean, monitoring: Boolean, onTurnOn: () -> Unit) {
             charts(); lists()
         }
     }
+}
+
+/** The history readout at [t]: power, current, level, temperature, and how long a point averages. */
+private fun readout(rows: List<Sample>, times: LongArray, t: Long, gap: Long, bucket: Long): String {
+    val i = nearest(times, t, gap)
+    if (i < 0) return "${Format.dayClock(t)}: not logged"
+    val r = rows[i]
+    return buildList {
+        add(Format.dayClock(r.time))
+        add(Format.signedWatts(r.mw.toDouble()))
+        add(Format.milliamps(r.ua))
+        add("${r.level}%")
+        // An average over rows where some had no temperature is no reading.
+        if (r.tempDeciC in -400..1000) add(Format.temp(r.tempDeciC))
+        if (bucket >= 60_000) add("average of ${Format.duration(bucket)}")
+    }.joinToString(" · ")
 }
 
 @Composable

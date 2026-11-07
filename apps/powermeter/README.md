@@ -4,9 +4,10 @@
 See what your device really takes in and draws: how fast a charger charges, what an app or
 standby costs.
 
-### [⬇ Download the latest APK](https://github.com/whatwhatwhoa/PowerMeter/releases/latest)
+### [⬇ Download the latest APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Power+Meter&expanded=true)
 
-Free, no ads, no account, no tracking, no internet. Android 12 or newer. About 2 MB.
+Free, no ads, no account, no tracking. Android 12 or newer. About 2 MB. Part of the
+[Mini Apps](../../README.md) series. Its only internet use is checking GitHub for its own updates.
 
 <p>
   <img src="docs/screenshots/now-charging.png" width="260" alt="Now tab while charging: 13.9 W into the battery, charger max 18 W, a 10-minute chart">
@@ -21,26 +22,28 @@ Free, no ads, no account, no tracking, no internet. Android 12 or newer. About 2
 Do this on the phone or tablet itself.
 
 1. **Download.** Open this page in the device's browser, tap **Download the latest APK** above,
-   then tap `PowerMeter-….apk` under *Assets*.
+   then tap `PowerMeter-….apk` under *Assets* (the top release is the newest).
 2. **Install.** Open the download. If Android says your browser isn't allowed to install apps,
    tap **Settings**, switch on **Allow from this source**, go back, and tap **Install**.
    If Play Protect warns about an unknown app, tap **Install anyway**.
 3. **Open Power Meter** from your app list. It starts measuring at once.
 
-**Updating:** download the new APK and install it over the old one. Your history and settings
-stay.
+**Updating:** when a newer release is out, a note at the top says so: tap **Update to …**.
+Android asks before it installs; your history and settings stay. Settings → **Updates** has
+**Check for updates** and the once-a-day check (switch it off to stop it).
 
 ## Find your way around
 
-Three tabs: at the bottom on a phone, down the side on a tablet.
+Three tabs along the top: Now, History, Settings. On a tablet each page has two columns.
 
 - **Now:** the live reading. The big number is the power going into the battery (green) or
-  coming out of it (amber), with current, voltage and level under it, the time to full or
-  empty, a 10-minute chart, the battery's details and the session in progress.
+  coming out of it (orange); under it the average of the last 10 seconds, then current,
+  voltage and level, the time to full or empty, a 10-minute chart, the battery's details and
+  the session in progress.
 - **History:** the last 1 h, 6 h, 24 h or 7 days: power and level charts, each stretch on
   battery or on power, and how fast the battery drains with the screen off.
-- **Settings:** background monitoring, how often the screen updates, °C or °F, the current
-  reading, how long to keep history, export and clear.
+- **Settings:** background monitoring, how often the screen updates, the average's length,
+  alerts, °C or °F, the current reading, how long to keep history, export and clear, updates.
 
 ## First steps
 
@@ -65,6 +68,16 @@ Three tabs: at the bottom on a phone, down the side on a tablet.
 - **…see what an app or game costs?** With background monitoring on and the device unplugged,
   use the app for a while, then open History → **1 h**: the power chart shows what it drew.
   For a quick look, the Now tab's 10-minute chart and its min · avg · max do the same.
+- **…read a point on a chart?** Tap the chart, or drag along it sideways. A bubble shows the
+  time and the watts there, and the line under the chart the whole reading (current,
+  voltage, level; on History also the temperature). **Clear** puts it away. On History the
+  power and level charts show the same moment.
+- **…get a steadier number?** The figure under the big number is the average of the last
+  10 seconds. Settings → **Average under the big number** sets 5 s, 10 s, 30 s, 1 min or 5 min.
+- **…get told when the battery reaches 80%?** Settings → **Alerts** → **Add alert**: Watch
+  **Battery level (%)**, **At or above**, Value 80, When **Plugged in**, then **Save**. Alerts
+  can also watch charging power, drain or temperature, held **For at least** a time. They need
+  background monitoring (saving the first alert turns it on) and notifications allowed.
 - **…compare charges?** History → **Sessions**: each charge with its levels, energy in, peak
   and duration.
 - **…keep the numbers?** Settings → **Export CSV** saves the log as a spreadsheet file.

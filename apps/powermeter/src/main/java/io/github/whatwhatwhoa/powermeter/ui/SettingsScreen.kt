@@ -29,6 +29,7 @@ import io.github.whatwhatwhoa.powermeter.Battery
 import io.github.whatwhatwhoa.powermeter.BuildConfig
 import io.github.whatwhatwhoa.powermeter.CurrentSign
 import io.github.whatwhatwhoa.powermeter.CurrentUnit
+import io.github.whatwhatwhoa.powermeter.Format
 import io.github.whatwhatwhoa.powermeter.Monitor
 import io.github.whatwhatwhoa.powermeter.Prefs
 import io.github.whatwhatwhoa.powermeter.Store
@@ -38,6 +39,10 @@ import kotlinx.coroutines.withContext
 import io.github.whatwhatwhoa.stack.FLabel
 import io.github.whatwhatwhoa.stack.Seg
 import io.github.whatwhatwhoa.stack.StackButton
+import io.github.whatwhatwhoa.update.UpdateCard
+
+/** The rolling-average windows on Now, in seconds; 10 s is the default. */
+private val averages = listOf(5, 10, 30, 60, 300)
 
 @Composable
 fun SettingsScreen(monitoring: Boolean, onMonitoring: (Boolean) -> Unit) {
@@ -80,6 +85,13 @@ fun SettingsScreen(monitoring: Boolean, onMonitoring: (Boolean) -> Unit) {
                 Prefs.sampleMs = listOf(1000L, 2000L, 5000L)[it]; Monitor.poke(); tick++
             }
             Caption("In the background the meter reads every 5 s, and not at all while the phone sleeps.")
+            Choice(
+                "Average under the big number", averages.map { Format.window(it) },
+                averages.indexOf(Prefs.averageSec).coerceAtLeast(0)
+            ) {
+                Prefs.averageSec = averages[it]; tick++
+            }
+            Caption("The mean of the readings in that time, on Now: steadier than one reading for judging a charger.")
         }
 
         // The tick makes the list redraw in °C or °F after the Display choice changes.
@@ -122,6 +134,8 @@ fun SettingsScreen(monitoring: Boolean, onMonitoring: (Boolean) -> Unit) {
                 StackButton("Clear history", onClick = { askClear = true })
             }
         }
+
+        UpdateCard()
 
         Panel(title = "About") {
             Text("Power Meter ${BuildConfig.VERSION_NAME}", style = MaterialTheme.typography.bodyLarge)

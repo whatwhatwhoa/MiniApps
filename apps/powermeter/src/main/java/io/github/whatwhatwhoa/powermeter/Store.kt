@@ -40,8 +40,8 @@ data class ScreenOff(
         else Double.NaN
 }
 
-/** One stored sample row: the average over a few seconds. */
-data class Row(val time: Long, val mw: Float, val level: Int)
+/** One history row: the average over a few seconds, or over a bucket of a longer range. */
+data class Row(val time: Long, val mw: Float, val level: Int, val ua: Long, val tempDeciC: Int)
 
 /** SQLite without a library: three small tables. */
 class Store private constructor(context: Context) :
@@ -89,20 +89,27 @@ class Store private constructor(context: Context) :
 
     fun points(from: Long): List<Point> =
         readableDatabase.rawQuery(
-            "SELECT t, mw, ua FROM samples WHERE t >= ? ORDER BY t", arrayOf(from.toString())
+            "SELECT t, mw, ua, mv, level FROM samples WHERE t >= ? ORDER BY t", arrayOf(from.toString())
         ).use { c ->
-            List(c.count) { c.moveToNext(); Point(c.getLong(0), c.getFloat(1), c.getLong(2)) }
+            List(c.count) {
+                c.moveToNext()
+                Point(c.getLong(0), c.getFloat(1), c.getLong(2), c.getInt(3), c.getInt(4))
+            }
         }
 
     /** About [buckets] averaged rows between [from] and now, for the history charts. */
     fun rows(from: Long, buckets: Int): List<Row> {
         val step = ((System.currentTimeMillis() - from) / buckets).coerceAtLeast(5_000)
         return readableDatabase.rawQuery(
-            """SELECT MIN(t), SUM(mw * dur) / SUM(dur), AVG(level) FROM samples WHERE t >= ?
+            """SELECT MIN(t), SUM(mw * dur) / SUM(dur), AVG(level), SUM(ua * dur) / SUM(dur), AVG(temp)
+               FROM samples WHERE t >= ?
                GROUP BY t / ? ORDER BY 1""",
             arrayOf(from.toString(), step.toString())
         ).use { c ->
-            List(c.count) { c.moveToNext(); Row(c.getLong(0), c.getFloat(1), c.getInt(2)) }
+            List(c.count) {
+                c.moveToNext()
+                Row(c.getLong(0), c.getFloat(1), c.getInt(2), c.getLong(3), c.getInt(4))
+            }
         }
     }
 

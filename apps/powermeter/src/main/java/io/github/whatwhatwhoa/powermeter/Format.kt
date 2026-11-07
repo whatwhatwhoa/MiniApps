@@ -43,7 +43,13 @@ object Format {
         }
     }
 
+    /** A rolling-average window: "10 s", "1 min". */
+    fun window(sec: Int): String = if (sec < 60) "$sec s" else "${sec / 60} min"
+
     fun clock(t: Long): String = DateFormat.getTimeInstance(DateFormat.SHORT).format(Date(t))
+
+    /** With seconds, for a point on the 10-minute chart. */
+    fun clockSeconds(t: Long): String = DateFormat.getTimeInstance(DateFormat.MEDIUM).format(Date(t))
 
     fun dayClock(t: Long): String {
         val today = System.currentTimeMillis() / 86_400_000L == t / 86_400_000L

@@ -57,16 +57,31 @@ and temperature bridge it. A rule fires once, a high-importance notification on 
 background monitoring, and turning one on turns monitoring on.
 
 ## Screens
-- **Now**: direction and source, the big watts (green in, amber out), current · voltage · level,
-  the cable estimate when plugged in, time to full or empty, the 10-minute chart with
-  min/avg/max, the battery's details, and the session in progress (or a card to turn
-  monitoring on).
-- **History**: 1 h / 6 h / 24 h / 7 d; power and level charts (a gap where nothing was logged),
-  totals for the range, the sessions, the screen-off stretches. Refreshes every 30 s.
-- **Settings**: monitoring, update rate, alerts (list with switches, an editor dialog, a note
+- **Now**: direction and source, the big watts (green in, amber out), under it the rolling
+  average (the mean of the readings in the last 5 s, 10 s, 30 s, 1 min or 5 min, set in
+  Settings, 10 s by default; signed, since it can point the other way than one reading), current ·
+  voltage · level, the cable estimate when plugged in, time to full or empty, the 10-minute
+  chart with min/avg/max and its readout, the battery's details, and the session in progress
+  (or a card to turn monitoring on).
+- **History**: 1 h / 6 h / 24 h / 7 d; power and level charts (a gap where nothing was logged)
+  sharing one readout, totals for the range, the sessions, the screen-off stretches. Refreshes
+  every 30 s. A history point is the average of a bucket (a 400th of the range: 9 s for an
+  hour, 25 min for a week), which the readout says from a minute up.
+- **Settings**: monitoring, update rate, the average under the big number, alerts (list with switches, an editor dialog, a note
   when notifications or monitoring are off), °C/°F, current direction and units (with the raw
-  reading and "Learn again"), history length, export, clear, about.
+  reading and "Learn again"), history length, export, clear, the series' Updates card, about.
+
+## Reading a chart
+A tap, or a drag sideways, on a chart puts a cursor at that moment (a drag up or down still
+scrolls the page). The chart draws a line at the nearest sample, a dot on the curve and a
+bubble along the top with the time and the value; under the chart a line gives the whole
+reading there (Now: time with seconds, power, current, voltage, level; History: power,
+current, level, temperature) with Clear. Where nothing was logged within half a gap the
+bubble says "not logged". The cursor is a time, so on Now it slides left as the chart moves
+and goes when it leaves the window; History's two charts share it. `Chart` takes the cursor
+from its caller for that; the gesture code reads the latest range through
+`rememberUpdatedState`, so a live chart doesn't restart a drag every second.
 
 The Stack header ("Power Meter", "monitoring on" or "off", the Theme button) and the tabs
-stay on top; under 600 dp the page is one column, from 600 dp two. Charging is drawn in the
+stay on top, then the series' update note while a newer release is out; under 600 dp the page is one column, from 600 dp two. Charging is drawn in the
 Stack `good` green, draining in `s1` orange.

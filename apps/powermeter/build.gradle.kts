@@ -17,8 +17,8 @@ android {
         applicationId = "io.github.whatwhatwhoa.powermeter"
         minSdk = 31
         targetSdk = 37
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.2.0"
     }
 
     // The release key stays outside the repo; this app's own local.properties (gitignored, next to
@@ -59,5 +59,7 @@ dependencies {
     // :stack brings the series' look with Compose and Material 3 (switches, dialogs); no icon
     // pack, no Room, no navigation library: the APK stays small and starts fast.
     implementation(project(":stack"))
+    // :update: Settings → Updates and the banner, from the series' GitHub releases.
+    implementation(project(":update"))
     implementation(libs.activity.compose)
 }

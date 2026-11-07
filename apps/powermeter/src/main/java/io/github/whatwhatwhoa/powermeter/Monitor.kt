@@ -13,8 +13,8 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 
-/** A point on the live chart. */
-data class Point(val time: Long, val mw: Float, val ua: Long)
+/** A point on the live chart, with what its readout shows. */
+data class Point(val time: Long, val mw: Float, val ua: Long, val mv: Int, val level: Int)
 
 /**
  * The one sampler. It runs while anyone needs it: the screen (fast, every [Prefs.sampleMs]) or
@@ -72,7 +72,7 @@ object Monitor {
         live.value = r
         val cut = r.time - WINDOW_MS
         recent.value = recent.value.dropWhile { it.time < cut } +
-            Point(r.time, r.powerMw.toFloat(), r.currentUa)
+            Point(r.time, r.powerMw.toFloat(), r.currentUa, r.voltageMv, r.level)
         _readings.tryEmit(r)
     }
 

@@ -9,16 +9,23 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import io.github.whatwhatwhoa.powermeter.Format
 import io.github.whatwhatwhoa.powermeter.KIND_CHARGE
 import io.github.whatwhatwhoa.powermeter.Monitor
 import io.github.whatwhatwhoa.powermeter.Point
+import io.github.whatwhatwhoa.powermeter.Prefs
 import io.github.whatwhatwhoa.powermeter.Reading
 import io.github.whatwhatwhoa.powermeter.Session
 import io.github.whatwhatwhoa.powermeter.Tracker
+import io.github.whatwhatwhoa.stack.Stack
 import io.github.whatwhatwhoa.stack.StackButton
+import io.github.whatwhatwhoa.stack.StackType
 
 @Composable
 fun NowScreen(wide: Boolean, monitoring: Boolean, onTurnOn: () -> Unit) {
@@ -69,6 +76,7 @@ private fun Hero(r: Reading, points: List<Point>) {
             if (r.voltageMv > 0) Format.watts(r.powerMw) else Format.milliamps(r.currentUa),
             style = MaterialTheme.typography.displayLarge.merge(Numbers), color = color
         )
+        RollingAverage(r, points)
         Text(
             "${Format.milliamps(r.currentUa)} · ${Format.volts(r.voltageMv)} · ${r.level}%",
             style = MaterialTheme.typography.bodyLarge.merge(Numbers)
@@ -78,6 +86,33 @@ private fun Hero(r: Reading, points: List<Point>) {
             Text(it, style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
+    }
+}
+
+/**
+ * Under the big number: the mean of the readings in the last [Prefs.averageSec] (Settings), signed
+ * because it can point the other way than this one reading. Steadier for judging a charger.
+ */
+@Composable
+private fun RollingAverage(r: Reading, points: List<Point>) {
+    val sec = Prefs.averageSec
+    val since = r.time - sec * 1000L
+    val window = points.filter { it.time > since }
+    if (window.isEmpty()) return
+    val mw = window.sumOf { it.mw.toDouble() } / window.size
+    val ua = window.sumOf { it.ua } / window.size
+    val c = Stack.colors
+    Row(verticalAlignment = Alignment.Bottom, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        Text(
+            if (r.voltageMv > 0) Format.signedWatts(mw) else Format.milliamps(ua),
+            Modifier.alignByBaseline(),
+            style = MaterialTheme.typography.headlineSmall.merge(Numbers),
+            color = flowColor(mw, LocalFlow.current, c.ink),
+        )
+        Text(
+            "${Format.window(sec)} average" + if (window.size == 1) " (1 reading)" else "",
+            Modifier.alignByBaseline(), style = StackType.note, color = c.muted,
+        )
     }
 }
 
@@ -119,11 +154,18 @@ private fun Cable(r: Reading) {
 @Composable
 private fun LiveChart(points: List<Point>) {
     val now = points.lastOrNull()?.time ?: System.currentTimeMillis()
+    val from = now - Monitor.WINDOW_MS
+    val times = LongArray(points.size) { points[it].time }
     val values = FloatArray(points.size) { points[it].mw }
-    Panel(title = "Last 10 minutes") {
+    // The cursor is a moment: as the chart moves on it slides left, and goes when it leaves.
+    var cursor by remember { mutableStateOf<Long?>(null) }
+    val shown = cursor?.takeIf { it >= from }
+    val gap = 30_000L
+    Panel(title = "Last 10 minutes", info = "Touch or drag along the chart to read a point; the line under it gives the reading in full.") {
         Chart(
-            LongArray(points.size) { points[it].time }, values,
-            now - Monitor.WINDOW_MS, now, signed = true, gapMs = 30_000
+            times, values, from, now, signed = true, gapMs = gap,
+            cursor = shown, onCursor = { cursor = it },
+            bubble = { i -> "${Format.clockSeconds(times[i])}  ${Format.signedWatts(values[i].toDouble())}" },
         )
         spread(values)?.let { (lo, avg, hi) ->
             Text(
@@ -132,6 +174,18 @@ private fun LiveChart(points: List<Point>) {
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
+        Readout(
+            shown?.let { t ->
+                val i = nearest(times, t, gap)
+                if (i < 0) "${Format.clockSeconds(t)}: not logged"
+                else points[i].let { p ->
+                    listOf(
+                        Format.clockSeconds(p.time), Format.signedWatts(p.mw.toDouble()), Format.milliamps(p.ua),
+                        Format.volts(p.mv), "${p.level}%",
+                    ).joinToString(" · ")
+                }
+            }
+        ) { cursor = null }
     }
 }
 
