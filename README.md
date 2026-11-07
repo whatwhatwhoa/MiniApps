@@ -1,37 +1,43 @@
 # Mini Apps
 
 **Small, plain Android apps for phones and tablets.** Free, no ads, no accounts, no tracking.
-Each does one job; all of them share one look.
+Each does one job; all of them share one look, and each updates itself from here.
 
 | App | What it does | Download | Guide |
 |---|---|---|---|
+| **Calculator** | A calculator you type formulas into: history, a real cursor, your own functions | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Calculator&expanded=true) | [README](apps/calculator/README.md) |
+| **Power Meter** | See the watts going into or out of your battery: charging speed, drain, history, alerts | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Power+Meter&expanded=true) | [README](apps/powermeter/README.md) |
 | **Display Compare** | Compare display sizes to scale: monitors, TVs, laptops, tablets, phones | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Display+Compare&expanded=true) | [README](apps/displaycompare/README.md) |
-| **Power Meter** | See the watts going into or out of your battery: charging speed, drain, history, alerts | [⬇ APK](https://github.com/whatwhatwhoa/PowerMeter/releases/latest) | [README](apps/powermeter/README.md) |
-| **Daily Note** | One page of paper to jot the day on, and a full-page widget | [⬇ APK](https://github.com/whatwhatwhoa/DailyNote/releases/latest) | [README](apps/dailynote/README.md) |
+| **Daily Note** | One page of paper to jot the day on, and a full-page widget | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Daily+Note&expanded=true) | [README](apps/dailynote/README.md) |
 
-Android 12 or newer. Power Meter's and Daily Note's releases so far are in their first repos
-(linked above); new releases of every app come out here.
+Android 12 or newer. Every release of every app is on this repo's
+[releases page](https://github.com/whatwhatwhoa/MiniApps/releases).
 
 ## Install
 
-1. On your phone, open the app's download link and tap its **…apk** under *Assets*.
+1. On your phone, open the app's download link and tap its **…apk** under *Assets* (the top
+   one is the newest).
 2. Open the downloaded file. If Android asks, allow installs from your browser (*Allow from
    this source*), then go back and tap **Install**.
 3. If Play Protect warns that it doesn't know the app, tap **More details → Install anyway**.
 
-To update an app, install a newer APK over the old one; its data stays.
+**Updates:** each app checks this repo for a newer release (at most once a day, and on
+**Settings → Updates → Check for updates**) and installs it when you tap **Update**; Android
+asks first, and the app's data stays. That check is the only thing these apps do online; it
+can be turned off in the same card. Installing a newer APK over the old one by hand works too.
 
 ## Building them yourself
 
 With JDK 21 and the Android SDK (platform 37), from this folder:
 
 ```
-./gradlew :displaycompare:assembleDebug      # one app (powermeter, dailynote, displaycompare)
+./gradlew :calculator:assembleDebug          # one app (calculator, powermeter, dailynote, displaycompare)
 ./gradlew assembleDebug                      # every app
+./gradlew :calculator:testDebugUnitTest      # the Calculator's formula tests
 ```
 
 The APKs land in `apps/<app>/build/outputs/apk/`. Kotlin and Jetpack Compose; the shared look is
-the `stack` module.
+the `stack` module, the updates from GitHub the `update` module.
 
 ## License
 

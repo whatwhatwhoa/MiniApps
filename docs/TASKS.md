@@ -17,9 +17,16 @@ the app level, and a quick start for the next app. Decisions: `decisions/M1-seri
 - [x] T1.6 Notes at two levels, the skill's series support — 2026-11-06 (D1.3)
 - [ ] T1.7 VERIFY round with the owner (`VERIFY.md` *V-stack-look*).
 - [x] T1.8 Public — 2026-11-06: one series repo (owner's pick), old repos point to it (D1.1)
-- [ ] T1.9 Recycle `C:\Projects\PowerMeter` and `DailyNote`, on the owner's OK.
+- [x] T1.9 Recycle `C:\Projects\PowerMeter` and `DailyNote` — 2026-11-07: keys and passwords checked in the backup first
+- [x] T1.10 Updates from GitHub in every app (owner) — 2026-11-07: `:update`, card and banner (D1.6)
+- [x] T1.11 Calculator, the fourth app (owner) — 2026-11-07: its own M1 (`apps/calculator`)
+- [x] T1.12 Every release in the one repo (owner) — 2026-11-07: old releases copied, old repos archived (D1.7)
+- [ ] T1.13 VERIFY round with the owner (`VERIFY.md` *V-updates*).
 
 ### Later
+- √, π and ⌫ in the cut Stack fonts (`tools/cut_fonts.py`): they come from Android's fallback
+  font now (the Calculator draws its ⌫ and arrows).
+- Updates in PortalLauncher and Tablet Debloat (own repos): `:update` takes a repo name.
 - One command for the release routine (bump, build, sign check, tag) instead of five steps.
 - Tablet Debloat (`C:\Projects\DebloatYourAndroidTablet`) could join the series, if the owner
   wants it here.

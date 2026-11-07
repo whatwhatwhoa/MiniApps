@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The Stack bg token, so the window before Compose draws is already the page's color. -->
+    <color name="window">#FFE9ECEE</color>
+</resources>
