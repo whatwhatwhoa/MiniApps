@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Two 16:9 displays to scale, bottom-aligned as on a desk: the app's mat in miniature. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#331E9F8D" android:strokeColor="#1E9F8D" android:strokeWidth="3.5"
+        android:pathData="M26,40.5h56v31.5h-56z" />
+    <path android:fillColor="#40F2A93B" android:strokeColor="#F2A93B" android:strokeWidth="3.5"
+        android:pathData="M40,56.25h28v15.75h-28z" />
+</vector>
