@@ -3,26 +3,28 @@
 Current state only. **Rewrite this file at the end of every session that worked at the series
 level**: carry forward what is open, delete what is resolved, never append history.
 
-**State (2026-11-07, ~5 am):** Four apps, every release in the one public repo
-(`whatwhatwhoa/MiniApps`): Power Meter 0.2.0, Calculator 0.1.1 (new; 0.1.0 the same night), Daily Note 0.3.0,
-Display Compare 0.1.1, plus the old releases copied from the first repos. Every
-app updates itself from those releases (`:update`, series D1.6). The old local folders
-`C:\Projects\PowerMeter` and `DailyNote` are in the Recycle Bin (T1.9; keys and passwords
-checked in the backup first). All four are on the owner's Pixel: Power Meter 0.2.0 and
-Calculator 0.1.0 as the releases (a cold start ran clean, the phone was locked), Display
-Compare and Daily Note as older test builds with the updater, for the update test.
+**State (2026-11-07, ~11 am):** Five apps, every release in the one public repo
+(`whatwhatwhoa/MiniApps`): Scan 0.1.0 (new, T1.15), Power Meter 0.2.1, Calculator 0.1.1,
+Daily Note 0.3.0, Display Compare 0.1.2, plus the old releases copied from the first repos.
+The Theme icon is in every app with a theme switch (T1.16, D1.8: `StackHeader`'s default;
+Power Meter 0.2.1 and Display Compare 0.1.2 are only that). Every app updates itself from
+those releases (`:update`, D1.6). On the owner's Pixel: Scan 0.1.0 and Power Meter 0.2.1
+installed by adb (the phone was in use, then locked: not opened), Calculator 0.1.1 (it was
+0.1.0: updated by the app or by hand, not known), Display Compare 0.1.0 and Daily Note 0.2.0
+as test builds with the updater, for the update test.
 
 ## Apps (one line each; state is in each app's HANDOFF)
-- `apps/powermeter`: Power Meter 0.2.0 released 2026-11-07 (chart readout, rolling average, Stack look, alerts, updates).
+- `apps/scan`: Scan 0.1.0 released 2026-11-07, not hand-tested (receipt photos to a PDF: crop, filters, Save or Share).
+- `apps/powermeter`: Power Meter 0.2.1 released 2026-11-07 (the Theme icon; 0.2.0: chart readout, rolling average, alerts, updates).
 - `apps/calculator`: Calculator 0.1.1 released 2026-11-07 (formula typing, history, own functions; one-row header).
-- `apps/dailynote`: Daily Note 0.3.0 released 2026-11-07 (Stack sheet, updates).
-- `apps/displaycompare`: Display Compare 0.1.1 released 2026-11-07 (updates).
+- `apps/dailynote`: Daily Note 0.3.0 released 2026-11-07 (Stack sheet, updates; no theme switch: paper is light).
+- `apps/displaycompare`: Display Compare 0.1.2 released 2026-11-07 (the Theme icon; 0.1.1: updates).
 
 ## Next
 1. The owner's update test on the Pixel (`VERIFY.md` *V-updates*): Display Compare there is a
-   0.1.0 test build, Daily Note a 0.2.0 one and Calculator the 0.1.0 release, so they should
-   offer 0.1.1, 0.3.0 and 0.1.1.
-2. The owner looks at the Stack look (*V-stack-look*) and the apps' own V- lists.
+   0.1.0 test build and Daily Note a 0.2.0 one, so they should offer 0.1.2 and 0.3.0.
+2. The owner looks at the Stack look (*V-stack-look*, now with the Theme icon) and the apps'
+   own V- lists; Scan's (`apps/scan/docs/VERIFY.md` *V-M1*) wants real receipts.
 
 ## Waiting on the owner
 - D1.6 as built: the daily check on by default, the banner, Daily Note without one.

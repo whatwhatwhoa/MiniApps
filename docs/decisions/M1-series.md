@@ -82,3 +82,11 @@ certificates are the ones on record); the first repos point here and are to be a
 (old links keep working); the archive step was blocked by a permission check and waits on the
 owner's OK. Every README and the series README link to this repo's releases.
 Status: releases moved 2026-11-07; archive on the owner's OK.
+
+### D1.8 · 2026-11-07 · The Theme icon in every app
+Owner: "make sure the updated light/dark mode icon all of the apps get it". `ThemeIconButton()`
+(made for Calculator's one-row header) is `StackHeader`'s default action, and the worded
+*Theme: Auto* button is gone from `:stack`, so Power Meter and Display Compare show the icon
+too (0.2.1 and 0.1.2, nothing else changed). Daily Note has no theme switch: its paper is
+light whatever the system theme, so it gets no icon.
+Status: built and released 2026-11-07 (Power Meter 0.2.1, Display Compare 0.1.2).

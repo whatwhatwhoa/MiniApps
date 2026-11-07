@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A tilted receipt on the mat with the crop's amber outline and corners (the Stack panel, line and handle tokens). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#FAFBFB" android:strokeColor="#F2A93B" android:strokeWidth="2"
+        android:pathData="M39,32L71,36L68,77L35,73Z" />
+    <path android:strokeColor="#8A939B" android:strokeWidth="2.4" android:strokeLineCap="round"
+        android:pathData="M42,43L62,45.5M41.5,49L65,52M41,55L57,57M40.5,61L63,64" />
+    <path android:fillColor="#F2A93B"
+        android:pathData="M39,32m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0M71,36m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0M68,77m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0M35,73m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0" />
+</vector>

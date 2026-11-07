@@ -9,6 +9,15 @@ A new PC must pair first: Wireless debugging → *Pair device with pairing code*
 `adb connect` to the `_adb-tls-connect` port. The phone locks quickly; screenshots of a locked
 screen come back black.
 
+### A test launch on the owner's phone leaves the app on top
+An app started over the lock screen (`am start`) stays the top task after `am force-stop`
+(it is still first in recents), so the owner unlocks into it. `pm clear <package>` (when
+its data may go) removed the task; check `dumpsys activity recents` afterwards.
+
+### `MSYS_NO_PATHCONV=1` stops every path conversion
+It keeps `/sdcard/...` and `/data/local/tmp/...` intact for adb, but a `/c/Projects/...` APK
+path is then passed as it is and `adb install` can't find it: give adb `C:/...` paths.
+
 ### Screenshots with a monitor attached
 With an external display `screencap` prints a warning into the PNG and picks a display:
 pass `-d <id>` from `dumpsys SurfaceFlinger --display-id`.

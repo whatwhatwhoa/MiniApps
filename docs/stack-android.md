@@ -22,8 +22,8 @@ figures. `:stack` is that guide for Compose. Read this before any screen work.
 `StackTheme { … }` wraps an app's content. It provides `Stack.colors` (the tokens), maps
 Material 3 onto them (primary = accent, surface = panel, background = bg, outline = line,
 error = danger, inverse = ink/panel for toasts), sets the Stack type on Material's roles, and
-keeps Auto / Light / Dark per app (a "stack" preferences file). `ThemeButton()` cycles it and
-sits in the header by default. `StackTheme(systemBars = false)` leaves the bars to the app.
+keeps Auto / Light / Dark per app (a "stack" preferences file). `ThemeIconButton()` cycles it
+and sits in the header by default (series D1.8). `StackTheme(systemBars = false)` leaves the bars to the app.
 
 Token roles: `accent` selected, primary, focus · `handle` warn pill, callout bar, things to
 watch · `danger` / `good` status · `mat` / `matLine` the cutting mat · `s0`…`s4` series told
@@ -46,9 +46,9 @@ Digits are tabular wherever they line up (`TNUM`, already in the figure styles).
 ## 4. Components
 | Compose | Web | Use |
 |---|---|---|
-| `StackHeader(title, count)` | `header .brand` | title + mono count left, actions right (Theme by default); the count wraps under the title at large fonts |
+| `StackHeader(title, count)` | `header .brand` | title + mono count left, actions right (the Theme icon by default); the count wraps under the title at large fonts |
 | `StackTabs(labels, selected, …)` | `.tabs` | views of one app, under the header; `compact` narrows them to share a row |
-| `ThemeIconButton()` | — | the Theme button as an icon (Auto half circle, Light sun, Dark moon), where words don't fit |
+| `ThemeIconButton()` | — | the Theme button, an icon in every app (Auto half circle, Light sun, Dark moon) |
 | `StackCard(title, info, stripe, action)` | `.card` | a separate object; `stripe` = a 4 dp category or series edge |
 | `Tile` + `TileGrid(columns, …)` | `.tiles` | exactly four KPIs: label + (i), value + unit, a context line |
 | `Seg(options, selected, …)` | `.seg` | one choice of a few; wraps when it doesn't fit |

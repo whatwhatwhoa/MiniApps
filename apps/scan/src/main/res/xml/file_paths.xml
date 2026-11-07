@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What the FileProvider may hand out: the camera's photo going in, the PDF going out to Share. -->
+<paths>
+    <cache-path name="camera" path="camera/" />
+    <cache-path name="pdf" path="pdf/" />
+</paths>

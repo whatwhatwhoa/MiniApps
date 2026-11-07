@@ -22,6 +22,6 @@ it when the owner confirms. An app's own checks are in its `docs/VERIFY.md`.
 - [ ] Power Meter on a tablet (≥ 600 dp): tabs on top, two columns.
 - [ ] Daily Note: the page and widget unchanged; the paper sheet's labels, Size and Font
       choices and its notes in the Stack look; Handwriting still shown in its own letters.
-- [ ] Theme: Auto / Light / Dark in Power Meter and Display Compare; the status bar icons stay
-      readable in each.
+- [ ] Theme: the icon (half circle Auto, sun Light, moon Dark) in Power Meter, Display Compare,
+      Calculator and Scan; the status bar icons stay readable in each.
 - [ ] The fonts read well at 130%: Instrument Sans for text, JetBrains Mono for figures.

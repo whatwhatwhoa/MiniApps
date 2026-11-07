@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The cutting mat with its grid (the Stack mat and mat-line tokens). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#262B30" android:pathData="M0,0h108v108h-108z" />
+    <path android:fillColor="#353C43" android:pathData="M6,0h1v108h-1zM0,6h108v1h-108zM18,0h1v108h-1zM0,18h108v1h-108zM30,0h1v108h-1zM0,30h108v1h-108zM42,0h1v108h-1zM0,42h108v1h-108zM54,0h1v108h-1zM0,54h108v1h-108zM66,0h1v108h-1zM0,66h108v1h-108zM78,0h1v108h-1zM0,78h108v1h-108zM90,0h1v108h-1zM0,90h108v1h-108zM102,0h1v108h-1zM0,102h108v1h-108z" />
+</vector>

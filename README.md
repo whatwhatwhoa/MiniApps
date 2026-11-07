@@ -5,6 +5,7 @@ Each does one job; all of them share one look, and each updates itself from here
 
 | App | What it does | Download | Guide |
 |---|---|---|---|
+| **Scan** | Photos of receipts and documents into a clean PDF: edges found, shadows gone, all on the phone | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Scan&expanded=true) | [README](apps/scan/README.md) |
 | **Calculator** | A calculator you type formulas into: history, a real cursor, your own functions | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Calculator&expanded=true) | [README](apps/calculator/README.md) |
 | **Power Meter** | See the watts going into or out of your battery: charging speed, drain, history, alerts | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Power+Meter&expanded=true) | [README](apps/powermeter/README.md) |
 | **Display Compare** | Compare display sizes to scale: monitors, TVs, laptops, tablets, phones | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Display+Compare&expanded=true) | [README](apps/displaycompare/README.md) |
@@ -31,9 +32,9 @@ can be turned off in the same card. Installing a newer APK over the old one by h
 With JDK 21 and the Android SDK (platform 37), from this folder:
 
 ```
-./gradlew :calculator:assembleDebug          # one app (calculator, powermeter, dailynote, displaycompare)
+./gradlew :calculator:assembleDebug          # one app (scan, calculator, powermeter, dailynote, displaycompare)
 ./gradlew assembleDebug                      # every app
-./gradlew :calculator:testDebugUnitTest      # the Calculator's formula tests
+./gradlew :calculator:testDebugUnitTest      # the Calculator's formula tests (:scan has its own too)
 ```
 
 The APKs land in `apps/<app>/build/outputs/apk/`. Kotlin and Jetpack Compose; the shared look is

@@ -77,13 +77,13 @@ fun Modifier.stackColumn(): Modifier = this.widthIn(max = 1240.dp).fillMaxWidth(
 /** The gap between blocks on a page (guide §5). */
 val BlockGap = 14.dp
 
-/** Brand (title + a mono count) on the left, actions on the right; the Theme button by default. */
+/** Brand (title + a mono count) on the left, actions on the right; the Theme icon by default. */
 @Composable
 fun StackHeader(
     title: String,
     modifier: Modifier = Modifier,
     count: String? = null,
-    actions: @Composable RowScope.() -> Unit = { ThemeButton() },
+    actions: @Composable RowScope.() -> Unit = { ThemeIconButton() },
 ) {
     val c = Stack.colors
     Row(
@@ -106,16 +106,9 @@ fun StackHeader(
     }
 }
 
-/** Cycles Auto → Light → Dark and remembers the choice. */
-@Composable
-fun ThemeButton(modifier: Modifier = Modifier) {
-    val t = LocalThemeControl.current
-    StackButton("Theme: ${t.mode.label}", onClick = { t.set(t.mode.next()) }, modifier = modifier, small = true)
-}
-
 /**
- * The Theme button as an icon, for a header row with no room for words: a half-filled circle for
- * Auto, a sun for Light, a moon for Dark. A tap cycles it, as [ThemeButton] does.
+ * The Theme button, as an icon in every app (owner: the icon in all of them): a half-filled circle
+ * for Auto, a sun for Light, a moon for Dark. A tap cycles Auto → Light → Dark and remembers it.
  */
 @Composable
 fun ThemeIconButton(modifier: Modifier = Modifier) {

@@ -82,6 +82,6 @@ and goes when it leaves the window; History's two charts share it. `Chart` takes
 from its caller for that; the gesture code reads the latest range through
 `rememberUpdatedState`, so a live chart doesn't restart a drag every second.
 
-The Stack header ("Power Meter", "monitoring on" or "off", the Theme button) and the tabs
+The Stack header ("Power Meter", "monitoring on" or "off", the Theme icon) and the tabs
 stay on top, then the series' update note while a newer release is out; under 600 dp the page is one column, from 600 dp two. Charging is drawn in the
 Stack `good` green, draining in `s1` orange.
