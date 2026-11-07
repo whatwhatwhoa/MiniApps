@@ -11,14 +11,14 @@ no "drain while plugged in" nonsense to choose. Temperature is an addition the o
 (cheap, and useful while charging). "At or" (≥, ≤) so "80%" fires at 80, not 81. Stored as JSON
 in Prefs (`org.json`, no library). Rejected: separate max/min fields per metric (two numbers to
 explain, and one direction is usually wanted); a fourth tab (the owner asked for a setting).
-Status: as built 2026-11-04, owner to confirm.
+Status: as built 2026-11-04, settled 2026-11-07 on the owner's word ("settle all the verify on power meter"): temperature alerts stay.
 
 ### D2.2 "For at least" means on every reading, then once per breach
 The condition must hold on each reading through the whole time; one reading back inside the
 limit restarts the clock. A fired alert shows again only after its condition has been off for a
 minute in a row, or after it is edited. Rejected: the average over the time (steadier with noisy
-gauges, but harder to explain); repeating while breached (nags). The owner may prefer the average:
-asked 2026-11-04. Status: as built 2026-11-04, owner to confirm.
+gauges, but harder to explain); repeating while breached (nags). Asked 2026-11-04 whether the
+average is better; settled 2026-11-07 on the owner's word ("settle all the verify on power meter"): every reading stays.
 
 ### D2.3 Checked by background monitoring, still no wake lock
 Alerts run in `MonitorService`, so they need background monitoring; saving or switching on an

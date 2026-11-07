@@ -14,17 +14,12 @@ on dark cards until the evening's `:stack` fix. That build is on the owner's Pix
 Not yet seen by the owner: the new look; an alert actually firing.
 
 ## Next
-1. The owner tries alerts (`VERIFY.md` V-M2); quick test "Level ≥ 1% any time" fires at once.
 2. The owner looks at the Stack look (series `VERIFY.md` *V-stack-look*).
-3. The owner's V-M1 round (T1.6) is still open.
 4. New README screenshots: `docs/screenshots/` still show the look before the Stack one.
 5. A release (0.2.0) only when the owner asks; its download link moves to the series repo.
 
 ## Waiting on the owner
-- D2.2: "for at least" means held on every reading; the average over the time is the
-  alternative (steadier with a noisy gauge). Asked 2026-11-04.
-- D2.1: temperature alerts were added beyond the ask; keep or drop.
-- D1.1–D1.6 as built (`decisions/M1-first-light.md`); the cable estimate's method (D1.4) most.
+- Nothing (V-M1, V-M2 and the decisions they held were settled 2026-11-07).
 
 ## Uncommitted
 Nothing (M2 and the Stack look committed and pushed to the series repo 2026-11-06).

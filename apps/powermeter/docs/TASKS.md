@@ -15,13 +15,13 @@ history, and what charging and standby really cost. Decisions: `decisions/M1-fir
 - [x] T1.3 Now, History, Settings — 2026-11-01: rail and two columns from 600 dp (D1.5)
 - [x] T1.4 Background monitoring — 2026-11-01: service, sessions, screen-off drain, CSV (D1.3)
 - [x] T1.5 Cable estimate (owner's ask) — 2026-11-01: charger rating + estimated cable power (D1.4)
-- [ ] T1.6 VERIFY round with the owner (`VERIFY.md` *V-M1*), on the tab and a phone.
+- [x] T1.6 VERIFY round with the owner — 2026-11-07: settled on the owner's word, not hand-tested
 
 ### M2 — Alerts (owner, 2026-11-04)
 Goal: notifications when the level, charging power, drain or temperature passes a limit, held
 for a chosen time. Decisions: `decisions/M2-alerts.md`.
 - [x] T2.1 Alerts in Settings — 2026-11-04: rules, checked by background monitoring (D2.1–D2.4)
-- [ ] T2.2 VERIFY round with the owner (`VERIFY.md` *V-M2*), on the Pixel.
+- [x] T2.2 VERIFY round with the owner — 2026-11-07: settled on the owner's word, not hand-tested
 
 ### Later
 - Home-screen widget or Quick Settings tile with the live watts.
