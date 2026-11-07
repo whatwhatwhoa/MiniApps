@@ -1,8 +1,8 @@
 import java.util.Properties
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.plugin.compose")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
 }
 
 val local = Properties().apply {
@@ -55,10 +55,9 @@ android {
 }
 
 dependencies {
-    // Material 3 only for the paper sheet and the undo pill; the page itself is a text field on
-    // a canvas. No icon pack, no DataStore, no Glance: the APK stays small and starts fast.
-    implementation(platform("androidx.compose:compose-bom:2026.09.00"))
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.activity:activity-compose:1.13.0")
+    // :stack (the series' look, with Compose and Material 3) only for the paper sheet and the
+    // undo pill; the page itself is a text field on a canvas. No icon pack, no DataStore, no
+    // Glance: the APK stays small and starts fast.
+    implementation(project(":stack"))
+    implementation(libs.activity.compose)
 }

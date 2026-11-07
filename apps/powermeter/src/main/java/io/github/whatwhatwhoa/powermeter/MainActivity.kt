@@ -9,9 +9,12 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,14 +24,6 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationRail
-import androidx.compose.material3.NavigationRailItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -39,20 +34,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import io.github.whatwhatwhoa.powermeter.ui.HistoryScreen
 import io.github.whatwhatwhoa.powermeter.ui.NowScreen
 import io.github.whatwhatwhoa.powermeter.ui.PowerMeterTheme
 import io.github.whatwhatwhoa.powermeter.ui.SettingsScreen
+import io.github.whatwhatwhoa.stack.BlockGap
+import io.github.whatwhatwhoa.stack.Stack
+import io.github.whatwhatwhoa.stack.StackHeader
+import io.github.whatwhatwhoa.stack.StackTabs
+import io.github.whatwhatwhoa.stack.stackColumn
 
-private data class Tab(val label: String, val icon: Int)
-
-private val tabs = listOf(
-    Tab("Now", R.drawable.ic_tab_now),
-    Tab("History", R.drawable.ic_tab_history),
-    Tab("Settings", R.drawable.ic_tab_settings),
-)
+private val tabs = listOf("Now", "History", "Settings")
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,15 +88,26 @@ private fun App() {
         }
     }
 
-    BoxWithConstraints(Modifier.fillMaxSize()) {
-        // Tablets and phones in landscape: a rail on the side and two columns.
+    // The Stack frame: header, tabs under it, then the tab's page. From 600 dp the pages lay
+    // out in two columns.
+    val c = Stack.colors
+    BoxWithConstraints(
+        Modifier.fillMaxSize().background(c.bg).windowInsetsPadding(WindowInsets.safeDrawing),
+        contentAlignment = Alignment.TopCenter,
+    ) {
         val wide = maxWidth >= 600.dp
-        val body = @Composable { mod: Modifier ->
+        Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(Modifier.widthIn(max = if (wide) 1100.dp else 640.dp).stackColumn()) {
+                StackHeader("Power Meter", count = if (monitoring) "monitoring on" else "monitoring off")
+                Spacer(Modifier.height(6.dp))
+                StackTabs(tabs, tab, { tab = it })
+            }
             Box(
-                mod.fillMaxSize().verticalScroll(rememberScrollState()),
+                Modifier.weight(1f).fillMaxWidth().verticalScroll(rememberScrollState()),
                 contentAlignment = Alignment.TopCenter
             ) {
-                Box(Modifier.widthIn(max = if (wide) 1100.dp else 640.dp).fillMaxWidth().padding(16.dp)) {
+                Box(Modifier.widthIn(max = if (wide) 1100.dp else 640.dp).stackColumn()
+                    .padding(top = BlockGap, bottom = 32.dp)) {
                     when (tab) {
                         0 -> NowScreen(wide, monitoring) { setMonitoring(true) }
                         1 -> HistoryScreen(wide, monitoring) { setMonitoring(true) }
@@ -111,38 +115,6 @@ private fun App() {
                     }
                 }
             }
-        }
-
-        if (wide) {
-            Row(
-                Modifier.fillMaxSize()
-                    .windowInsetsPadding(WindowInsets.safeDrawing)
-            ) {
-                NavigationRail(containerColor = MaterialTheme.colorScheme.surface) {
-                    tabs.forEachIndexed { i, t ->
-                        NavigationRailItem(
-                            selected = i == tab, onClick = { tab = i },
-                            icon = { Icon(painterResource(t.icon), null) },
-                            label = { Text(t.label) },
-                        )
-                    }
-                }
-                body(Modifier.weight(1f))
-            }
-        } else {
-            Scaffold(
-                bottomBar = {
-                    NavigationBar {
-                        tabs.forEachIndexed { i, t ->
-                            NavigationBarItem(
-                                selected = i == tab, onClick = { tab = i },
-                                icon = { Icon(painterResource(t.icon), null) },
-                                label = { Text(t.label) },
-                            )
-                        }
-                    }
-                }
-            ) { pad -> body(Modifier.padding(pad)) }
         }
     }
 }

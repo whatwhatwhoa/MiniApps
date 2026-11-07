@@ -1,8 +1,8 @@
 import java.util.Properties
 
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.plugin.compose")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
 }
 
 val local = Properties().apply {
@@ -56,10 +56,8 @@ android {
 }
 
 dependencies {
-    // Material 3 for the stock controls (switches, segmented buttons, the tab bar); no icon pack,
-    // no Room, no navigation library: the APK stays small and starts fast.
-    implementation(platform("androidx.compose:compose-bom:2026.09.00"))
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.activity:activity-compose:1.13.0")
+    // :stack brings the series' look with Compose and Material 3 (switches, dialogs); no icon
+    // pack, no Room, no navigation library: the APK stays small and starts fast.
+    implementation(project(":stack"))
+    implementation(libs.activity.compose)
 }

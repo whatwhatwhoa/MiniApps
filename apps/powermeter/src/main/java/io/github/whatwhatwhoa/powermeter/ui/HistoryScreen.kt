@@ -3,8 +3,8 @@ package io.github.whatwhatwhoa.powermeter.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.material3.FilterChip
 import androidx.compose.material3.HorizontalDivider
+import io.github.whatwhatwhoa.stack.Seg
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -57,11 +57,8 @@ fun HistoryScreen(wide: Boolean, monitoring: Boolean, onTurnOn: () -> Unit) {
 
     val d = data
     val chips = @Composable {
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            ranges.forEachIndexed { i, (label, _) ->
-                FilterChip(selected = i == range, onClick = { range = i }, label = { Text(label) })
-            }
-        }
+        // The Stack period control: one segmented strip.
+        Seg(ranges.indices.toList(), range, { range = it }, { ranges[it].first })
     }
     val charts = @Composable {
         if (d != null) {

@@ -8,9 +8,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,45 +24,38 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import io.github.whatwhatwhoa.stack.Stack
+import io.github.whatwhatwhoa.stack.StackCard
+import io.github.whatwhatwhoa.stack.StackType
 import io.github.whatwhatwhoa.powermeter.Format
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
+/** A Stack card with an optional title and (i) tooltip. */
 @Composable
 fun Panel(
     modifier: Modifier = Modifier,
     title: String? = null,
+    info: String? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    Card(
-        modifier = modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
-    ) {
-        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            if (title != null) {
-                Text(
-                    title, style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-            content()
-        }
-    }
+    StackCard(modifier, title = title, info = info, content = content)
 }
 
-/** Label and value on one line, value right-aligned. */
+/** Label and value on one line, value right-aligned in tabular figures. */
 @Composable
 fun Line(label: String, value: String, valueColor: Color = Color.Unspecified) {
+    val c = Stack.colors
     Row(Modifier.fillMaxWidth()) {
         Text(
-            label, Modifier.weight(1f), style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            maxLines = 1, overflow = TextOverflow.Ellipsis
+            label, Modifier.weight(1f), style = StackType.body.copy(fontSize = 14.sp),
+            color = c.muted, maxLines = 1, overflow = TextOverflow.Ellipsis
         )
         Text(
-            value, style = MaterialTheme.typography.bodyMedium.merge(Numbers),
-            color = valueColor, maxLines = 1
+            value, style = StackType.body.copy(fontSize = 14.sp).merge(Numbers),
+            color = if (valueColor == Color.Unspecified) c.ink else valueColor, maxLines = 1
         )
     }
 }
@@ -86,10 +76,11 @@ fun Chart(
     height: Dp = 160.dp,
 ) {
     val flow = LocalFlow.current
-    val grid = MaterialTheme.colorScheme.outlineVariant
-    val lineColor = MaterialTheme.colorScheme.primary
-    val labelStyle = MaterialTheme.typography.labelSmall.merge(Numbers)
-        .copy(color = MaterialTheme.colorScheme.onSurfaceVariant)
+    // Colors from the Stack tokens: faint gridlines, the accent for a level line, 11 sp mono axes.
+    val c = Stack.colors
+    val grid = c.line
+    val lineColor = c.accent
+    val labelStyle = StackType.mono.copy(fontSize = 11.sp, color = c.muted)
     val measurer = rememberTextMeasurer()
 
     Column(modifier) {

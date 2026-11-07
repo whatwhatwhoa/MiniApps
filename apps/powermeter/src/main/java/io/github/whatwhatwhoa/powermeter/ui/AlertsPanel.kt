@@ -22,7 +22,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Switch
@@ -48,6 +47,7 @@ import io.github.whatwhatwhoa.powermeter.During
 import io.github.whatwhatwhoa.powermeter.Format
 import io.github.whatwhatwhoa.powermeter.Prefs
 import io.github.whatwhatwhoa.powermeter.Watch
+import io.github.whatwhatwhoa.stack.StackButton
 
 /** Settings → Alerts: the list, each with its switch; tap one to change it. */
 @Composable
@@ -92,18 +92,18 @@ fun AlertsPanel(monitoring: Boolean, onMonitoring: (Boolean) -> Unit) {
         }
         if (!canNotify && alerts.any { it.on }) {
             Caption("Notifications are off for Power Meter, so alerts can't show.")
-            TextButton(onClick = {
+            StackButton("Allow notifications", onClick = {
                 if (Build.VERSION.SDK_INT >= 33 &&
                     context.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) !=
                     PackageManager.PERMISSION_GRANTED
                 ) askNotify.launch(Manifest.permission.POST_NOTIFICATIONS)
                 else openNotificationSettings(context)
-            }) { Text("Allow notifications") }
+            }, small = true)
         } else if (!monitoring && alerts.any { it.on }) {
             Caption("Background monitoring is off, so alerts aren't checked.")
-            TextButton(onClick = { onMonitoring(true) }) { Text("Turn on monitoring") }
+            StackButton("Turn on monitoring", onClick = { onMonitoring(true) }, small = true)
         }
-        OutlinedButton(onClick = { editing = newAlert() }) { Text("Add alert") }
+        StackButton("Add alert", onClick = { editing = newAlert() })
         Caption("• Checked by background monitoring, about every 5 s while the device is awake.")
         Caption("• It never wakes the device to check: power alerts count awake time only.")
         Caption("• An alert shows once, then again after its condition has cleared for a minute.")

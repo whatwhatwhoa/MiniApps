@@ -8,12 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.SegmentedButton
-import androidx.compose.material3.SegmentedButtonDefaults
-import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -40,6 +35,9 @@ import io.github.whatwhatwhoa.powermeter.Store
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import io.github.whatwhatwhoa.stack.FLabel
+import io.github.whatwhatwhoa.stack.Seg
+import io.github.whatwhatwhoa.stack.StackButton
 
 @Composable
 fun SettingsScreen(monitoring: Boolean, onMonitoring: (Boolean) -> Unit) {
@@ -108,7 +106,7 @@ fun SettingsScreen(monitoring: Boolean, onMonitoring: (Boolean) -> Unit) {
                 "If charging shows as draining, set Direction to the other one. If the numbers are " +
                     "1000× off, set Units."
             )
-            TextButton(onClick = { Battery.relearn(); tick++ }) { Text("Learn again") }
+            StackButton("Learn again", onClick = { Battery.relearn(); tick++ }, small = true)
         }
 
         Panel(title = "History") {
@@ -120,8 +118,8 @@ fun SettingsScreen(monitoring: Boolean, onMonitoring: (Boolean) -> Unit) {
             }
             Caption("Sessions and screen-off stretches are kept for at least 90 days.")
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                OutlinedButton(onClick = { export.launch("power-meter.csv") }) { Text("Export CSV") }
-                OutlinedButton(onClick = { askClear = true }) { Text("Clear history") }
+                StackButton("Export CSV", onClick = { export.launch("power-meter.csv") })
+                StackButton("Clear history", onClick = { askClear = true })
             }
         }
 
@@ -170,7 +168,6 @@ internal fun Caption(text: String) {
     Text(text, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun Choice(
     label: String?,
@@ -178,16 +175,9 @@ internal fun Choice(
     selected: Int,
     onSelect: (Int) -> Unit,
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        if (label != null) Text(label, style = MaterialTheme.typography.bodyLarge)
-        SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
-            options.forEachIndexed { i, o ->
-                SegmentedButton(
-                    selected = i == selected,
-                    onClick = { onSelect(i) },
-                    shape = SegmentedButtonDefaults.itemShape(i, options.size),
-                ) { Text(o) }
-            }
-        }
+    // A Stack field label over a Stack segmented control.
+    Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        if (label != null) FLabel(label)
+        Seg(options.indices.toList(), selected, onSelect, { options[it] })
     }
 }

@@ -1,16 +1,13 @@
 package io.github.whatwhatwhoa.dailynote.ui
 
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import io.github.whatwhatwhoa.stack.StackTheme
 
-/** The wallpaper's colors for the paper sheet and the undo pill; the page is the paper's own. */
+/**
+ * The series' Stack look for the paper sheet and the undo pill; the page is the paper's own.
+ * The bars stay as MainActivity sets them: paper is light whatever the system theme.
+ */
 @Composable
 fun NoteTheme(content: @Composable () -> Unit) {
-    val context = LocalContext.current
-    val colors = if (isSystemInDarkTheme()) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-    MaterialTheme(colorScheme = colors, content = content)
+    StackTheme(systemBars = false, content = content)
 }

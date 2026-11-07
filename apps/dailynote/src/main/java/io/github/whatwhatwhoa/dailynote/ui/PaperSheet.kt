@@ -13,10 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SegmentedButton
-import androidx.compose.material3.SegmentedButtonDefaults
-import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -37,6 +33,11 @@ import io.github.whatwhatwhoa.dailynote.NoteSize
 import io.github.whatwhatwhoa.dailynote.Paper
 import io.github.whatwhatwhoa.dailynote.PaperArt
 import io.github.whatwhatwhoa.dailynote.R
+import io.github.whatwhatwhoa.stack.FLabel
+import io.github.whatwhatwhoa.stack.Notes
+import io.github.whatwhatwhoa.stack.Seg
+import io.github.whatwhatwhoa.stack.Stack
+import io.github.whatwhatwhoa.stack.StackType
 
 private val Hand = FontFamily(Font(R.font.patrick_hand))
 
@@ -53,38 +54,22 @@ fun PaperSheet(
     onSwipeErase: (Boolean) -> Unit,
 ) {
     Column(Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, bottom = 20.dp)) {
-        Text("Paper", style = MaterialTheme.typography.titleMedium)
-        Spacer(Modifier.height(12.dp))
+        FLabel("Paper")
+        Spacer(Modifier.height(10.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             for (p in Paper.entries) Swatch(p, p == paper, Modifier.weight(1f)) { onPaper(p) }
         }
         Spacer(Modifier.height(24.dp))
-        Text("Size", style = MaterialTheme.typography.titleMedium)
-        Spacer(Modifier.height(10.dp))
-        SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
-            NoteSize.entries.forEachIndexed { i, s ->
-                SegmentedButton(
-                    selected = s == size,
-                    onClick = { onSize(s) },
-                    shape = SegmentedButtonDefaults.itemShape(i, NoteSize.entries.size),
-                ) { Text(s.label) }
-            }
-        }
+        FLabel("Size")
+        Spacer(Modifier.height(8.dp))
+        Seg(NoteSize.entries, size, onSize, { it.label })
         Spacer(Modifier.height(24.dp))
-        Text("Font", style = MaterialTheme.typography.titleMedium)
-        Spacer(Modifier.height(10.dp))
-        SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
-            NoteFont.entries.forEachIndexed { i, f ->
-                SegmentedButton(
-                    selected = f == font,
-                    onClick = { onFont(f) },
-                    shape = SegmentedButtonDefaults.itemShape(i, NoteFont.entries.size),
-                ) {
-                    // Each choice in its own letters.
-                    if (f == NoteFont.HAND) Text(f.label, fontFamily = Hand, fontSize = 17.sp) else Text(f.label)
-                }
-            }
-        }
+        FLabel("Font")
+        Spacer(Modifier.height(8.dp))
+        // Each choice in its own letters.
+        Seg(NoteFont.entries, font, onFont, { it.label }, optionStyle = {
+            if (it == NoteFont.HAND) StackType.seg.copy(fontFamily = Hand, fontSize = 17.sp) else StackType.seg
+        })
         Spacer(Modifier.height(16.dp))
         Row(
             Modifier
@@ -92,16 +77,16 @@ fun PaperSheet(
                 .toggleable(swipeErase, role = Role.Switch, onValueChange = onSwipeErase),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text("Swipe to erase", style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+            Text("Swipe to erase", style = StackType.h2, color = Stack.colors.ink, modifier = Modifier.weight(1f))
             Switch(checked = swipeErase, onCheckedChange = null)
         }
         Spacer(Modifier.height(20.dp))
-        Text(
-            "• Tap a line to write on it\n" +
-                (if (swipeErase) "• Swipe across words to scratch them out\n" else "") +
-                "• Widget: hold your home screen → Widgets → Daily Note",
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        Notes(
+            listOfNotNull(
+                "Tap a line to write on it",
+                if (swipeErase) "Swipe across words to scratch them out" else null,
+                "Widget: hold your home screen → Widgets → Daily Note",
+            )
         )
     }
 }
@@ -110,7 +95,7 @@ fun PaperSheet(
 private fun Swatch(p: Paper, selected: Boolean, modifier: Modifier, onClick: () -> Unit) {
     val d = LocalDensity.current.density
     val shape = RoundedCornerShape(6.dp)
-    val colors = MaterialTheme.colorScheme
+    val c = Stack.colors
     Column(
         modifier.clip(shape).clickable(onClick = onClick),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -120,15 +105,15 @@ private fun Swatch(p: Paper, selected: Boolean, modifier: Modifier, onClick: () 
                 .fillMaxWidth()
                 .aspectRatio(0.72f)
                 .clip(shape)
-                .border(if (selected) 2.5.dp else 1.dp, if (selected) colors.primary else colors.outlineVariant, shape)
+                .border(if (selected) 2.5.dp else 1.dp, if (selected) c.accent else c.line, shape)
         ) {
             drawIntoCanvas { PaperArt.drawThumb(it.nativeCanvas, p, d, size.width, size.height) }
         }
         Spacer(Modifier.height(6.dp))
         Text(
             p.label,
-            style = MaterialTheme.typography.labelMedium,
-            color = if (selected) colors.primary else colors.onSurface,
+            style = StackType.seg.copy(fontSize = 12.5.sp),
+            color = if (selected) c.accent else c.ink,
             textAlign = TextAlign.Center,
             maxLines = 2,
         )

@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,6 +18,7 @@ import io.github.whatwhatwhoa.powermeter.Point
 import io.github.whatwhatwhoa.powermeter.Reading
 import io.github.whatwhatwhoa.powermeter.Session
 import io.github.whatwhatwhoa.powermeter.Tracker
+import io.github.whatwhatwhoa.stack.StackButton
 
 @Composable
 fun NowScreen(wide: Boolean, monitoring: Boolean, onTurnOn: () -> Unit) {
@@ -190,8 +190,6 @@ fun MonitoringOff(onTurnOn: () -> Unit) {
                 "It shows a quiet notification with the live reading.",
             style = MaterialTheme.typography.bodyMedium
         )
-        FilledTonalButton(onClick = onTurnOn, modifier = Modifier.padding(top = 4.dp)) {
-            Text("Turn on")
-        }
+        StackButton("Turn on", onClick = onTurnOn, modifier = Modifier.padding(top = 4.dp), primary = true)
     }
 }
