@@ -36,6 +36,11 @@ android {
     }
 
     buildTypes {
+        // On a PC with the release key, debug builds are signed with it too, so a test build and a
+        // published release replace each other on a phone without losing the history.
+        debug {
+            signingConfigs.findByName("release")?.let { signingConfig = it }
+        }
         release {
             signingConfig = signingConfigs.findByName("release")
             isMinifyEnabled = true

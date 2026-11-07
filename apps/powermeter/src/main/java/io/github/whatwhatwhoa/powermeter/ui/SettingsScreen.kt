@@ -20,6 +20,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -82,6 +83,9 @@ fun SettingsScreen(monitoring: Boolean, onMonitoring: (Boolean) -> Unit) {
             }
             Caption("In the background the meter reads every 5 s, and not at all while the phone sleeps.")
         }
+
+        // The tick makes the list redraw in °C or °F after the Display choice changes.
+        key(tick) { AlertsPanel(monitoring, onMonitoring) }
 
         Panel(title = "Display") {
             Choice("Temperature", listOf("°C", "°F"), if (Prefs.fahrenheit) 1 else 0) {
@@ -162,20 +166,20 @@ private fun detected(@Suppress("UNUSED_PARAMETER") tick: Int): String {
 }
 
 @Composable
-private fun Caption(text: String) {
+internal fun Caption(text: String) {
     Text(text, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun Choice(
-    label: String,
+internal fun Choice(
+    label: String?,
     options: List<String>,
     selected: Int,
     onSelect: (Int) -> Unit,
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-        Text(label, style = MaterialTheme.typography.bodyLarge)
+        if (label != null) Text(label, style = MaterialTheme.typography.bodyLarge)
         SingleChoiceSegmentedButtonRow(Modifier.fillMaxWidth()) {
             options.forEachIndexed { i, o ->
                 SegmentedButton(

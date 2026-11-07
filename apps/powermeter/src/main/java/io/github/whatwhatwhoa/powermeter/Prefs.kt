@@ -80,6 +80,11 @@ object Prefs {
         get() = sp.getInt("detected_inverted", 0)
         set(v) = sp.edit().putInt("detected_inverted", v).apply()
 
+    /** The alerts as JSON (see Alerts); null = none set. */
+    var alerts: String?
+        get() = sp.getString("alerts", null)
+        set(v) = sp.edit().putString("alerts", v).apply()
+
     fun resetDetection() {
         sp.edit().remove("detected_unit").remove("detected_inverted").apply()
     }

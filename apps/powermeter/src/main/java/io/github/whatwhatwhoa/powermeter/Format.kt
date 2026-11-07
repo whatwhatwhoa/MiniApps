@@ -111,4 +111,57 @@ object Format {
         }
         return null
     }
+
+    /** A number as typed: "80", "4.5"; at most two decimals, no trailing zeros. */
+    fun plain(x: Double): String =
+        String.format(Locale.getDefault(), "%.2f", x).trimEnd('0').trimEnd('.', ',')
+
+    fun cToF(c: Double) = c * 9 / 5 + 32
+    fun fToC(f: Double) = (f - 32) * 5 / 9
+
+    /** An alert's value with its unit: "80%", "5 W", "40 °C" (or °F when set). */
+    fun alertValue(a: Alert): String = when (a.watch) {
+        Watch.LEVEL -> "${plain(a.value)}%"
+        Watch.CHARGING, Watch.DRAIN -> "${plain(a.value)} W"
+        Watch.TEMP -> if (Prefs.fahrenheit) "${plain(Math.round(cToF(a.value) * 10) / 10.0)} °F"
+        else "${plain(a.value)} °C"
+    }
+
+    /** "45 s", "2 min", "1 h 30 min". */
+    fun alertFor(ms: Long): String {
+        val s = ms / 1000
+        return when {
+            s < 60 || s % 60 != 0L -> "$s s"
+            s < 3600 -> "${s / 60} min"
+            s % 3600 == 0L -> "${s / 3600} h"
+            else -> "${s / 3600} h ${(s % 3600) / 60} min"
+        }
+    }
+
+    /** One line for an alert: "Charging ≤ 5 W for 2 min", "Level ≥ 80% while plugged in". */
+    fun alert(a: Alert): String {
+        val what = when (a.watch) {
+            Watch.LEVEL -> "Level"
+            Watch.CHARGING -> "Charging"
+            Watch.DRAIN -> "Drain"
+            Watch.TEMP -> "Temperature"
+        }
+        val op = if (a.above) "≥" else "≤"
+        val time = if (a.forMs > 0) " for ${alertFor(a.forMs)}" else ""
+        val state = if (a.isPower) "" else when (a.during) {
+            During.ANY -> ""
+            During.PLUGGED -> " while plugged in"
+            During.BATTERY -> " on battery"
+        }
+        return "$what $op ${alertValue(a)}$time$state"
+    }
+
+    /** The alert notification's title, with the figure that set it off. */
+    fun alertTitle(a: Alert, r: Reading, v: Double): String = when (a.watch) {
+        Watch.LEVEL -> "Battery at ${r.level}%"
+        Watch.CHARGING ->
+            if (v < 0) "Plugged in, still draining ${watts(v * 1000)}" else "Charging at ${watts(v * 1000)}"
+        Watch.DRAIN -> "Draining ${watts(v * 1000)}"
+        Watch.TEMP -> "Battery at ${temp(r.tempDeciC)}"
+    }
 }

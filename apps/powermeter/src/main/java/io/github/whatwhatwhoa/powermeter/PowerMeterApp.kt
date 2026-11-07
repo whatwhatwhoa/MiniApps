@@ -8,5 +8,6 @@ class PowerMeterApp : Application() {
         Prefs.init(this)
         Battery.init(this)
         Store.init(this)
+        Alerts.init(this)
     }
 }

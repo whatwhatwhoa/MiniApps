@@ -59,6 +59,10 @@ class MonitorService : Service() {
                     val on = intent.action == Intent.ACTION_SCREEN_ON
                     scope.launch { lock.withLock { tracker.screen(on, Battery.read()) } }
                 }
+                // Checked here, inside the broadcast, as well: a sleeping device wakes for it
+                // but may sleep again before the sampler's next reading.
+                Intent.ACTION_BATTERY_CHANGED, Intent.ACTION_POWER_CONNECTED,
+                Intent.ACTION_POWER_DISCONNECTED -> Alerts.check(Battery.read())
             }
             Monitor.poke()
         }
@@ -95,6 +99,7 @@ class MonitorService : Service() {
             lock.withLock { tracker.begin(Battery.read()) }
             Monitor.readings.collect { r ->
                 lock.withLock { tracker.onReading(r) }
+                Alerts.check(r)
                 if (r.time - lastNote >= NOTE_EVERY_MS) {
                     lastNote = r.time
                     nm.notify(NOTE_ID, note(Format.headline(r), Format.noteLine(r)))

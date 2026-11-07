@@ -37,7 +37,8 @@ works → `architecture.md` · why → `docs/decisions/` · traps → `gotchas.m
 - adb (Bash): `~/AppData/Local/Android/Sdk/platform-tools/adb.exe`; Wi-Fi devices from
   `adb mdns services`, then `adb connect <ip:port>`
 - Build (Bash): `JAVA_HOME="$HOME/AppData/Local/Android/jdk-21" ./gradlew assembleDebug lintDebug`
-  → `app/build/outputs/apk/debug/app-debug.apk`; `assembleRelease` gives the ~2 MB release APK,
+  → `app/build/outputs/apk/debug/app-debug.apk` (signed with the release key when
+  `local.properties` names it, so it installs over a release, D2.5); `assembleRelease` gives the ~2 MB release APK,
   signed with the key that the gitignored `local.properties` names (D1.6), else unsigned
 - Release: bump versionCode/versionName; build + lint both; signed release run on a device
   (check what's in the foreground first: these are daily devices); same cert as the last
