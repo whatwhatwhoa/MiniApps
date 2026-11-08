@@ -28,7 +28,7 @@ the app level, and a quick start for the next app. Decisions: `decisions/M1-seri
 - [x] T1.17 The app's name larger and bold in the one-row apps (owner) — 2026-11-07: `StackTabs(brand)`, Calculator and Scan (D1.9); released with T1.19
 - [x] T1.18 Settings as a gear in the one-row apps (owner) — 2026-11-07: `SettingsIconButton`, Calculator and Scan (D1.10); released with T1.19
 - [x] T1.19 One layout for every app (owner's rule) — 2026-11-07: `StackTopBar` in all four, the template; Calculator 0.1.2, Scan 0.1.1, Power Meter 0.2.2, Display Compare 0.1.3 (D1.11)
-- [x] T1.20 A gallery of the apps in the README (owner) — 2026-11-07: a card per app (name, subtitle, edited shot) from the TCL, `tools/gallery_cards.py`
+- [x] T1.20 A gallery of the apps in the README (owner) — 2026-11-07: a card per app (name, subtitle, edited shot) from the TCL, `tools/gallery_cards.py`; 3 columns, cards and download links go to each release page
 
 ### Later
 - √, π and ⌫ in the cut Stack fonts (`tools/cut_fonts.py`): they come from Android's fallback

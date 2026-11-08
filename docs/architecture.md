@@ -74,9 +74,10 @@ replaces the app and keeps its data. The first time, Android asks to allow insta
 4. Commit; tag `<app>-v<version>` (tags are per app in this repo).
 5. Only when asked: push, and a GitHub release titled `<Name> <version>` on the tag, with
    `<Name>-<version>.apk` (the publish skill's *Shipping an app*); the apps' updater reads
-   exactly that tag and asset. An app's download link is a
-   search of this repo's releases (`releases?q=<Name>&expanded=true`): `releases/latest` is
-   whichever app shipped last.
+   exactly that tag and asset.
+6. With the GitHub release: point the app's download links at it (`releases/tag/<app>-v<version>`,
+   whose page shows the APK with *Assets* open): its card and its row in the root README, and the
+   top of `apps/<app>/README.md`. `releases/latest` won't do: it is whichever app shipped last.
 
 ## Repos
 This repo, public as `whatwhatwhoa/MiniApps` (MIT), holds every app with its full history (each
@@ -88,8 +89,8 @@ the gallery (*Gallery*), then lists every app with its download and guide; each 
 written for someone installing it.
 
 ## Gallery
-The root README's catalog: one card per app in `docs/gallery/<folder>.png` (600 × 933, shown
-290 wide; each links to the app's download, as in the table), made by `tools/gallery_cards.py` from raw phone
+The root README's catalog: one card per app in `docs/gallery/<folder>.png` (600 × 933), shown
+250 wide in a three-column table, each linking to the app's download (*Releases* step 6), made by `tools/gallery_cards.py` from raw phone
 screenshots: the app's name, a one-line subtitle and an edited shot of what it does, each in its
 color from the series palette. A new app gets a line in the script's `cards` and a card in the README.
 - **The shots** come from debug copies installed beside the real apps as

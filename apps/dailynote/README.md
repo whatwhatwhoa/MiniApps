@@ -4,7 +4,7 @@
 out. A yellow pad, college ruled, a legal pad, grid or dot grid, and the same page as a widget
 on your home screen. That's all it is: one page, no extras.
 
-### [⬇ Download the latest APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Daily+Note&expanded=true)
+### [⬇ Download the APK](https://github.com/whatwhatwhoa/MiniApps/releases/tag/dailynote-v0.3.0)
 
 Free, no ads, no account, no tracking. Android 12 or newer. About 2 MB. Part of the
 [Mini Apps](../../README.md) series. Its only internet use is checking GitHub for its own updates.
@@ -15,7 +15,7 @@ Free, no ads, no account, no tracking. Android 12 or newer. About 2 MB. Part of 
 
 Do this on the phone itself.
 
-1. **Download.** Open this page in the phone's browser, tap **Download the latest APK** above,
+1. **Download.** Open this page in the phone's browser, tap **Download the APK** above,
    then tap `DailyNote-….apk` under *Assets*.
 2. **Install.** Open the download. If Android says your browser isn't allowed to install apps,
    tap **Settings**, switch on **Allow from this source**, go back, and tap **Install**.

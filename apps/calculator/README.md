@@ -4,7 +4,7 @@
 move, the answer shows under it as you type, every answer goes into a history, and you can make
 your own functions.
 
-### [⬇ Download the latest APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Calculator&expanded=true)
+### [⬇ Download the APK](https://github.com/whatwhatwhoa/MiniApps/releases/tag/calculator-v0.1.2)
 
 Free, no ads, no account, no tracking. Android 12 or newer. About 2.5 MB. Part of the
 [Mini Apps](../../README.md) series. Its only internet use is checking GitHub for its own updates.
@@ -15,8 +15,7 @@ Free, no ads, no account, no tracking. Android 12 or newer. About 2.5 MB. Part o
 
 Do this on the phone or tablet itself.
 
-1. **Download.** Open the download link above and tap `Calculator-….apk` under *Assets* (the
-   top release is the newest).
+1. **Download.** Open the download link above and tap `Calculator-….apk` under *Assets*.
 2. **Install.** Open the download. If Android says your browser isn't allowed to install apps,
    tap **Settings**, switch on **Allow from this source**, go back, and tap **Install**. If
    Play Protect warns about an unknown app, tap **More details → Install anyway**.

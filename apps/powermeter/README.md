@@ -4,7 +4,7 @@
 See what your device really takes in and draws: how fast a charger charges, what an app or
 standby costs.
 
-### [⬇ Download the latest APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Power+Meter&expanded=true)
+### [⬇ Download the APK](https://github.com/whatwhatwhoa/MiniApps/releases/tag/powermeter-v0.2.2)
 
 Free, no ads, no account, no tracking. Android 12 or newer. About 2 MB. Part of the
 [Mini Apps](../../README.md) series. Its only internet use is checking GitHub for its own updates.
@@ -21,8 +21,8 @@ Free, no ads, no account, no tracking. Android 12 or newer. About 2 MB. Part of 
 
 Do this on the phone or tablet itself.
 
-1. **Download.** Open this page in the device's browser, tap **Download the latest APK** above,
-   then tap `PowerMeter-….apk` under *Assets* (the top release is the newest).
+1. **Download.** Open this page in the device's browser, tap **Download the APK** above,
+   then tap `PowerMeter-….apk` under *Assets*.
 2. **Install.** Open the download. If Android says your browser isn't allowed to install apps,
    tap **Settings**, switch on **Allow from this source**, go back, and tap **Install**.
    If Play Protect warns about an unknown app, tap **Install anyway**.

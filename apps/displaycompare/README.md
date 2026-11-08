@@ -3,7 +3,7 @@
 **Compare display sizes to scale on your Android phone: monitors, TVs, laptops, tablets and
 phones, side by side.**
 
-### [⬇ Download the latest APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Display+Compare&expanded=true)
+### [⬇ Download the APK](https://github.com/whatwhatwhoa/MiniApps/releases/tag/displaycompare-v0.1.3)
 
 Free, no ads, no account. Android 12 or newer. Part of the [Mini Apps](../../README.md)
 series. Its only internet use is checking GitHub for its own updates.
