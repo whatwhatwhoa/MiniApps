@@ -12,7 +12,9 @@ D1.8; the Settings gear, D1.10), and the new-app template starts with it; Daily 
 paper page. None of the top bars has been seen on a screen. Every app updates itself from the
 releases (`:update`, D1.6). On the owner's Pixel: Scan 0.1.1, Calculator 0.1.2 and Power
 Meter 0.2.2 installed by adb (the phone was locked: not opened), Display Compare 0.1.0 and
-Daily Note 0.2.0 as test builds with the updater, for the update test.
+Daily Note 0.2.0 as test builds with the updater, for the update test. The README now opens
+with a gallery: a card per app (`docs/gallery/`, `architecture.md` *Gallery*), shot on the TCL
+phone from `.shot` debug copies with demo content.
 
 ## Apps (one line each; state is in each app's HANDOFF)
 - `apps/scan`: Scan 0.1.1 released 2026-11-07, not hand-tested (receipt photos to a PDF: crop, filters, Save or Share; the top bar).

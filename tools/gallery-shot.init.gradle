@@ -1,0 +1,8 @@
+// Gallery screenshots (docs/architecture.md *Gallery*): debug builds as
+// io.github.whatwhatwhoa.<app>.shot, installed beside any release with their own demo data.
+//   ./gradlew --init-script tools/gallery-shot.init.gradle assembleDebug
+allprojects {
+    plugins.withId('com.android.application') {
+        android.buildTypes.debug.applicationIdSuffix = '.shot'
+    }
+}

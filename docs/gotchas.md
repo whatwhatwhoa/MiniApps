@@ -22,6 +22,16 @@ path is then passed as it is and `adb install` can't find it: give adb `C:/...` 
 With an external display `screencap` prints a warning into the PNG and picks a display:
 pass `-d <id>` from `dumpsys SurfaceFlinger --display-id`.
 
+### Black screenshots on the TCL phone
+`adb exec-out screencap -p > shot.png` came back black there; `shell screencap -p /sdcard/x.png`
+and `pull` works. A frame taken during a launch, a rotation or a swipe is black too: wait a
+second and take it again. A swipe that starts within ~60 px of the left edge is Android's Back.
+
+### Sharing a photo to an app from adb
+`am start -a android.intent.action.SEND --eu android.intent.extra.STREAM content://media/...
+--grant-read-uri-permission` opened Scan without the photo (the shell can't grant that URI):
+push the picture, then pick it in the app's own photo picker.
+
 ### Bash: backslashes and long commands
 The Bash tool collapses `\\` to `\` (also inside quoted Python), and commands over ~9 kB fail
 to parse: edit files with the Edit tool or one heredoc per call.

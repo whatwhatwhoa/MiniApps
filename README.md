@@ -3,6 +3,20 @@
 **Small, plain Android apps for phones and tablets.** Free, no ads, no accounts, no tracking.
 Each does one job; all of them share one look, and each updates itself from here.
 
+## The apps
+
+<p align="center">
+  <a href="https://github.com/whatwhatwhoa/MiniApps/releases?q=Scan&expanded=true"><img src="docs/gallery/scan.png" width="290" alt="Scan: a photo of a receipt with its four corners found, and the straight, clean PDF page it becomes"></a>
+  <a href="https://github.com/whatwhatwhoa/MiniApps/releases?q=Calculator&expanded=true"><img src="docs/gallery/calculator.png" width="290" alt="Calculator: a history of answers above the formula tip(80,15) with its answer 12 shown as you type, and a strip of your own functions over the keys"></a>
+  <a href="https://github.com/whatwhatwhoa/MiniApps/releases?q=Power+Meter&expanded=true"><img src="docs/gallery/powermeter.png" width="290" alt="Power Meter: the live watts coming out of the battery, the time left at this rate, and a 10-minute chart"></a>
+  <a href="https://github.com/whatwhatwhoa/MiniApps/releases?q=Display+Compare&expanded=true"><img src="docs/gallery/displaycompare.png" width="290" alt="Display Compare: a 27-inch monitor and a 34-inch ultrawide drawn to scale, with tiles comparing their area, width, height and pixel density"></a>
+  <a href="https://github.com/whatwhatwhoa/MiniApps/releases?q=Daily+Note&expanded=true"><img src="docs/gallery/dailynote.png" width="290" alt="Daily Note: a yellow ruled pad with the day's list written in a handwriting font"></a>
+</p>
+
+Tap a card to download that app; each app's guide is in the table below.
+
+## Download
+
 | App | What it does | Download | Guide |
 |---|---|---|---|
 | **Scan** | Photos of receipts and documents into a clean PDF: edges found, shadows gone, all on the phone | [⬇ APK](https://github.com/whatwhatwhoa/MiniApps/releases?q=Scan&expanded=true) | [README](apps/scan/README.md) |
